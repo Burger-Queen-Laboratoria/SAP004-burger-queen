@@ -1,9 +1,8 @@
 import React from 'react';
 import './App.css';
-import { firebaseAuth, firebaseFirestore } from './init-firebase.js';
+import firebase from './init-firebase.js';
 
-console.log(firebaseFirestore);
-console.log(firebaseAuth);
+console.log(firebase);
 
 function App() {
   return (
