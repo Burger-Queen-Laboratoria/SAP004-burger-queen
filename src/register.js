@@ -1,5 +1,5 @@
 import React from "react";
 
-export const About = () => {
+export const Register = () => {
   return <p>About World!</p>;
 };
