@@ -1,5 +1,5 @@
 import React from "react";
-import { BtnLogout } from "../Components.js";
+import { BtnLogout } from "../components/Components.js";
 import { authSignOut } from "../firebaseFunctions.js";
 import { useHistory } from "react-router-dom";
 

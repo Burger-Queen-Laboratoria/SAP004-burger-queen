@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import { InputEmail, InputPassword, BtnLogin } from "../Components.js"
-import { authSignIn } from "../firebaseFunctions.js"
+import { InputEmail, InputPassword, BtnLogin } from "../components/Components.js";
+import { authSignIn } from "../firebaseFunctions.js";
 import { useHistory, Link } from "react-router-dom";
+import logoImg from "../img-documents/logo-burger.png";
+import { TitleLogo, ImgLogo, StyleSection, StyleForm, RegisterMember, NewMember } from "../components/StyleComponents.js";
 
 export const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -27,16 +29,18 @@ export const LoginPage = () => {
   }
 
   return (
-    <>
-    <form>
-      <InputEmail func={handleInputEmail} />
-      <InputPassword func={handleInputPassword}/>
-      <BtnLogin func={handleClick}/>
-    </form>
-    <p>Funcionário novo?</p>
-    <Link to="/sobre">
-      <p>Registre-se</p>
-    </Link>
-    </>
+    <StyleSection>
+      <ImgLogo src={logoImg} alt="logo-burger-queen"></ImgLogo>
+      <TitleLogo>Burger Queen</TitleLogo>
+      <StyleForm>
+        <InputEmail func={handleInputEmail} />
+        <InputPassword func={handleInputPassword}/>
+        <BtnLogin func={handleClick}/>
+      </StyleForm>
+      <NewMember>Funcionário novo?</NewMember>
+      <Link to="/sobre">
+        <RegisterMember>Registre-se</RegisterMember>
+      </Link>
+    </StyleSection>
   )
 };
