@@ -1,4 +1,3 @@
-import "./App.css";
 import React from "react";
 import firebase from "./init-firebase.js";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
