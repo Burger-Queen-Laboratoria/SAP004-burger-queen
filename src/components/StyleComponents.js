@@ -1,12 +1,34 @@
 import styled from "styled-components";
 
+const borderRadiusAndNone = `
+  border: none;
+  border-radius: 10px;
+`;
+
+const displayFlexAndColumn = `
+  display: flex;
+  flex-direction: column;
+`;
+
+const fontSizeAndFamily = `
+  font-size: 30px;
+  font-family: "helvetica";
+
+  @media(max-width: 400px) {
+    font-size: 20px
+  }
+`;
+
 export const StyleInput = styled.input`
-height: 60px;
+height: 70px;
 width: 60%;
-border-radius: 15px;
+margin: 10px;
 font-size: 20px;
+outline: none;
+${borderRadiusAndNone}
 
 @media(max-width: 400px) {
+  height: 50px;
   width: 85%;
 }
 `;
@@ -14,12 +36,15 @@ font-size: 20px;
 export const StyleButton = styled.button`
 height: 50px;
 width: 20%;
-border-radius: 15px;
+margin: 5px;
 background-color: black;
 color: white;
 font-size: 20px;
+cursor: pointer;
+${borderRadiusAndNone}
 
 @media(max-width: 400px) {
+  height: 40px;
   width: 40%;
 }
 `;
@@ -35,40 +60,36 @@ export const TitleLogo = styled.p`
 `;
 
 export const ImgLogo = styled.img`
+  margin-top: 30px;
   width: 30%;
 `;
 
 export const StyleSection = styled.section`
-  display: flex;
-  flex-direction: column;
+  ${displayFlexAndColumn}
+  text-align: center;
   align-items: center;
   width: 100%
 `;
 
 export const StyleForm = styled.form`
-  display: flex;
-  flex-direction: column;
+  ${displayFlexAndColumn}
   align-items: center;
   width: 100%
 `;
 
 export const NewMember = styled.p`
   margin: 10px;
-  font-size: 30px;
-  font-family: "helvetica";
-
-  @media(max-width: 400px) {
-    font-size: 20px
-  }
+  ${fontSizeAndFamily}
 `;
 
 export const RegisterMember = styled.p`
   margin: 10px;
-  font-size: 30px;
-  font-family: "helvetica";
   font-weight: bold;
+  cursor: pointer;
+  ${fontSizeAndFamily}
+`;
 
-  @media(max-width: 400px) {
-    font-size: 20px
-  }
+export const StyleError = styled.p`
+  color: darkred;
+  ${fontSizeAndFamily}
 `;

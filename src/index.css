@@ -3,7 +3,15 @@
   src: url("./img-documents/Making-Lettering-Tall_demo.ttf");
 }
 
+html {
+  height: 100%;
+  width: 100%;
+  touch-action: auto;
+}
+
 body {
-  background-color: gray;
+  height: 100%;
+  width: 100%;
+  background-color: grey;
 }
 

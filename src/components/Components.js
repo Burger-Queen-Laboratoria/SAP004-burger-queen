@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleInput, StyleButton } from "./StyleComponents.js";
+import { StyleInput, StyleButton, StyleError } from "./StyleComponents.js";
 
 export const InputEmail = (props) => {
   return (
@@ -22,5 +22,11 @@ export const BtnLogin = (props) => {
 export const BtnLogout = (props) => {
   return (
     <button type="submit" onClick={props.func}>Sair</button>
+  )
+};
+
+export const ErrorArea = (props) => {
+  return (
+    <StyleError>{props.err}</StyleError>
   )
 };
