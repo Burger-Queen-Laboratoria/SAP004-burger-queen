@@ -10,8 +10,12 @@ html {
 }
 
 body {
+  background-color: grey;
   height: 100%;
   width: 100%;
-  background-color: grey;
 }
 
+/* esqueleto {
+  display: flex;
+  flex-direction: row;
+} */
