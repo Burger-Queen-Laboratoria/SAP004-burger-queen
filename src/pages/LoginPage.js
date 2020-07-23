@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import {
-  InputEmail,
-  InputPassword,
-  BtnLogin,
+  InputComponent,
+  BtnBackgroundBlackComponent,
   ErrorArea,
 } from "../components/Components.js";
 import { authSignIn } from "../firebase/firebaseFunctions.js";
@@ -49,9 +48,9 @@ export const LoginPage = () => {
       <ImgLogo src={logoImg} alt="logo-burger-queen"></ImgLogo>
       <TitleLogo>Burger Queen</TitleLogo>
       <StyleForm>
-        <InputEmail func={handleInputEmail} />
-        <InputPassword func={handleInputPassword} />
-        <BtnLogin func={handleClick} />
+        <InputComponent type="email" text="exemplo@exemplo.com" func={handleInputEmail} />
+        <InputComponent type="password" text="senha" func={handleInputPassword} />
+        <BtnBackgroundBlackComponent type="submit" name="Entrar" func={handleClick} />
       </StyleForm>
       <ErrorArea err={errorLogin} />
       <NewMember>Funcionário novo?</NewMember>
