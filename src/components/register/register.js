@@ -6,12 +6,13 @@ import {
   CheckboxRegister,
   BtnsRegisterContainer,
   StyleBtnRegister,
+  TitleLogo,
 } from "../StyleComponents.js";
 
 export const Register = () => {
   return (
     <StyleForm>
-      <h1>Preencha os campos abaixo:</h1>
+      <TitleLogo>Preencha os campos abaixo:</TitleLogo>
       <StyleInput type="text" name="name" placeholder="Nome e sobrenome" />
       <InputEmail />
       <InputPassword />
