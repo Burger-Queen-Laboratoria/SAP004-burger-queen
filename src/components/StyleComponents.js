@@ -115,7 +115,10 @@ export const BtnsRegisterContainer = styled.p`
 export const StyleBtnRegister = styled.button`
   background-color: black;
   color: white;
+  cursor: pointer;
   font-size: 1em;
+  margin:0.2em;
+  ${borderRadiusAndNone}
   ${borderRadiusAndNone}
   ${fontSizeAndFamily}
 `;
