@@ -1,5 +1,5 @@
 import React from "react";
-import { InputEmail, InputPassword } from "../Components.js";
+import { InputEmail, InputPassword } from "../components/Components.js";
 import {
   StyleInput,
   StyleForm,
@@ -7,7 +7,7 @@ import {
   BtnsRegisterContainer,
   StyleBtnRegister,
   TitleLogo,
-} from "../StyleComponents.js";
+} from "../components/StyleComponents.js";
 
 export const Register = () => {
   return (

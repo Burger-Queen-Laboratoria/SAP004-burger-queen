@@ -1,6 +1,6 @@
 import React from "react";
-import { BtnLogout } from "../Components.js";
-import { authSignOut } from "../../firebase/firebaseFunctions.js";
+import { BtnLogout } from "../components/Components.js";
+import { authSignOut } from "../firebase/firebaseFunctions.js";
 import { useHistory } from "react-router-dom";
 
 export const LoungePage = () => {

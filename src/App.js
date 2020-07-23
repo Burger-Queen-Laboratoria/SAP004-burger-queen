@@ -1,9 +1,9 @@
 import React from "react";
 import firebase from "./firebase/init-firebase.js";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { LoginPage } from "./components/login/LoginPage.js";
-import { LoungePage } from "./components/lounge/LoungePage.js";
-import { Register } from "./components/register/register.js";
+import { LoginPage } from "./pages/LoginPage.js";
+import { LoungePage } from "./pages/LoungePage.js";
+import { Register } from "./pages/register.js";
 
 console.log(firebase);
 

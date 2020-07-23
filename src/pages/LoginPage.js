@@ -4,10 +4,10 @@ import {
   InputPassword,
   BtnLogin,
   ErrorArea,
-} from "../Components.js";
-import { authSignIn } from "../../firebase/firebaseFunctions.js";
+} from "../components/Components.js";
+import { authSignIn } from "../firebase/firebaseFunctions.js";
 import { useHistory, Link } from "react-router-dom";
-import logoImg from "../../img-documents/logo-burger.png";
+import logoImg from "../img-documents/logo-burger.png";
 import {
   TitleLogo,
   ImgLogo,
@@ -15,7 +15,7 @@ import {
   StyleForm,
   RegisterMember,
   NewMember,
-} from "../StyleComponents.js";
+} from "../components/StyleComponents.js";
 
 export const LoginPage = () => {
   const [email, setEmail] = useState("");
