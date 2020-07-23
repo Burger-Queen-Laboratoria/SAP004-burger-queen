@@ -1,5 +1,5 @@
 import React from "react";
-import { BtnBackgroundBlackComponent } from "../components/Components.js";
+import { BtnBackgroundBlackComponent } from "../components/Button.js";
 import { authSignOut } from "../firebase/firebaseFunctions.js";
 import { useHistory } from "react-router-dom";
 

@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import {
-  InputComponent,
-  BtnBackgroundBlackComponent,
-  ErrorArea,
-} from "../components/Components.js";
+import { ErrorArea } from "../components/Errors.js";
+import { BtnBackgroundBlackComponent } from "../components/Button.js";
+import { InputComponent } from "../components/Input.js";
 import { authSignIn } from "../firebase/firebaseFunctions.js";
 import { useHistory, Link } from "react-router-dom";
 import logoImg from "../img-documents/logo-burger.png";
