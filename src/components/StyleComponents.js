@@ -10,6 +10,11 @@ const displayFlexAndColumn = `
   flex-direction: column;
 `;
 
+const displayFlexAndRow = `
+  display: flex;
+  flex-direction: row;
+`;
+
 const fontSizeAndFamily = `
   font-size: 30px;
   font-family: "helvetica";
@@ -20,33 +25,33 @@ const fontSizeAndFamily = `
 `;
 
 export const StyleInput = styled.input`
-height: 70px;
-width: 60%;
-margin: 10px;
-font-size: 20px;
-outline: none;
-${borderRadiusAndNone}
+  height: 70px;
+  width: 60%;
+  margin: 10px;
+  font-size: 20px;
+  outline: none;
+  ${borderRadiusAndNone}
 
-@media(max-width: 400px) {
-  height: 50px;
-  width: 85%;
-}
+  @media(max-width: 400px) {
+    height: 50px;
+    width: 85%;
+  }
 `;
 
 export const StyleButton = styled.button`
-height: 50px;
-width: 20%;
-margin: 5px;
-background-color: black;
-color: white;
-font-size: 20px;
-cursor: pointer;
-${borderRadiusAndNone}
+  height: 50px;
+  width: 20%;
+  margin: 5px;
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  ${borderRadiusAndNone}
 
-@media(max-width: 400px) {
-  height: 40px;
-  width: 40%;
-}
+  @media(max-width: 400px) {
+    height: 40px;
+    width: 40%;
+  }
 `;
 
 export const TitleLogo = styled.p`
@@ -54,8 +59,8 @@ export const TitleLogo = styled.p`
   font-size: 80px;
   margin: 5px;
 
-  @media(max-width: 400px) {
-    font-size: 60px
+  @media (max-width: 400px) {
+    font-size: 60px;
   }
 `;
 
@@ -68,13 +73,13 @@ export const StyleSection = styled.section`
   ${displayFlexAndColumn}
   text-align: center;
   align-items: center;
-  width: 100%
+  width: 100%;
 `;
 
 export const StyleForm = styled.form`
   ${displayFlexAndColumn}
   align-items: center;
-  width: 100%
+  width: 100%;
 `;
 
 export const NewMember = styled.p`
@@ -91,5 +96,29 @@ export const RegisterMember = styled.p`
 
 export const StyleError = styled.p`
   color: darkred;
+  ${fontSizeAndFamily}
+`;
+
+export const CheckboxRegister = styled.p`
+  align-items: center;
+  flex-wrap: nowrap;
+  ${displayFlexAndRow}
+  ${fontSizeAndFamily}
+`;
+
+export const BtnsRegisterContainer = styled.p`
+  justify-content: space-between;
+  ${displayFlexAndRow}
+  ${fontSizeAndFamily}
+`;
+
+export const StyleBtnRegister = styled.button`
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  font-size: 1em;
+  margin:0.2em;
+  ${borderRadiusAndNone}
+  ${borderRadiusAndNone}
   ${fontSizeAndFamily}
 `;
