@@ -1,9 +1,19 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
+import { BtnBackgroundBlackComponent } from "../components/Button.js";
+import { fireFuncs } from "../firebase/firebaseFunctions.js";
 
-export default function KitchenScreen() {
+export const KitchenScreen = () => {
+  let history = useHistory();
+
+  const handleClick = () => {
+    fireFuncs.authSignOut().then(() => history.push("/"));
+  };
+
   return (
-    <div>
+    <>
       <h1>Tela da Cozinha</h1>
-    </div>
+      <BtnBackgroundBlackComponent name="Sair" func={handleClick} />
+    </>
   );
-}
+};
