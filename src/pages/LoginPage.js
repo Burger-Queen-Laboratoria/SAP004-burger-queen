@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { ErrorArea } from "../components/Errors.js";
 import { BtnBackgroundBlackComponent } from "../components/Button.js";
 import { InputComponent } from "../components/Input.js";
-import { authSignIn } from "../firebase/firebaseFunctions.js";
+import { fireFuncs } from "../firebase/firebaseFunctions.js";
 import { useHistory, Link } from "react-router-dom";
 import logoImg from "../img-documents/logo-burger.png";
 import {
@@ -30,7 +30,8 @@ export const LoginPage = () => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    authSignIn(email, password)
+    fireFuncs
+      .authSignIn(email, password)
       .then((e) => {
         if (e.user.uid !== null) {
           history.push("/lounge");
