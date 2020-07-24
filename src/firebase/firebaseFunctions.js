@@ -8,4 +8,7 @@ export const fireFuncs = {
   authSignOut: () => {
     return firebase.auth().signOut();
   },
+  authCreateUser: (email, password) => {
+    return firebase.auth().createUserWithEmailAndPassword(email, password);
+  },
 };

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { fireFuncs } from "../firebase/firebaseFunctions.js";
 import { InputComponent } from "../components/Input.js";
 import { Button } from "../components/Button.js";
 import { Checkbox } from "../components/Checkbox.js";
@@ -7,13 +8,16 @@ import {
   TitleLogo,
   StyleForm,
   Title,
+  StyleError,
 } from "../components/StyleComponents.js";
+import { ErrorArea } from "../components/Errors.js";
 
 export const Register = () => {
   const [name, setName] = useState(""),
     [email, setEmail] = useState(""),
     [password, setPassword] = useState(""),
-    [sectorJob, setSectorJob] = useState([]);
+    [sectorJob, setSectorJob] = useState([]),
+    [errorMessage, setErrorMessage] = useState("");
 
   const setElements = (event, callbackSet) => {
     event.preventDefault();
@@ -22,7 +26,14 @@ export const Register = () => {
 
   const createUser = (event) => {
     event.preventDefault();
-    console.log(name, email, password, sectorJob);
+    fireFuncs
+      .authCreateUser(email, password)
+      .then((e) => {
+        console.log(e);
+      })
+      .catch((error) => {
+        setErrorMessage(error.message);
+      });
   };
 
   return (
@@ -63,6 +74,7 @@ export const Register = () => {
         <Button type="submit" name="Registrar" onClick={createUser}></Button>
         <Button type="button" name="Voltar"></Button>
       </BtnsRegisterContainer>
+      <ErrorArea err={errorMessage} />
     </StyleForm>
   );
 };
