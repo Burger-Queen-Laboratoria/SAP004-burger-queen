@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { InputComponent } from "../components/Input.js";
 import { Button } from "../components/Button.js";
 import { Checkbox } from "../components/Checkbox.js";
@@ -11,10 +11,10 @@ import {
 } from "../components/StyleComponents.js";
 
 export const Register = () => {
-  const [name, setName] = React.useState(""),
-    [email, setEmail] = React.useState(""),
-    [password, setPassword] = React.useState(""),
-    [sectorJob, setSectorJob] = React.useState([]);
+  const [name, setName] = useState(""),
+    [email, setEmail] = useState(""),
+    [password, setPassword] = useState(""),
+    [sectorJob, setSectorJob] = useState([]);
 
   const setElements = (event, callbackSet) => {
     event.preventDefault();
@@ -23,7 +23,7 @@ export const Register = () => {
 
   const createUser = (event) => {
     event.preventDefault();
-    console.log(name, email, password);
+    console.log(name, email, password, sectorJob);
   };
 
   return (
@@ -45,13 +45,12 @@ export const Register = () => {
         }}
       />
       <Title>Selecione o setor:</Title>
-      <CheckboxContainer>
-        <Checkbox
-          options={["Salão,Cozinha"]}
-          value={sectorJob}
-          setValue={setSectorJob}
-        ></Checkbox>
-      </CheckboxContainer>
+
+      <Checkbox
+        options={["Salão", "Cozinha"]}
+        value={sectorJob}
+        setValue={setSectorJob}
+      />
 
       <InputComponent
         type="password"

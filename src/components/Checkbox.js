@@ -1,5 +1,5 @@
 import React from "react";
-import { CheckboxRegister } from "./StyleComponents";
+import { CheckboxRegister, CheckboxContainer } from "./StyleComponents";
 
 export const Checkbox = ({ options, value, setValue }) => {
   function handleChange({ target }) {
@@ -8,20 +8,20 @@ export const Checkbox = ({ options, value, setValue }) => {
     } else {
       setValue(value.filter((intemValue) => intemValue !== target.value));
     }
-    return (
-      <div>
-        {options.map((option) => (
-          <label key={option}>
-            <CheckboxRegister
-              type="checkbox"
-              value={option}
-              checked={value.includes(option)}
-              onChange={handleChange}
-            />
-            {option}
-          </label>
-        ))}
-      </div>
-    );
   }
+  return (
+    <CheckboxContainer>
+      {options.map((option) => (
+        <label key={option}>
+          <CheckboxRegister
+            type="checkbox"
+            value={option}
+            checked={value.includes(option)}
+            onChange={handleChange}
+          />
+          {option}
+        </label>
+      ))}
+    </CheckboxContainer>
+  );
 };

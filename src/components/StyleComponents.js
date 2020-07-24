@@ -100,16 +100,16 @@ export const StyleError = styled.p`
 `;
 export const CheckboxContainer = styled.div`
   align-items: center;
+  justify-content: space-evenly;
   flex-wrap: nowrap;
+  width: 50%;
   ${displayFlexAndRow}
   ${fontSizeAndFamily}
 `;
 
 export const CheckboxRegister = styled.input`
-  align-items: center;
-  flex-wrap: nowrap;
-  ${displayFlexAndRow}
-  ${fontSizeAndFamily}
+  color: blueviolet;
+  ${fontSizeAndFamily};
 `;
 
 export const BtnsRegisterContainer = styled.p`
