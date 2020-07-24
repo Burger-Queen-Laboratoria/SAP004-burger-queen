@@ -98,8 +98,14 @@ export const StyleError = styled.p`
   color: darkred;
   ${fontSizeAndFamily}
 `;
+export const CheckboxContainer = styled.div`
+  align-items: center;
+  flex-wrap: nowrap;
+  ${displayFlexAndRow}
+  ${fontSizeAndFamily}
+`;
 
-export const CheckboxRegister = styled.p`
+export const CheckboxRegister = styled.input`
   align-items: center;
   flex-wrap: nowrap;
   ${displayFlexAndRow}
@@ -124,9 +130,4 @@ export const StyleBtnRegister = styled.button`
   ${borderRadiusAndNone}
   ${borderRadiusAndNone}
   ${fontSizeAndFamily}
-`;
-
-export const FormRegister = styled.form`
-  display: flex;
-  flex: 1;
 `;

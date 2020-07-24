@@ -1,23 +1,40 @@
 import React from "react";
 import { InputComponent } from "../components/Input.js";
-import { Form } from "../components/form.js";
+import { BtnRegister } from "../components/Button.js";
+import Label from "../components/label.js";
 import {
   BtnsRegisterContainer,
   TitleLogo,
-  StyleBtnRegister,
+  StyleForm,
+  CheckboxContainer,
+  CheckboxRegister,
 } from "../components/StyleComponents.js";
 
 export const Register = () => {
   return (
-    <Form>
+    <StyleForm>
       <TitleLogo>Preencha os campos abaixo:</TitleLogo>
       <InputComponent type="text" text="Nome e sobrenome" />
       <InputComponent type="email" text="exemplo@exemplo.com" />
+      <CheckboxContainer>
+        <CheckboxRegister
+          type="checkbox"
+          id="hall"
+          name="hall"
+        ></CheckboxRegister>
+        <Label htmlFor="hall" text="Salão" />
+        <CheckboxRegister
+          type="checkbox"
+          id="kitchen"
+          name="kitchen"
+        ></CheckboxRegister>
+        <Label htmlFor="kitchen" text="Cozinha" />
+      </CheckboxContainer>
       <InputComponent type="password" text="senha" />
       <BtnsRegisterContainer>
-        <StyleBtnRegister type="submit">Registrar</StyleBtnRegister>
-        <StyleBtnRegister type="button">Voltar</StyleBtnRegister>
+        <BtnRegister type="submit" name="Registrar"></BtnRegister>
+        <BtnRegister type="button" name="Voltar"></BtnRegister>
       </BtnsRegisterContainer>
-    </Form>
+    </StyleForm>
   );
 };
