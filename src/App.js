@@ -3,7 +3,7 @@ import firebase from "./firebase/init-firebase.js";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { LoginPage } from "./pages/LoginPage.js";
 import { LoungePage } from "./pages/LoungePage.js";
-import { Register } from "./pages/register.js";
+import { Register } from "./pages/Register.js";
 
 console.log(firebase);
 
@@ -13,7 +13,7 @@ function App() {
       <Switch>
         <Route path="/" exact={true} component={LoginPage} />
         <Route path="/lounge" component={LoungePage} />
-        <Route path="/register" component={Register} />
+        <Route path="/Register" component={Register} />
       </Switch>
     </BrowserRouter>
   );

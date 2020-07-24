@@ -46,13 +46,25 @@ export const LoginPage = () => {
       <ImgLogo src={logoImg} alt="logo-burger-queen"></ImgLogo>
       <TitleLogo>Burger Queen</TitleLogo>
       <StyleForm>
-        <InputComponent type="email" text="exemplo@exemplo.com" func={handleInputEmail} />
-        <InputComponent type="password" text="senha" func={handleInputPassword} />
-        <BtnBackgroundBlackComponent type="submit" name="Entrar" func={handleClick} />
+        <InputComponent
+          type="email"
+          text="exemplo@exemplo.com"
+          func={handleInputEmail}
+        />
+        <InputComponent
+          type="password"
+          text="senha"
+          func={handleInputPassword}
+        />
+        <BtnBackgroundBlackComponent
+          type="submit"
+          name="Entrar"
+          func={handleClick}
+        />
       </StyleForm>
       <ErrorArea err={errorLogin} />
       <NewMember>Funcionário novo?</NewMember>
-      <Link to="/register">
+      <Link to="/Register">
         <RegisterMember>Registre-se</RegisterMember>
       </Link>
     </StyleSection>

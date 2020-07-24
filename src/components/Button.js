@@ -10,5 +10,9 @@ export const BtnBackgroundBlackComponent = (props) => {
 };
 
 export const BtnRegister = (props) => {
-  return <StyleBtnRegister type={props.type}>{props.name}</StyleBtnRegister>;
+  return (
+    <StyleBtnRegister type={props.type} onClick={props.func}>
+      {props.name}{" "}
+    </StyleBtnRegister>
+  );
 };

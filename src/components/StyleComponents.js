@@ -119,15 +119,16 @@ export const BtnsRegisterContainer = styled.p`
 `;
 
 export const StyleBtnRegister = styled.button`
-  background:${({ ativo }) => (ativo ? "#000" : "#fff")};
+  background-color: black;
+  color: white;
+  font-size: 1em;
+  margin: 0.2em;
+  /* background: ${({ ativo }) => (ativo ? "#000" : "#fff")};
   color: ${({ ativo }) => (ativo ? "#fff" : "#000")};
   cursor: pointer;
-  &::hover{
-    background:tomato;
-  }
-  font-size: 1em;
-  margin:0.2em;
-  ${borderRadiusAndNone}
+  &::hover {
+    background: tomato;
+  } */
   ${borderRadiusAndNone}
   ${fontSizeAndFamily}
 `;
