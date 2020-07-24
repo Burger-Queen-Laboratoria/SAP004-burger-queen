@@ -3,12 +3,12 @@ import { fireFuncs } from "../firebase/firebaseFunctions.js";
 import { InputComponent } from "../components/Input.js";
 import { Button } from "../components/Button.js";
 import { Checkbox } from "../components/Checkbox.js";
+import { ErrorDictionary } from "../firebase/error.js";
 import {
   BtnsRegisterContainer,
   TitleLogo,
   StyleForm,
   Title,
-  StyleError,
 } from "../components/StyleComponents.js";
 import { ErrorArea } from "../components/Errors.js";
 
@@ -32,7 +32,8 @@ export const Register = () => {
         console.log(e);
       })
       .catch((error) => {
-        setErrorMessage(error.message);
+        const firebaseError = new ErrorDictionary(error);
+        setErrorMessage(firebaseError.translate());
       });
   };
 
