@@ -12,14 +12,14 @@ export const Checkbox = ({ options, value, setValue }) => {
   return (
     <CheckboxContainer>
       {options.map((option) => (
-        <label key={option}>
+        <label key={option.name}>
           <CheckboxRegister
             type="checkbox"
-            value={option}
-            checked={value.includes(option)}
+            value={option.key}
+            checked={value.includes(option.key)}
             onChange={handleChange}
           />
-          {option}
+          {option.name}
         </label>
       ))}
     </CheckboxContainer>

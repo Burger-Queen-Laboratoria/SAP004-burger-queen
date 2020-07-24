@@ -65,7 +65,7 @@ export const LoginPage = () => {
       </StyleForm>
       <ErrorArea err={errorLogin} />
       <NewMember>Funcionário novo?</NewMember>
-      <Link to="/Register">
+      <Link to="/register">
         <RegisterMember>Registre-se</RegisterMember>
       </Link>
     </StyleSection>

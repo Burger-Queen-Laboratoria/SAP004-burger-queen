@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import { fireFuncs } from "../firebase/firebaseFunctions.js";
 import { InputComponent } from "../components/Input.js";
 import { Button } from "../components/Button.js";
@@ -18,6 +19,7 @@ export const Register = () => {
     [password, setPassword] = useState(""),
     [sectorJob, setSectorJob] = useState([]),
     [errorMessage, setErrorMessage] = useState("");
+  let history = useHistory();
 
   const setElements = (event, callbackSet) => {
     event.preventDefault();
@@ -30,7 +32,11 @@ export const Register = () => {
       .authCreateUser(email, password)
       .then((result) => {
         fireFuncs.collectionUser(result.user, name, sectorJob[0]).then(() => {
-          console.log("sucesso");
+          if (sectorJob[0] === "kitchen") {
+            history.push("/kitchen");
+          } else {
+            history.push("/lounge");
+          }
         });
       })
       .catch((error) => {
@@ -60,7 +66,10 @@ export const Register = () => {
       <Title>Selecione o setor:</Title>
 
       <Checkbox
-        options={["Salão", "Cozinha"]}
+        options={[
+          { name: "Salão", key: "Hall" },
+          { name: "Cozinha", key: "kitchen" },
+        ]}
         value={sectorJob}
         setValue={setSectorJob}
       />
