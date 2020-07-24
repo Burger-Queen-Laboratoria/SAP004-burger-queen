@@ -113,12 +113,20 @@ export const BtnsRegisterContainer = styled.p`
 `;
 
 export const StyleBtnRegister = styled.button`
-  background-color: black;
-  color: white;
+  background:${({ ativo }) => (ativo ? "#000" : "#fff")};
+  color: ${({ ativo }) => (ativo ? "#fff" : "#000")};
   cursor: pointer;
+  &::hover{
+    background:tomato;
+  }
   font-size: 1em;
   margin:0.2em;
   ${borderRadiusAndNone}
   ${borderRadiusAndNone}
   ${fontSizeAndFamily}
+`;
+
+export const FormRegister = styled.form`
+  display: flex;
+  flex: 1;
 `;

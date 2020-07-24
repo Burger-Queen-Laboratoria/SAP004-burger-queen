@@ -1,5 +1,6 @@
 import React from "react";
+import { FormRegister } from "./StyleComponents.js";
 
 export const Form = (props) => {
-  return <form type={props.type}></form>;
+  return <FormRegister type={props.type}></FormRegister>;
 };
