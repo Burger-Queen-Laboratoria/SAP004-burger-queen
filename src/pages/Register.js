@@ -6,7 +6,6 @@ import {
   BtnsRegisterContainer,
   TitleLogo,
   StyleForm,
-  CheckboxContainer,
   Title,
 } from "../components/StyleComponents.js";
 
