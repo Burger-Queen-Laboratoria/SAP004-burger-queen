@@ -11,4 +11,14 @@ export const fireFuncs = {
   authCreateUser: (email, password) => {
     return firebase.auth().createUserWithEmailAndPassword(email, password);
   },
+
+  collectionUser: (user, name, sector) => {
+    console.log(user);
+    const userInfos = {
+      user: user.uid,
+      name: name,
+      sector: sector,
+    };
+    return firebase.firestore().collection("users").add(userInfos);
+  },
 };

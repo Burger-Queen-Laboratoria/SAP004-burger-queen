@@ -4,13 +4,13 @@ import { InputComponent } from "../components/Input.js";
 import { Button } from "../components/Button.js";
 import { Checkbox } from "../components/Checkbox.js";
 import { ErrorDictionary } from "../firebase/error.js";
+import { ErrorArea } from "../components/Errors.js";
 import {
   BtnsRegisterContainer,
   TitleLogo,
   StyleForm,
   Title,
 } from "../components/StyleComponents.js";
-import { ErrorArea } from "../components/Errors.js";
 
 export const Register = () => {
   const [name, setName] = useState(""),
@@ -28,8 +28,10 @@ export const Register = () => {
     event.preventDefault();
     fireFuncs
       .authCreateUser(email, password)
-      .then((e) => {
-        console.log(e);
+      .then((result) => {
+        fireFuncs.collectionUser(result.user, name, sectorJob[0]).then(() => {
+          console.log("sucesso");
+        });
       })
       .catch((error) => {
         const firebaseError = new ErrorDictionary(error);
@@ -75,6 +77,7 @@ export const Register = () => {
         <Button type="submit" name="Registrar" onClick={createUser}></Button>
         <Button type="button" name="Voltar"></Button>
       </BtnsRegisterContainer>
+
       <ErrorArea err={errorMessage} />
     </StyleForm>
   );
