@@ -132,3 +132,9 @@ export const StyleBtnRegister = styled.button`
   ${borderRadiusAndNone}
   ${fontSizeAndFamily}
 `;
+
+export const Title = styled.h1`
+  font-size: 2em;
+  color: beige;
+  font-weight: bold;
+`;

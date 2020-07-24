@@ -1,11 +1,27 @@
 import React from "react";
+import { CheckboxRegister } from "./StyleComponents";
 
-const Checkbox = ({ label, id }) => {
-  return (
-    <div style={{ margin: "1rem 0" }}>
-      <label htmlFor={id}>{label}</label>
-      <input id={id} type="checkbox" />
-    </div>
-  );
+export const Checkbox = ({ options, value, setValue }) => {
+  function handleChange({ target }) {
+    if (target.checked) {
+      setValue([...value, target.value]);
+    } else {
+      setValue(value.filter((intemValue) => intemValue !== target.value));
+    }
+    return (
+      <div>
+        {options.map((option) => (
+          <label key={option}>
+            <CheckboxRegister
+              type="checkbox"
+              value={option}
+              checked={value.includes(option)}
+              onChange={handleChange}
+            />
+            {option}
+          </label>
+        ))}
+      </div>
+    );
+  }
 };
-export default Checkbox;
