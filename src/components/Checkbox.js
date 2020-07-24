@@ -4,7 +4,7 @@ import { CheckboxRegister, CheckboxContainer } from "./StyleComponents";
 export const Checkbox = ({ options, value, setValue }) => {
   function handleChange({ target }) {
     if (target.checked) {
-      setValue([...value, target.value]);
+      setValue([target.value]);
     } else {
       setValue(value.filter((intemValue) => intemValue !== target.value));
     }

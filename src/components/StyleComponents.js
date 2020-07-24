@@ -108,7 +108,7 @@ export const CheckboxContainer = styled.div`
 `;
 
 export const CheckboxRegister = styled.input`
-  color: blueviolet;
+  /* width: 1em; */
   ${fontSizeAndFamily};
 `;
 
