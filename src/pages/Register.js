@@ -56,9 +56,9 @@ export const Register = () => {
         }}
       />
       <InputComponent
+        require
         type="email"
         text="exemplo@exemplo.com"
-        require
         func={(e) => {
           setElements(e, setEmail);
         }}
@@ -75,6 +75,7 @@ export const Register = () => {
       />
 
       <InputComponent
+        require
         type="password"
         text="senha"
         func={(e) => {

@@ -8,6 +8,7 @@ export const InputComponent = (props) => {
       placeholder={props.text}
       id={props.id}
       onBlur={props.func}
+      {...props.require}
     ></StyleInput>
   );
 };
