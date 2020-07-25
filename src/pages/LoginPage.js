@@ -51,7 +51,7 @@ export const LoginPage = () => {
   return (
     <StyleSection>
       <ImgLogo src={logoImg} alt="logo-burger-queen"></ImgLogo>
-      <TitleLogo>Burger Queen</TitleLogo>
+      <TitleLogo size="true">Burger Queen</TitleLogo>
       <StyleForm>
         <InputComponent
           type="email"

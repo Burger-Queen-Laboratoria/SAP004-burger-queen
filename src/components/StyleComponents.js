@@ -56,11 +56,11 @@ export const StyleButton = styled.button`
 
 export const TitleLogo = styled.p`
   font-family: Burger Queen;
-  font-size: 80px;
+  font-size: ${props => props.size ? "80px" : "70px"};
   margin: 5px;
 
   @media (max-width: 400px) {
-    font-size: 60px;
+    font-size: ${props => props.size ? "60px" : "45px"};
   }
 `;
 
@@ -137,4 +137,15 @@ export const Title = styled.h1`
   font-size: 2em;
   color: beige;
   font-weight: bold;
+`;
+
+export const RegisterTitleFlex = styled.div`
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const ImgLogoRegister = styled.img`
+  width: 20%
 `;

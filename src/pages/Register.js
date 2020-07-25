@@ -6,11 +6,14 @@ import { Button } from "../components/Button.js";
 import { Checkbox } from "../components/Checkbox.js";
 import { ErrorDictionary } from "../firebase/error.js";
 import { ErrorArea } from "../components/Errors.js";
+import logoImg from "../img-documents/logo-burger.png";
 import {
   BtnsRegisterContainer,
   TitleLogo,
   StyleForm,
   Title,
+  RegisterTitleFlex,
+  ImgLogoRegister,
 } from "../components/StyleComponents.js";
 
 export const Register = () => {
@@ -52,7 +55,10 @@ export const Register = () => {
 
   return (
     <StyleForm>
-      <TitleLogo>Preencha os campos abaixo:</TitleLogo>
+      <RegisterTitleFlex>
+        <ImgLogoRegister src={logoImg} alt="logo-burger-queen"></ImgLogoRegister>
+        <TitleLogo>Burger Queen</TitleLogo>
+      </RegisterTitleFlex>
       <InputComponent
         type="text"
         text="Nome e sobrenome"
