@@ -34,8 +34,8 @@ export const Register = () => {
     fireFuncs
       .authCreateUser(email, password)
       .then((result) => {
-        fireFuncs.collectionUser(result.user, name, sectorJob[0]).then(() => {
-          if (sectorJob[0] === "kitchen") {
+        fireFuncs.collectionUser(result.user, name, email, sectorJob[0]).then(() => {
+          if (sectorJob[0] === "Kitchen") {
             history.push("/kitchen");
           } else {
             history.push("/lounge");
@@ -70,7 +70,7 @@ export const Register = () => {
         require
         type="email"
         placeholder="exemplo@exemplo.com"
-        onblur={(e) => {
+        onBlur={(e) => {
           setElements(e, setEmail);
         }}
       />
@@ -79,7 +79,7 @@ export const Register = () => {
       <Checkbox
         options={[
           { name: "Salão", key: "Hall" },
-          { name: "Cozinha", key: "kitchen" },
+          { name: "Cozinha", key: "Kitchen" },
         ]}
         value={sectorJob}
         setValue={setSectorJob}

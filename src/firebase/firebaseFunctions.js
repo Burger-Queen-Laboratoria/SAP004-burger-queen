@@ -12,11 +12,11 @@ export const fireFuncs = {
     return firebase.auth().createUserWithEmailAndPassword(email, password);
   },
 
-  collectionUser: (user, name, sector) => {
-    console.log(user);
+  collectionUser: (user, name, email, sector) => {
     const userInfos = {
       userId: user.uid,
       name: name,
+      email: email,
       sector: sector,
     };
     return firebase
