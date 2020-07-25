@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { ErrorArea } from "../components/Errors.js";
 import { BtnBackgroundBlackComponent } from "../components/Button.js";
 import { InputComponent } from "../components/Input.js";
-import { authSignIn } from "../firebase/firebaseFunctions.js";
+import { fireFuncs } from "../firebase/firebaseFunctions.js";
 import { useHistory, Link } from "react-router-dom";
 import logoImg from "../img-documents/logo-burger.png";
 import {
@@ -30,10 +30,17 @@ export const LoginPage = () => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    authSignIn(email, password)
+    fireFuncs
+      .authSignIn(email, password)
       .then((e) => {
         if (e.user.uid !== null) {
-          history.push("/lounge");
+          fireFuncs.getCurrentUser(e.user.uid).then((doc) => {
+            if (doc.data().sector === "Hall") {
+              history.push("/lounge");
+            } else {
+              history.push("/kitchen");
+            }
+          });
         }
       })
       .catch((err) => {
@@ -46,9 +53,21 @@ export const LoginPage = () => {
       <ImgLogo src={logoImg} alt="logo-burger-queen"></ImgLogo>
       <TitleLogo>Burger Queen</TitleLogo>
       <StyleForm>
-        <InputComponent type="email" text="exemplo@exemplo.com" func={handleInputEmail} />
-        <InputComponent type="password" text="senha" func={handleInputPassword} />
-        <BtnBackgroundBlackComponent type="submit" name="Entrar" func={handleClick} />
+        <InputComponent
+          type="email"
+          text="exemplo@exemplo.com"
+          func={handleInputEmail}
+        />
+        <InputComponent
+          type="password"
+          text="senha"
+          func={handleInputPassword}
+        />
+        <BtnBackgroundBlackComponent
+          type="submit"
+          name="Entrar"
+          func={handleClick}
+        />
       </StyleForm>
       <ErrorArea err={errorLogin} />
       <NewMember>Funcionário novo?</NewMember>

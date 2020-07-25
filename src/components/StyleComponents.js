@@ -98,12 +98,18 @@ export const StyleError = styled.p`
   color: darkred;
   ${fontSizeAndFamily}
 `;
-
-export const CheckboxRegister = styled.p`
+export const CheckboxContainer = styled.div`
   align-items: center;
+  justify-content: space-evenly;
   flex-wrap: nowrap;
+  width: 50%;
   ${displayFlexAndRow}
   ${fontSizeAndFamily}
+`;
+
+export const CheckboxRegister = styled.input`
+  /* width: 1em; */
+  ${fontSizeAndFamily};
 `;
 
 export const BtnsRegisterContainer = styled.p`
@@ -115,10 +121,20 @@ export const BtnsRegisterContainer = styled.p`
 export const StyleBtnRegister = styled.button`
   background-color: black;
   color: white;
-  cursor: pointer;
   font-size: 1em;
-  margin:0.2em;
-  ${borderRadiusAndNone}
+  margin: 0.2em;
+  /* background: ${({ ativo }) => (ativo ? "#000" : "#fff")};
+  color: ${({ ativo }) => (ativo ? "#fff" : "#000")};
+  cursor: pointer;
+  &::hover {
+    background: tomato;
+  } */
   ${borderRadiusAndNone}
   ${fontSizeAndFamily}
+`;
+
+export const Title = styled.h1`
+  font-size: 2em;
+  color: beige;
+  font-weight: bold;
 `;
