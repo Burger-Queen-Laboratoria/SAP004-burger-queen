@@ -105,18 +105,36 @@ export const StyleError = styled.p`
   ${fontSizeAndFamily}
 `;
 
-export const CheckboxContainer = styled.div`
-  align-items: center;
-  justify-content: space-evenly;
-  flex-wrap: nowrap;
-  width: 50%;
-  ${displayFlexAndRow}
-  ${fontSizeAndFamily}
+export const CheckboxRegister = styled.input.attrs({ type: 'checkbox' })`
+  display: none;
 `;
 
-export const CheckboxRegister = styled.input`
-  /* width: 1em; */
-  ${fontSizeAndFamily};
+export const CheckboxLabel = styled.label`
+  &:before {
+    content: "";
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    border: solid 1px black;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: ${props => props.checked ? 'black' : 'white'};
+  }
+
+  @media (max-width: 400px) {
+    &:before {
+      width: 20px;
+      height: 20px;
+    }
+  } 
+`;
+
+export const CheckboxContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 85%;
+  ${fontSizeAndFamily}
 `;
 
 export const BtnsRegisterContainer = styled.p`

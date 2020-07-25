@@ -1,5 +1,5 @@
 import React from "react";
-import { CheckboxRegister, CheckboxContainer } from "./StyleComponents";
+import { CheckboxRegister, CheckboxContainer, CheckboxLabel } from "./StyleComponents";
 
 export const Checkbox = ({ options, value, setValue }) => {
   function handleChange({ target }) {
@@ -10,17 +10,16 @@ export const Checkbox = ({ options, value, setValue }) => {
     }
   }
   return (
-    <CheckboxContainer>
+    <CheckboxContainer >
       {options.map((option) => (
-        <label key={option.name}>
+        <CheckboxLabel checked={value.includes(option.key)} key={option.name}>
           <CheckboxRegister
-            type="checkbox"
             value={option.key}
             checked={value.includes(option.key)}
             onChange={handleChange}
           />
           {option.name}
-        </label>
+        </CheckboxLabel>
       ))}
     </CheckboxContainer>
   );
