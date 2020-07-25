@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ErrorArea } from "../components/Errors.js";
-import { BtnBackgroundBlackComponent } from "../components/Button.js";
+import { Button } from "../components/Button.js";
 import { InputComponent } from "../components/Input.js";
 import { fireFuncs } from "../firebase/firebaseFunctions.js";
 import { useHistory, Link } from "react-router-dom";
@@ -63,10 +63,10 @@ export const LoginPage = () => {
           text="senha"
           func={handleInputPassword}
         />
-        <BtnBackgroundBlackComponent
+        <Button
           type="submit"
           name="Entrar"
-          func={handleClick}
+          onClick={handleClick}
         />
       </StyleForm>
       <ErrorArea err={errorLogin} />

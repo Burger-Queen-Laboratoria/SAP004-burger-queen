@@ -1,6 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { BtnBackgroundBlackComponent } from "../components/Button.js";
+import { Button } from "../components/Button.js";
 import { fireFuncs } from "../firebase/firebaseFunctions.js";
 
 export const KitchenScreen = () => {
@@ -13,7 +13,7 @@ export const KitchenScreen = () => {
   return (
     <>
       <h1>Tela da Cozinha</h1>
-      <BtnBackgroundBlackComponent name="Sair" func={handleClick} />
+      <Button name="Sair" onClick={handleClick} />
     </>
   );
 };

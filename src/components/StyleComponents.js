@@ -46,6 +46,12 @@ export const StyleButton = styled.button`
   color: white;
   font-size: 20px;
   cursor: pointer;
+  /* background: ${({ ativo }) => (ativo ? "#000" : "#fff")};
+  color: ${({ ativo }) => (ativo ? "#fff" : "#000")};
+  cursor: pointer;
+  &::hover {
+    background: tomato;
+  } */
   ${borderRadiusAndNone}
 
   @media(max-width: 400px) {
@@ -98,6 +104,7 @@ export const StyleError = styled.p`
   color: darkred;
   ${fontSizeAndFamily}
 `;
+
 export const CheckboxContainer = styled.div`
   align-items: center;
   justify-content: space-evenly;
@@ -113,23 +120,9 @@ export const CheckboxRegister = styled.input`
 `;
 
 export const BtnsRegisterContainer = styled.p`
-  justify-content: space-between;
+  width: 85%;
+  justify-content: center;
   ${displayFlexAndRow}
-  ${fontSizeAndFamily}
-`;
-
-export const StyleBtnRegister = styled.button`
-  background-color: black;
-  color: white;
-  font-size: 1em;
-  margin: 0.2em;
-  /* background: ${({ ativo }) => (ativo ? "#000" : "#fff")};
-  color: ${({ ativo }) => (ativo ? "#fff" : "#000")};
-  cursor: pointer;
-  &::hover {
-    background: tomato;
-  } */
-  ${borderRadiusAndNone}
   ${fontSizeAndFamily}
 `;
 

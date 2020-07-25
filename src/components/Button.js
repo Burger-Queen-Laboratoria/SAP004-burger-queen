@@ -1,14 +1,6 @@
 import React from "react";
-import { StyleButton, StyleBtnRegister } from "./StyleComponents.js";
-
-export const BtnBackgroundBlackComponent = (props) => {
-  return (
-    <StyleButton type={props.type} onClick={props.func}>
-      {props.name}
-    </StyleButton>
-  );
-};
+import { StyleButton } from "./StyleComponents.js";
 
 export const Button = (props) => {
-  return <StyleBtnRegister {...props}>{props.name}</StyleBtnRegister>;
+  return <StyleButton {...props}>{props.name}</StyleButton>;
 };
