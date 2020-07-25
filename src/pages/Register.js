@@ -61,16 +61,16 @@ export const Register = () => {
       </RegisterTitleFlex>
       <InputComponent
         type="text"
-        text="Nome e sobrenome"
-        func={(e) => {
+        placeholder="Nome e sobrenome"
+        onBlur={(e) => {
           setElements(e, setName);
         }}
       />
       <InputComponent
         require
         type="email"
-        text="exemplo@exemplo.com"
-        func={(e) => {
+        placeholder="exemplo@exemplo.com"
+        onblur={(e) => {
           setElements(e, setEmail);
         }}
       />
@@ -88,8 +88,8 @@ export const Register = () => {
       <InputComponent
         require
         type="password"
-        text="senha"
-        func={(e) => {
+        placeholder="senha"
+        onBlur={(e) => {
           setElements(e, setPassword);
         }}
       />

@@ -54,14 +54,16 @@ export const LoginPage = () => {
       <TitleLogo size="true">Burger Queen</TitleLogo>
       <StyleForm>
         <InputComponent
+          require
           type="email"
-          text="exemplo@exemplo.com"
-          func={handleInputEmail}
+          placeholder="exemplo@exemplo.com"
+          onBlur={handleInputEmail}
         />
         <InputComponent
+          require
           type="password"
-          text="senha"
-          func={handleInputPassword}
+          placeholder="senha"
+          onBlur={handleInputPassword}
         />
         <Button
           type="submit"
