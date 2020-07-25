@@ -15,10 +15,18 @@ export const fireFuncs = {
   collectionUser: (user, name, sector) => {
     console.log(user);
     const userInfos = {
-      user: user.uid,
+      userId: user.uid,
       name: name,
       sector: sector,
     };
-    return firebase.firestore().collection("users").add(userInfos);
+    return firebase
+      .firestore()
+      .collection("users")
+      .doc(user.uid)
+      .set(userInfos);
+  },
+
+  getCurrentUser: (userId) => {
+    return firebase.firestore().collection("users").doc(userId).get();
   },
 };

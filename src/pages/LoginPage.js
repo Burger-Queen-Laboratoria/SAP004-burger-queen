@@ -34,7 +34,13 @@ export const LoginPage = () => {
       .authSignIn(email, password)
       .then((e) => {
         if (e.user.uid !== null) {
-          history.push("/lounge");
+          fireFuncs.getCurrentUser(e.user.uid).then((doc) => {
+            if (doc.data().sector === "Hall") {
+              history.push("/lounge");
+            } else {
+              history.push("/kitchen");
+            }
+          });
         }
       })
       .catch((err) => {

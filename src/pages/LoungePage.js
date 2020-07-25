@@ -12,7 +12,7 @@ export const LoungePage = () => {
 
   return (
     <>
-      <p>Lounge World!</p>
+      <h1>Lounge Screen</h1>
       <BtnBackgroundBlackComponent name="Sair" func={handleClick} />
     </>
   );
