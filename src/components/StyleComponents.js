@@ -127,8 +127,7 @@ export const BtnsRegisterContainer = styled.p`
 `;
 
 export const Title = styled.h1`
-  font-size: 2em;
-  color: beige;
+  ${fontSizeAndFamily}
   font-weight: bold;
 `;
 
