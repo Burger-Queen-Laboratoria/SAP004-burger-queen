@@ -46,6 +46,12 @@ export const StyleButton = styled.button`
   color: white;
   font-size: 20px;
   cursor: pointer;
+  /* background: ${({ ativo }) => (ativo ? "#000" : "#fff")};
+  color: ${({ ativo }) => (ativo ? "#fff" : "#000")};
+  cursor: pointer;
+  &::hover {
+    background: tomato;
+  } */
   ${borderRadiusAndNone}
 
   @media(max-width: 400px) {
@@ -56,11 +62,11 @@ export const StyleButton = styled.button`
 
 export const TitleLogo = styled.p`
   font-family: Burger Queen;
-  font-size: 80px;
+  font-size: ${props => props.size ? "80px" : "70px"};
   margin: 5px;
 
   @media (max-width: 400px) {
-    font-size: 60px;
+    font-size: ${props => props.size ? "60px" : "45px"};
   }
 `;
 
@@ -98,43 +104,58 @@ export const StyleError = styled.p`
   color: darkred;
   ${fontSizeAndFamily}
 `;
-export const CheckboxContainer = styled.div`
-  align-items: center;
-  justify-content: space-evenly;
-  flex-wrap: nowrap;
-  width: 50%;
-  ${displayFlexAndRow}
-  ${fontSizeAndFamily}
+
+export const CheckboxRegister = styled.input.attrs({ type: 'checkbox' })`
+  display: none;
 `;
 
-export const CheckboxRegister = styled.input`
-  /* width: 1em; */
-  ${fontSizeAndFamily};
+export const CheckboxLabel = styled.label`
+  &:before {
+    content: "";
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    border: solid 1px black;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: ${props => props.checked ? 'black' : 'white'};
+  }
+
+  @media (max-width: 400px) {
+    &:before {
+      width: 20px;
+      height: 20px;
+    }
+  } 
+`;
+
+export const CheckboxContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 85%;
+  ${fontSizeAndFamily}
 `;
 
 export const BtnsRegisterContainer = styled.p`
-  justify-content: space-between;
+  width: 85%;
+  justify-content: center;
   ${displayFlexAndRow}
-  ${fontSizeAndFamily}
-`;
-
-export const StyleBtnRegister = styled.button`
-  background-color: black;
-  color: white;
-  font-size: 1em;
-  margin: 0.2em;
-  /* background: ${({ ativo }) => (ativo ? "#000" : "#fff")};
-  color: ${({ ativo }) => (ativo ? "#fff" : "#000")};
-  cursor: pointer;
-  &::hover {
-    background: tomato;
-  } */
-  ${borderRadiusAndNone}
   ${fontSizeAndFamily}
 `;
 
 export const Title = styled.h1`
-  font-size: 2em;
-  color: beige;
+  ${fontSizeAndFamily}
   font-weight: bold;
+`;
+
+export const RegisterTitleFlex = styled.div`
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const ImgLogoRegister = styled.img`
+  width: 20%
 `;

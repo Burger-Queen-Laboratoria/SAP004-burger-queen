@@ -6,11 +6,14 @@ import { Button } from "../components/Button.js";
 import { Checkbox } from "../components/Checkbox.js";
 import { ErrorDictionary } from "../firebase/error.js";
 import { ErrorArea } from "../components/Errors.js";
+import logoImg from "../img-documents/logo-burger.png";
 import {
   BtnsRegisterContainer,
   TitleLogo,
   StyleForm,
   Title,
+  RegisterTitleFlex,
+  ImgLogoRegister,
 } from "../components/StyleComponents.js";
 
 export const Register = () => {
@@ -31,8 +34,8 @@ export const Register = () => {
     fireFuncs
       .authCreateUser(email, password)
       .then((result) => {
-        fireFuncs.collectionUser(result.user, name, sectorJob[0]).then(() => {
-          if (sectorJob[0] === "kitchen") {
+        fireFuncs.collectionUser(result.user, name, email, sectorJob[0]).then(() => {
+          if (sectorJob[0] === "Kitchen") {
             history.push("/kitchen");
           } else {
             history.push("/lounge");
@@ -52,19 +55,22 @@ export const Register = () => {
 
   return (
     <StyleForm>
-      <TitleLogo>Preencha os campos abaixo:</TitleLogo>
+      <RegisterTitleFlex>
+        <ImgLogoRegister src={logoImg} alt="logo-burger-queen"></ImgLogoRegister>
+        <TitleLogo>Burger Queen</TitleLogo>
+      </RegisterTitleFlex>
       <InputComponent
         type="text"
-        text="Nome e sobrenome"
-        func={(e) => {
+        placeholder="Nome e sobrenome"
+        onBlur={(e) => {
           setElements(e, setName);
         }}
       />
       <InputComponent
         require
         type="email"
-        text="exemplo@exemplo.com"
-        func={(e) => {
+        placeholder="exemplo@exemplo.com"
+        onBlur={(e) => {
           setElements(e, setEmail);
         }}
       />
@@ -73,7 +79,7 @@ export const Register = () => {
       <Checkbox
         options={[
           { name: "Salão", key: "Hall" },
-          { name: "Cozinha", key: "kitchen" },
+          { name: "Cozinha", key: "Kitchen" },
         ]}
         value={sectorJob}
         setValue={setSectorJob}
@@ -82,8 +88,8 @@ export const Register = () => {
       <InputComponent
         require
         type="password"
-        text="senha"
-        func={(e) => {
+        placeholder="senha"
+        onBlur={(e) => {
           setElements(e, setPassword);
         }}
       />

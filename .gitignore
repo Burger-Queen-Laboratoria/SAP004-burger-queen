@@ -26,3 +26,6 @@ yarn-error.log*
 firebase-debug.log
 .firebase
 init-firebase.js
+
+# debug
+.vscode
