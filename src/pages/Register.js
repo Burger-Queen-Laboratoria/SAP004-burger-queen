@@ -45,6 +45,11 @@ export const Register = () => {
       });
   };
 
+  const btnBack = (event) => {
+    event.preventDefault();
+    history.push("/");
+  };
+
   return (
     <StyleForm>
       <TitleLogo>Preencha os campos abaixo:</TitleLogo>
@@ -85,7 +90,7 @@ export const Register = () => {
 
       <BtnsRegisterContainer>
         <Button type="submit" name="Registrar" onClick={createUser}></Button>
-        <Button type="button" name="Voltar"></Button>
+        <Button type="button" name="Voltar" onClick={btnBack}></Button>
       </BtnsRegisterContainer>
 
       <ErrorArea err={errorMessage} />
