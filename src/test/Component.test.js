@@ -31,32 +31,37 @@ describe('Testing LoginPage component', () => {
   test("Verify input event onBlur for email and password", () => {
     const email = "exemple@exemple.com";
     const password = "123456";
-    fireEvent.blur(getByTestId("useremail"), {
+    fireEvent.blur(getByTestId("email"), {
       target: { value: email }
     });
-    fireEvent.blur(getByTestId("userpassword"), {
+    fireEvent.blur(getByTestId("password"), {
       target: { value: password }
     });
-    expect(getByTestId("useremail").value).toEqual(email);
-    expect(getByTestId("userpassword").value).toEqual(password);
+    expect(getByTestId("email").value).toEqual(email);
+    expect(getByTestId("password").value).toEqual(password);
   });
   test('Verify if password and email inputs are required', () => {
-    expect(getByTestId('useremail')).toBeRequired();
-    expect(getByTestId('userpassword')).toBeRequired();
+    expect(getByTestId('email')).toBeRequired();
+    expect(getByTestId('password')).toBeRequired();
   });
   test('Verify success auth from Firebase sign in', async () => {
     const email = "exemple@exemple.com";
     const password = "123456";
     fireFuncs.authSignIn.mockResolvedValueOnce();
-    console.log(fireFuncs.authSignIn.mockResolvedValueOnce())
-    await expect(fireFuncs.authSignIn(email, password)).resolves.toEqual(undefined);
+    await expect(fireFuncs.authSignIn(email, password)).resolves;
   });
-  test('Verify invalid auth from Firebase sign in', async () => {
+  test("Verify invalid auth from Firebase sign in", async () => {
     fireFuncs.authSignIn.mockRejectedValueOnce();
     try {
       await fireFuncs.authSignIn("", "");
     } catch (e) {
-      expect(e).rejects.toEqual('error');
+      expect(e).rejects;
     }
   });
+  test("Verify if there is one button inside LoginPage", () => {
+    let { container } = render(<BrowserRouter><Route path="/" exact={true} component={LoginPage} /> </BrowserRouter>)
+    let number = container.getElementsByTagName("button").length;
+    expect(number).toBe(1);
+    //falta fazer do fireEvent
+  })
 });
