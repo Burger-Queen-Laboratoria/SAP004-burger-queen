@@ -1,4 +1,24 @@
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
+import BurgerQueen from "../img-documents/Making-Lettering-Tall_demo.ttf"
+
+export const GlobalStyle = createGlobalStyle`
+  @font-face {
+    font-family: 'Burger Queen';
+    src: url(${BurgerQueen});
+  }
+
+  html {
+    height: 100%;
+    width: 100%;
+    touch-action: auto;
+  }
+
+  body {
+    background-color: #FED08F;
+    height: 100%;
+    width: 100%;
+  }
+`;
 
 const borderAndRadius = `
   border: 1px solid #A04835;
