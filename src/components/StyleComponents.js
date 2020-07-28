@@ -17,6 +17,7 @@ export const GlobalStyle = createGlobalStyle`
     background-color: #FED08F;
     height: 100%;
     width: 100%;
+    margin: 0px;
   }
 `;
 
@@ -40,7 +41,7 @@ const fontSizeAndFamily = `
   font-family: "helvetica";
 
   @media(max-width: 400px) {
-    font-size: 20px
+    font-size: 20px;
   }
 `;
 
