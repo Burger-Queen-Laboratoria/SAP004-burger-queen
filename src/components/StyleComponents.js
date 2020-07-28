@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-const borderRadiusAndNone = `
-  border: none;
-  border-radius: 10px;
+const borderAndRadius = `
+  border: 1px solid #A04835;
+  border-radius: 5px;
 `;
 
 const displayFlexAndColumn = `
@@ -30,7 +30,12 @@ export const StyleInput = styled.input`
   margin: 10px;
   font-size: 20px;
   outline: none;
-  ${borderRadiusAndNone}
+  color: #A04835;
+  ${borderAndRadius}
+
+  &::placeholder {
+    color: #A04835;
+  }
 
   @media(max-width: 400px) {
     height: 50px;
@@ -42,9 +47,10 @@ export const StyleButton = styled.button`
   height: 50px;
   width: 20%;
   margin: 5px;
-  background-color: black;
-  color: white;
+  background-color: #A04835;
+  color: black;
   font-size: 20px;
+  font-weight: bold;
   cursor: pointer;
   /* background: ${({ ativo }) => (ativo ? "#000" : "#fff")};
   color: ${({ ativo }) => (ativo ? "#fff" : "#000")};
@@ -52,7 +58,7 @@ export const StyleButton = styled.button`
   &::hover {
     background: tomato;
   } */
-  ${borderRadiusAndNone}
+  ${borderAndRadius}
 
   @media(max-width: 400px) {
     height: 40px;
@@ -105,7 +111,7 @@ export const StyleError = styled.p`
   ${fontSizeAndFamily}
 `;
 
-export const CheckboxRegister = styled.input.attrs({ type: 'checkbox' })`
+export const CheckboxRegister = styled.input.attrs({ type: "checkbox" })`
   display: none;
 `;
 
@@ -115,10 +121,10 @@ export const CheckboxLabel = styled.label`
     width: 30px;
     height: 30px;
     display: inline-block;
-    border: solid 1px black;
+    border: solid 1px #A04835;
     border-radius: 5px;
     box-sizing: border-box;
-    background-color: ${props => props.checked ? 'black' : 'white'};
+    background-color: ${props => props.checked ? "#A04835" : "white"};
   }
 
   @media (max-width: 400px) {
