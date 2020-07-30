@@ -5,6 +5,7 @@ import tableIcon from "../img-documents/tableIcon.svg";
 import signoutIcon from "../img-documents/logoutIcon.png";
 import menuUm from "../img-documents/menuex1.png";
 import menuDois from "../img-documents/menuex2.png";
+import status from "../img-documents/statusIcon.svg";
 import { fireFuncs } from "../firebase/firebaseFunctions.js";
 import { useHistory } from "react-router-dom";
 import {
@@ -29,7 +30,7 @@ const NovaMesa = (props) => {
       </MenusSpan>
       <MenusSpan>
         <h1>Numero da Mesa</h1>
-        <Button name="Adicionar Pedido" onClick={props.callback} />
+        <Button id="menus" name="Adicionar Pedido" onClick={props.callback} />
       </MenusSpan>
     </MenusContainer>
   );
@@ -73,11 +74,9 @@ export const LoungePage = () => {
     fireFuncs.authSignOut().then(() => history.push("/"));
   };
 
-  const handleNewTable = () => {
-    setScreen("mesa");
-  };
-  const handleAddPedido = () => {
-    setScreen("menus");
+  const handleChangeScreens = (event) => {
+    const page = event.currentTarget.id;
+    setScreen(page);
   };
 
   return (
@@ -91,10 +90,18 @@ export const LoungePage = () => {
         />
         <Figure src={garcom} text={name} size="1.3em" />
         <Figure
+          id="home"
+          src={status}
+          text={"Status"}
+          size="1.3em"
+          onClick={handleChangeScreens}
+        />
+        <Figure
+          id="mesa"
           src={tableIcon}
           text="Nova Mesa"
           size="1.3em"
-          onClick={handleNewTable}
+          onClick={handleChangeScreens}
         />
         <Figure
           src={signoutIcon}
@@ -103,7 +110,7 @@ export const LoungePage = () => {
           onClick={handleSingOut}
         />
       </Navibar>
-      <ManagerScreen screen={screen} func={handleAddPedido} />
+      <ManagerScreen screen={screen} func={handleChangeScreens} />
     </LoungeSection>
   );
 };
