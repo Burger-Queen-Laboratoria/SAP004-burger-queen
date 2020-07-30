@@ -204,6 +204,6 @@ export const IconsNavBar = styled.img`
   ${displayFlexAndRow};
 `;
 
-export const TextBurgerQ = styled.p`
+export const ImgText = styled.p`
   font-weight: ${(props) => props.bold};
 `;

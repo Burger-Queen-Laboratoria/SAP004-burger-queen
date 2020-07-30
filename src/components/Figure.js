@@ -1,11 +1,11 @@
 import React from "react";
-import { IconsNavBar, TextBurgerQ } from "./StyleComponents";
+import { IconsNavBar, ImgText } from "./StyleComponents";
 
 export const Figure = ({ text, ...props }) => {
   return (
     <figure>
       <IconsNavBar {...props} />
-      <TextBurgerQ bold="bold">{text}</TextBurgerQ>
+      <ImgText bold="bold">{text}</ImgText>
     </figure>
   );
 };
