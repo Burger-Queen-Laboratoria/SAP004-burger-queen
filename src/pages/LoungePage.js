@@ -15,6 +15,10 @@ export const LoungePage = () => {
     fireFuncs.authSignOut().then(() => history.push("/"));
   };
 
+  const handleNewTable = () => {
+    alert("nova mesa");
+  };
+
   return (
     <Navibar>
       <Figure
@@ -23,9 +27,8 @@ export const LoungePage = () => {
         fonte="Burger Queen"
         size="1.4rem"
       />
-
       <Figure src={garcom} text="Garçom" />
-      <Figure src={tableIcon} text="Nova Mesa" />
+      <Figure src={tableIcon} text="Nova Mesa" onClick={handleNewTable} />
       <Figure src={signoutIcon} text="sair" onClick={handleClick} />
     </Navibar>
   );
