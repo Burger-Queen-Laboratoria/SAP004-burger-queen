@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import garcom from "../img-documents/garcom.png";
 import logoBurger from "../img-documents/logo-burger.png";
 import tableIcon from "../img-documents/tableIcon.svg";
@@ -18,6 +18,11 @@ import { Figure } from "../components/Figure";
 
 export const LoungePage = () => {
   let history = useHistory();
+  const [name, setName] = useState("");
+
+  fireFuncs.getLoggedUser((user) => {
+    setName(user.displayName);
+  });
 
   const handleClick = () => {
     fireFuncs.authSignOut().then(() => history.push("/"));
@@ -26,12 +31,6 @@ export const LoungePage = () => {
   const handleNewTable = () => {
     console.log("Nova Mesa");
   };
-
-  // const handleNewTable = () => {
-  //   fireFuncs.collectionUser().then((userName) => {
-  //     return userName;
-  //   });
-  // };
 
   return (
     <LoungeSection>
@@ -42,7 +41,7 @@ export const LoungePage = () => {
           fonte="Burger Queen"
           size="1.4rem"
         />
-        <Figure src={garcom} text="Garçom" size="1.3em" />
+        <Figure src={garcom} text={name} size="1.3em" />
         <Figure
           src={tableIcon}
           text="Nova Mesa"

@@ -12,13 +12,12 @@ export const fireFuncs = {
     return firebase.auth().createUserWithEmailAndPassword(email, password);
   },
 
-  collectionUser: (user, name, email, sector, userName) => {
+  collectionUser: (user, name, email, sector) => {
     const userInfos = {
       userId: user.uid,
       name: name,
       email: email,
       sector: sector,
-      userName: user.displayname,
     };
     return firebase
       .firestore()
@@ -29,5 +28,9 @@ export const fireFuncs = {
 
   getCurrentUser: (userId) => {
     return firebase.firestore().collection("users").doc(userId).get();
+  },
+
+  getLoggedUser: (callback) => {
+    firebase.auth().onAuthStateChanged(callback);
   },
 };
