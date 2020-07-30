@@ -205,5 +205,7 @@ export const IconsNavBar = styled.img`
 `;
 
 export const ImgText = styled.p`
-  font-weight: ${(props) => props.bold};
+  font-family: ${(props) => props.fonte};
+  font-size: ${(props) => props.size};
+  font-weight: bold;
 `;

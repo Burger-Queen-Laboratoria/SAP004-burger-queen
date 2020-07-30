@@ -16,7 +16,12 @@ export const LoungePage = () => {
 
   return (
     <Navibar>
-      <Figure src={logoBurger} text="Burger Queen" />
+      <Figure
+        src={logoBurger}
+        text="Burger Queen"
+        fonte="Burger Queen"
+        size="1.4rem"
+      />
       <Title> Bem Vindo</Title>
       <Figure src={garcom} text="Garçom" />
       <Figure src={signoutIcon} text="sair" onClick={handleClick} />

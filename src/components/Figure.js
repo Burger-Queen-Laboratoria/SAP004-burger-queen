@@ -5,7 +5,7 @@ export const Figure = ({ text, ...props }) => {
   return (
     <figure>
       <IconsNavBar {...props} />
-      <ImgText bold="bold">{text}</ImgText>
+      <ImgText {...props}>{text}</ImgText>
     </figure>
   );
 };
