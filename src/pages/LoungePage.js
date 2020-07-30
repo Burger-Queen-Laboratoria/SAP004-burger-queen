@@ -16,7 +16,7 @@ export const LoungePage = () => {
   };
 
   const handleNewTable = () => {
-    alert("nova mesa");
+    console.log("Nova Mesa");
   };
 
   return (
