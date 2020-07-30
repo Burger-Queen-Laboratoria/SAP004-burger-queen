@@ -1,6 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { fireFuncs } from "../firebase/firebaseFunctions.js";
+// import { getOrder } from "../firebase/firebaseKitchen.js";
 import logoImg from "../img-documents/logo-burger.png";
 import { NavigationKitchen } from "../components/NavKitchen.js";
 import { Title } from "../components/TitleKitchen.js";
@@ -23,9 +24,9 @@ export const KitchenScreen = () => {
           <TitleOrderArea />
           <StyleTagUl>
             <OrderArea identification="mesa 1"/>
-            <OrderArea identification="mesa 1"/>
-            <OrderArea identification="mesa 1"/>
-            <OrderArea identification="mesa 1"/>
+            {/* {getOrder().then((order) => order.forEach(item => {
+              return <OrderArea name={item.data().nome} hour={item.data().hora} table={item.data().mesa}/>
+            }))} */}
           </StyleTagUl>
         </StyleTagSection>
       </section>

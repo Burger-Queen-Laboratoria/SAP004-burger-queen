@@ -11,9 +11,9 @@ export const OrderArea = (props) => {
   return (
     <li>
       <StyleTagDiv>
-        <TagPArea item="Nome"/>
-        <TagPArea item="Mesa"/>
-        <TagPArea item="Hora"/>
+        <TagPArea item={props.name}/>
+        <TagPArea item={props.table}/>
+        <TagPArea item={props.hour}/>
         <TagPArea item="Status"/>
       </StyleTagDiv>
       <section>{props.itens}</section>
