@@ -1,5 +1,5 @@
-// import firebase from "./init-firebase.js";
+import firebase from "./init-firebase.js";
 
-// export const getOrder = () => {
-//   return firebase.firestore().collection("teste-jessica").get();
-// }
+export const getOrder = () => {
+  return firebase.firestore().collection("teste-jessica").get();
+}

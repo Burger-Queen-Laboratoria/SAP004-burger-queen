@@ -1,19 +1,38 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { fireFuncs } from "../firebase/firebaseFunctions.js";
-// import { getOrder } from "../firebase/firebaseKitchen.js";
+import { getOrder } from "../firebase/firebaseKitchen.js";
 import logoImg from "../img-documents/logo-burger.png";
 import { NavigationKitchen } from "../components/NavKitchen.js";
 import { Title } from "../components/TitleKitchen.js";
-import { OrderArea, TitleOrderArea } from "../components/OrderKitchen.js";
-import { StyleTagUl, StyleTagSection } from "../components/StyleKitchen.js"
+import { TitleOrderArea, OrderArea } from "../components/OrderKitchen.js";
+import { StyleTagUl, StyleTagSection } from "../components/StyleKitchen.js";
+
+
 
 export const KitchenScreen = () => {
   let history = useHistory();
+  const [order, setOrder] = useState(null)
 
   const handleClick = () => {
     fireFuncs.authSignOut().then(() => history.push("/"));
   };
+
+  const teste = () => {
+    getOrder().then((eachOption) => eachOption.forEach((order) => {
+      let key = order.id
+      let name = order.data().nome;
+      let hour = order.data().hora;
+      let table = order.data().mesa;
+      setOrder(<OrderArea key={key} name={name} hour={hour} table={table}/>)
+    }));
+  }
+
+  useEffect(() => {
+    teste();
+  }, []);
+
+  console.log(order)
 
   return (
     <>
@@ -23,10 +42,7 @@ export const KitchenScreen = () => {
         <StyleTagSection>
           <TitleOrderArea />
           <StyleTagUl>
-            <OrderArea identification="mesa 1"/>
-            {/* {getOrder().then((order) => order.forEach(item => {
-              return <OrderArea name={item.data().nome} hour={item.data().hora} table={item.data().mesa}/>
-            }))} */}
+            {order}
           </StyleTagUl>
         </StyleTagSection>
       </section>

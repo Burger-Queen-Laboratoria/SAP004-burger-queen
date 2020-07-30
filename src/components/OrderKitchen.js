@@ -7,16 +7,16 @@ const TagPArea = (props) => {
   )
 }
 
-export const OrderArea = (props) => {
+export const OrderArea = (props, key) => {
   return (
-    <li>
+    <li key={key}>
       <StyleTagDiv>
-        <TagPArea item={props.name}/>
-        <TagPArea item={props.table}/>
-        <TagPArea item={props.hour}/>
-        <TagPArea item="Status"/>
+        <TagPArea item={props.name} />
+        <TagPArea item={props.table} />
+        <TagPArea item={props.hour} />
+        <TagPArea item="Status" />
       </StyleTagDiv>
-      <section>{props.itens}</section>
+      <section></section>
     </li>
   )
 };
@@ -24,10 +24,10 @@ export const OrderArea = (props) => {
 export const TitleOrderArea = () => {
   return (
     <StyleHeader>
-      <TagPArea item="Nome"/>
-      <TagPArea item="Mesa"/>
-      <TagPArea item="Hora"/>
-      <TagPArea item="Status"/>
+      <TagPArea item="Nome" />
+      <TagPArea item="Mesa" />
+      <TagPArea item="Hora" />
+      <TagPArea item="Status" />
     </StyleHeader>
   )
 }
