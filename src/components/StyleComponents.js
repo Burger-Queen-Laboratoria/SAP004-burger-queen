@@ -221,7 +221,6 @@ export const MenusContainer = styled.div`
   align-items: center;
   justify-content: center;
   padding-top: 4em;
-  ${displayFlexAndColumn}
 `;
 
 export const MenusSpan = styled.span`
