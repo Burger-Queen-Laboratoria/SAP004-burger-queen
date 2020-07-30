@@ -1,5 +1,5 @@
 import styled, { createGlobalStyle } from "styled-components";
-import BurgerQueen from "../img-documents/Making-Lettering-Tall_demo.ttf";
+import BurgerQueen from "../img-documents/Making-Lettering-Tall_demo.ttf"
 
 export const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -51,14 +51,14 @@ export const StyleInput = styled.input`
   margin: 10px;
   font-size: 20px;
   outline: none;
-  color: #a04835;
+  color: #A04835;
   ${borderAndRadius}
 
   &::placeholder {
-    color: #a04835;
+    color: #A04835;
   }
 
-  @media (max-width: 400px) {
+  @media(max-width: 400px) {
     height: 50px;
     width: 85%;
   }
@@ -89,11 +89,11 @@ export const StyleButton = styled.button`
 
 export const TitleLogo = styled.p`
   font-family: Burger Queen;
-  font-size: ${(props) => (props.size ? "80px" : "70px")};
+  font-size: ${props => props.size ? "80px" : "70px"};
   margin: 5px;
 
   @media (max-width: 400px) {
-    font-size: ${(props) => (props.size ? "60px" : "45px")};
+    font-size: ${props => props.size ? "60px" : "45px"};
   }
 `;
 
@@ -117,7 +117,6 @@ export const StyleForm = styled.form`
 
 export const NewMember = styled.p`
   margin: 10px;
-
   ${fontSizeAndFamily}
 `;
 
@@ -143,10 +142,10 @@ export const CheckboxLabel = styled.label`
     width: 30px;
     height: 30px;
     display: inline-block;
-    border: solid 1px #a04835;
+    border: solid 1px #A04835;
     border-radius: 5px;
     box-sizing: border-box;
-    background-color: ${(props) => (props.checked ? "#A04835" : "white")};
+    background-color: ${props => props.checked ? "#A04835" : "white"};
   }
 
   @media (max-width: 400px) {
@@ -154,7 +153,7 @@ export const CheckboxLabel = styled.label`
       width: 20px;
       height: 20px;
     }
-  }
+  } 
 `;
 
 export const CheckboxContainer = styled.div`
@@ -185,25 +184,5 @@ export const RegisterTitleFlex = styled.div`
 `;
 
 export const ImgLogoRegister = styled.img`
-  width: 20%;
-`;
-
-export const Navibar = styled.div`
-  align-items: center;
-  background-color: white;
-  height: 5rem;
-  justify-content: space-between;
-  padding: 1em;
-  ${displayFlexAndRow};
-`;
-export const IconsNavBar = styled.img`
-  margin-top: 1em;
-  margin-bottom: 1em;
-  width: 60px;
-  height: 60px;
-  ${displayFlexAndRow};
-`;
-
-export const TextBurgerQ = styled.p`
-  font-weight: ${(props) => props.bold};
+  width: 20%
 `;
