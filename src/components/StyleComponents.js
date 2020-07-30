@@ -193,7 +193,7 @@ export const Navibar = styled.div`
   background-color: white;
   height: 5rem;
   justify-content: space-between;
-  padding: 1em;
+  padding: 2em;
   ${displayFlexAndRow};
 `;
 export const IconsNavBar = styled.img`
@@ -208,4 +208,8 @@ export const ImgText = styled.p`
   font-family: ${(props) => props.fonte};
   font-size: ${(props) => props.size};
   font-weight: bold;
+`;
+
+export const LoungeSection = styled.section`
+  ${displayFlexAndColumn}
 `;

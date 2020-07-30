@@ -26,26 +26,29 @@ export const LoungePage = () => {
   // };
 
   return (
-    <Navibar>
-      <Figure
-        src={logoBurger}
-        text="Burger Queen"
-        fonte="Burger Queen"
-        size="1.4rem"
-      />
-      <Figure src={garcom} text="Garçom" size="1.3em" />
-      <Figure
-        src={tableIcon}
-        text="Nova Mesa"
-        size="1.3em"
-        onClick={handleNewTable}
-      />
-      <Figure
-        src={signoutIcon}
-        text="sair"
-        size="1.3em"
-        onClick={handleClick}
-      />
-    </Navibar>
+    <section>
+      <Navibar>
+        <Figure
+          src={logoBurger}
+          text="Burger Queen"
+          fonte="Burger Queen"
+          size="1.4rem"
+        />
+        <Figure src={garcom} text="Garçom" size="1.3em" />
+        <Figure
+          src={tableIcon}
+          text="Nova Mesa"
+          size="1.3em"
+          onClick={handleNewTable}
+        />
+        <Figure
+          src={signoutIcon}
+          text="sair"
+          size="1.3em"
+          onClick={handleClick}
+        />
+      </Navibar>
+      <div></div>
+    </section>
   );
 };
