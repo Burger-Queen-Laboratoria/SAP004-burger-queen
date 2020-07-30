@@ -19,6 +19,12 @@ export const LoungePage = () => {
     console.log("Nova Mesa");
   };
 
+  // const handleNewTable = () => {
+  //   fireFuncs.collectionUser().then((userName) => {
+  //     return userName;
+  //   });
+  // };
+
   return (
     <Navibar>
       <Figure
@@ -27,9 +33,19 @@ export const LoungePage = () => {
         fonte="Burger Queen"
         size="1.4rem"
       />
-      <Figure src={garcom} text="Garçom" />
-      <Figure src={tableIcon} text="Nova Mesa" onClick={handleNewTable} />
-      <Figure src={signoutIcon} text="sair" onClick={handleClick} />
+      <Figure src={garcom} text="Garçom" size="1.3em" />
+      <Figure
+        src={tableIcon}
+        text="Nova Mesa"
+        size="1.3em"
+        onClick={handleNewTable}
+      />
+      <Figure
+        src={signoutIcon}
+        text="sair"
+        size="1.3em"
+        onClick={handleClick}
+      />
     </Navibar>
   );
 };

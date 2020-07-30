@@ -12,12 +12,13 @@ export const fireFuncs = {
     return firebase.auth().createUserWithEmailAndPassword(email, password);
   },
 
-  collectionUser: (user, name, email, sector) => {
+  collectionUser: (user, name, email, sector, userName) => {
     const userInfos = {
       userId: user.uid,
       name: name,
       email: email,
       sector: sector,
+      userName: user.displayname,
     };
     return firebase
       .firestore()
