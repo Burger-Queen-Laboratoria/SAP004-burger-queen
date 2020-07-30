@@ -3,9 +3,17 @@ import garcom from "../img-documents/garcom.png";
 import logoBurger from "../img-documents/logo-burger.png";
 import tableIcon from "../img-documents/tableIcon.svg";
 import signoutIcon from "../img-documents/logoutIcon.png";
+import menuUm from "../img-documents/menuex1.png";
+import menuDois from "../img-documents/menuex2.png";
 import { fireFuncs } from "../firebase/firebaseFunctions.js";
 import { useHistory } from "react-router-dom";
-import { Navibar } from "../components/StyleComponents.js";
+import {
+  Navibar,
+  LoungeSection,
+  MenusContainer,
+  MenusSpan,
+  MenusImg,
+} from "../components/StyleComponents.js";
 import { Figure } from "../components/Figure";
 
 export const LoungePage = () => {
@@ -26,7 +34,7 @@ export const LoungePage = () => {
   // };
 
   return (
-    <section>
+    <LoungeSection>
       <Navibar>
         <Figure
           src={logoBurger}
@@ -48,7 +56,14 @@ export const LoungePage = () => {
           onClick={handleClick}
         />
       </Navibar>
-      <div></div>
-    </section>
+      <MenusContainer>
+        <MenusSpan>
+          <MenusImg src={menuUm} />
+        </MenusSpan>
+        <MenusSpan>
+          <MenusImg src={menuDois} />
+        </MenusSpan>
+      </MenusContainer>
+    </LoungeSection>
   );
 };

@@ -194,6 +194,7 @@ export const Navibar = styled.div`
   height: 5rem;
   justify-content: space-between;
   padding: 2em;
+  width: 100%;
   ${displayFlexAndRow};
 `;
 export const IconsNavBar = styled.img`
@@ -211,5 +212,24 @@ export const ImgText = styled.p`
 `;
 
 export const LoungeSection = styled.section`
+  align-items: center;
+  justify-content: center;
   ${displayFlexAndColumn}
+`;
+
+export const MenusContainer = styled.div`
+  align-items: center;
+  justify-content: center;
+  padding-top: 4em;
+  ${displayFlexAndColumn}
+`;
+
+export const MenusSpan = styled.span`
+  width: 100%;
+  height: 100%;
+`;
+
+export const MenusImg = styled.img`
+  width: 100%;
+  height: 100%;
 `;
