@@ -1,7 +1,7 @@
 import firebase from "./init-firebase.js";
 
 export const getOrder = async () => {
-  const i = await firebase.firestore().collection("teste-jessica").get();
+  const i = await firebase.firestore().collection("teste-jessica").orderBy("hora", "asc").get();
   const ar = [];
   i.forEach((item) => {
     const o = {
