@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleHeader, StyleTagDiv } from "./StyleKitchen.js"
+import { StyleHeader, StyleTagDiv, StyleTagUl } from "./StyleKitchen.js"
 
 const TagPArea = (props) => {
   return (
@@ -11,9 +11,9 @@ export const OrderArea = (props, key) => {
   return (
     <li key={key}>
       <StyleTagDiv>
-        <TagPArea item={props.name} />
-        <TagPArea item={props.table} />
-        <TagPArea item={props.hour} />
+        <TagPArea item={props.order.name} />
+        <TagPArea item={props.order.table} />
+        <TagPArea item={props.order.hour} />
         <TagPArea item="Status" />
       </StyleTagDiv>
       <section></section>
@@ -29,5 +29,13 @@ export const TitleOrderArea = () => {
       <TagPArea item="Hora" />
       <TagPArea item="Status" />
     </StyleHeader>
+  )
+}
+
+export const UlOrder = (props) => {
+  return (
+    <StyleTagUl>
+      {props.orders.map(o => <OrderArea key={o.item} order={o}/>)}
+    </StyleTagUl>
   )
 }

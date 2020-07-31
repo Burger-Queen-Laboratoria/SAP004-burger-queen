@@ -17,6 +17,10 @@ export const StyleNavDiv = styled.div`
  text-align: center;
 `;
 
+export const StyleNavP = styled.p`
+  font-family: ${props => props.queen ? "Burger Queen" : "helvetica"};
+`;
+
 export const TagTitleKitchen = styled.h6`
  font-family: "Burger Queen";
  text-align: center;
