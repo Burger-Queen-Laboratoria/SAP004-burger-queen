@@ -2,13 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { fireFuncs } from "../firebase/firebaseFunctions.js";
 import { getOrder } from "../firebase/firebaseKitchen.js";
-import logoImg from "../img-documents/logo-burger.png";
 import { NavigationKitchen } from "../components/NavKitchen.js";
 import { Title } from "../components/TitleKitchen.js";
 import { TitleOrderArea, OrderArea } from "../components/OrderKitchen.js";
 import { StyleTagUl, StyleTagSection } from "../components/StyleKitchen.js";
-
-
 
 export const KitchenScreen = () => {
   let history = useHistory();
@@ -36,7 +33,7 @@ export const KitchenScreen = () => {
 
   return (
     <>
-      <NavigationKitchen alt="burger-queen" logo={logoImg} onClick={handleClick}/>
+      <NavigationKitchen onClick={handleClick}/>
       <section>
         <Title name="Pedidos"/>
         <StyleTagSection>

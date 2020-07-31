@@ -1,76 +1,20 @@
 import styled from "styled-components";
 
-export const FixedNavKitchen = styled.nav`
+export const StyledNavKitchen = styled.nav`
   display: flex;
-  width: calc(100% - 10px);
+  justify-content: space-around;
   height: 90px;
+  width: 100%;
   background-color: white;
   padding: 10px;
-  justify-content: space-around;
-  font-family: Helvética;
 `;
 
-export const ImgNavKitchen = styled.img`
-  width: 35%;
-
-  @media(max-width: 400px) {
-    width: 80%;
-  }
+export const StyledNavImg = styled.img`
+  width: 50px;
 `;
 
-export const ImgIcon = styled.img`
-  height: 60%;
-  cursor: pointer;
-`;
-
-export const SpanNavKitchen = styled.span`
-  display: flex;
-  width: 80%;
-  justify-content: flex-end;
-
-  @media(max-width: 400px) {
-    height: 70%;
-  }
-`;
-
-export const DivNavKitchen = styled.div`
-  text-align: center;
-  margin-right: 10px;
-  width: 50%;
-`;
-
-export const SpanNavKitchenFirst = styled.span`
-  display: flex;
-  flex-direction: column;
-  width: 20%;
-  align-items: center;
-`;
-
-export const TagP = styled.p`
-  font-family: "helvetica";
-
-  @media(max-width: 400px) {
-    font-size: 13px;
-  }
-`;
-
-export const TagH6 = styled.h6`
-  margin: 0px;
-  font-family: "Burger Queen";
-  font-size: 25px;
-
-  @media(max-width: 400px) {
-    font-size: 15px;
-  }
-`;
-
-export const TagDiv = styled.div`
-  width: 100%;
-`;
-
-export const TagSpam = styled.span`
-  display: flex;
-  width: 40%;
+export const StyleNavDiv = styled.div`
+ text-align: center;
 `;
 
 export const TagTitleKitchen = styled.h6`
