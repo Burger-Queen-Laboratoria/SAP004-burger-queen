@@ -19,9 +19,9 @@ export const NavigationKitchen = (props) => {
   return (
     <StyledNavKitchen>
       <NavJobKitchen queen={true} icon={logoImg} alt="logo" word="BurgerQueen" />
+      <NavJobKitchen icon={iconChef} alt="kitchen-icon" word="Fulano" />
       <NavJobKitchen icon={iconOrder} alt="orders" word="Pedidos" />
       <NavJobKitchen icon={iconHistoric} alt="historic-order" word="Histórico" />
-      <NavJobKitchen icon={iconChef} alt="kitchen-icon" word="Fulano" />
       <NavJobKitchen icon={iconLogOut} alt="signout-icon" word="Sair" {...props} />
     </StyledNavKitchen>
   )
