@@ -8,6 +8,8 @@ import menuDois from "../img-documents/menuex2.png";
 import status from "../img-documents/statusIcon.svg";
 import { fireFuncs } from "../firebase/firebaseFunctions.js";
 import { useHistory } from "react-router-dom";
+import { Figure } from "../components/Figure";
+import { Button } from "../components/Button";
 import {
   Navibar,
   LoungeSection,
@@ -15,8 +17,6 @@ import {
   MenusSpan,
   MenusImg,
 } from "../components/StyleComponents.js";
-import { Figure } from "../components/Figure";
-import { Button } from "../components/Button";
 
 const HomeLounge = () => {
   return <h1>HOME</h1>;
@@ -30,7 +30,7 @@ const NovaMesa = (props) => {
       </MenusSpan>
       <MenusSpan>
         <h1>Numero da Mesa</h1>
-        <Button id="menus" name="Adicionar Pedido" onClick={props.callback} />
+        <Button id="menus" name="Menu" onClick={props.callback} />
       </MenusSpan>
     </MenusContainer>
   );
