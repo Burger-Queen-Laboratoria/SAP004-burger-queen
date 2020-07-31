@@ -25,6 +25,9 @@ export const fireFuncs = {
       .doc(user.uid)
       .set(userInfos);
   },
+  collectionAdd: (collectionName, doc) => {
+    return firebase.firestore().collection(collectionName).add(doc);
+  },
 
   getCurrentUser: (userId) => {
     return firebase.firestore().collection("users").doc(userId).get();

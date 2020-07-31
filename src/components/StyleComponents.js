@@ -68,19 +68,12 @@ export const StyleButton = styled.button`
   height: 50px;
   width: 20%;
   margin: 5px;
-  background-color: #A04835;
+  background-color: #a04835;
   color: black;
   font-size: 20px;
   font-weight: bold;
   cursor: pointer;
-  /* background: ${({ ativo }) => (ativo ? "#000" : "#fff")};
-  color: ${({ ativo }) => (ativo ? "#fff" : "#000")};
-  cursor: pointer;
-  &::hover {
-    background: tomato;
-  } */
   ${borderAndRadius}
-
   @media(max-width: 400px) {
     height: 40px;
     width: 40%;
@@ -222,11 +215,11 @@ export const MenusContainer = styled.div`
   align-items: ${(props) => props.align};
   justify-content: ${(props) => props.justfy};
   width: ${(props) => props.wid};
+  flex: 1;
   padding-top: 4em;
 `;
 
 export const MenusSpan = styled.div`
-  flex: 1;
   width: 100%;
   height: 100%;
 `;
@@ -236,4 +229,22 @@ export const MenusImg = styled.img`
   height: 100%;
   padding: 0;
   margin: 0;
+`;
+
+export const StyleButtonM = styled.button`
+  background-color: #A04835;
+  color: black;
+  font-size: 1em;
+  font-weight: bold;
+  width: 80%;
+  padding:1em;
+  cursor: pointer;
+  ${borderAndRadius}
+  
+  /* background: ${({ ativo }) => (ativo ? "#000" : "#fff")};
+  color: ${({ ativo }) => (ativo ? "#fff" : "#000")};
+  cursor: pointer;
+  &::hover {
+    background: tomato;
+  } */
 `;

@@ -1,6 +1,6 @@
 import React from "react";
-import { Button } from "../components/Button";
-import { MenusContainer, MenusSpan } from "../components/StyleComponents.js";
+import { ButtonMenu } from "../Button";
+import { MenusContainer, MenusSpan } from "../StyleComponents.js";
 
 export const Order = (props) => {
   return (
@@ -10,8 +10,8 @@ export const Order = (props) => {
       </MenusSpan>
       <MenusSpan>
         <h1>Numero da Mesa</h1>
-        <Button id="menus" name="Menu" onClick={props.callback} />
       </MenusSpan>
+      <ButtonMenu id="menu" name="Menu" onClick={props.callback} />
     </MenusContainer>
   );
 };
