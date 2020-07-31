@@ -218,12 +218,15 @@ export const LoungeSection = styled.section`
 `;
 
 export const MenusContainer = styled.div`
-  align-items: center;
-  justify-content: center;
+  display: ${(props) => props.display};
+  align-items: ${(props) => props.align};
+  justify-content: ${(props) => props.justfy};
+  width: ${(props) => props.wid};
   padding-top: 4em;
 `;
 
-export const MenusSpan = styled.span`
+export const MenusSpan = styled.div`
+  flex: 1;
   width: 100%;
   height: 100%;
 `;

@@ -1,63 +1,26 @@
 import React, { useState } from "react";
+import { fireFuncs } from "../firebase/firebaseFunctions.js";
+import { useHistory } from "react-router-dom";
+import { Figure } from "../components/Figure";
+import { Navibar, LoungeSection } from "../components/StyleComponents.js";
+import { Order } from "../components/lounge/order.js";
+import { Menu } from "../components/lounge/menu.js";
+import { Status } from "../components/lounge/status.js";
 import garcom from "../img-documents/garcom.png";
 import logoBurger from "../img-documents/logo-burger.png";
 import tableIcon from "../img-documents/tableIcon.svg";
 import signoutIcon from "../img-documents/logoutIcon.png";
-import menuUm from "../img-documents/menuex1.png";
-import menuDois from "../img-documents/menuex2.png";
 import status from "../img-documents/statusIcon.svg";
-import { fireFuncs } from "../firebase/firebaseFunctions.js";
-import { useHistory } from "react-router-dom";
-import { Figure } from "../components/Figure";
-import { Button } from "../components/Button";
-import {
-  Navibar,
-  LoungeSection,
-  MenusContainer,
-  MenusSpan,
-  MenusImg,
-} from "../components/StyleComponents.js";
-
-const HomeLounge = () => {
-  return <h1>HOME</h1>;
-};
-
-const NovaMesa = (props) => {
-  return (
-    <MenusContainer>
-      <MenusSpan>
-        <h1>Nome do Cliente:</h1>
-      </MenusSpan>
-      <MenusSpan>
-        <h1>Numero da Mesa</h1>
-        <Button id="menus" name="Menu" onClick={props.callback} />
-      </MenusSpan>
-    </MenusContainer>
-  );
-};
-
-const Menus = () => {
-  return (
-    <MenusContainer>
-      <MenusSpan>
-        <MenusImg src={menuUm} />
-      </MenusSpan>
-      <MenusSpan>
-        <MenusImg src={menuDois} />
-      </MenusSpan>
-    </MenusContainer>
-  );
-};
 
 const ManagerScreen = (props) => {
   const screen = props.screen;
   switch (screen) {
-    case "mesa":
-      return <NovaMesa callback={props.func} />;
-    case "menus":
-      return <Menus />;
+    case "table":
+      return <Order callback={props.func} />;
+    case "menu":
+      return <Menu />;
     default:
-      return <HomeLounge />;
+      return <Status />;
   }
 };
 
@@ -97,7 +60,7 @@ export const LoungePage = () => {
           onClick={handleChangeScreens}
         />
         <Figure
-          id="mesa"
+          id="table"
           src={tableIcon}
           text="Nova Mesa"
           size="1.3em"
