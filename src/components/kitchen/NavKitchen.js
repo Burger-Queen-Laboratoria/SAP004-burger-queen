@@ -1,10 +1,10 @@
 import React from "react";
-import iconChef from "../img-documents/bakerIcon.svg";
-import iconLogOut from "../img-documents/logoutIconKitchen.png";
-import iconOrder from "../img-documents/orderIcon.svg";
-import iconHistoric from "../img-documents/historicIcon.svg";
+import iconChef from "../../img-documents/bakerIcon.svg";
+import iconLogOut from "../../img-documents/logoutIconKitchen.png";
+import iconOrder from "../../img-documents/orderIcon.svg";
+import iconHistoric from "../../img-documents/historicIcon.svg";
 import { StyledNavKitchen, StyledNavImg, StyleNavDiv, StyleNavP } from "./StyleKitchen.js"
-import logoImg from "../img-documents/logo-red.png";
+import logoImg from "../../img-documents/logo-red.png";
 
 const NavJobKitchen = (props) => {
   return (

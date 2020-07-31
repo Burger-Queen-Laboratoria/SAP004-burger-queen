@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { fireFuncs } from "../firebase/firebaseFunctions.js";
 import { getOrder } from "../firebase/firebaseKitchen.js";
-import { NavigationKitchen } from "../components/NavKitchen.js";
-import { Title } from "../components/TitleKitchen.js";
-import { TitleOrderArea, UlOrder } from "../components/OrderKitchen.js";
-import { StyleTagSection } from "../components/StyleKitchen.js";
+import { NavigationKitchen } from "../components/kitchen/NavKitchen.js";
+import { Title } from "../components/kitchen/TitleKitchen.js";
+import { TitleOrderArea, UlOrder } from "../components/kitchen/OrderKitchen.js";
+import { StyleTagSection } from "../components/kitchen/StyleKitchen.js";
 
-export const KitchenScreen = () => {
+export const KitchenPage = () => {
   let history = useHistory();
   const [orders, setOrders] = useState([]);
 
