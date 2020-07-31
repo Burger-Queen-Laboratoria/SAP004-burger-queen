@@ -14,3 +14,7 @@ export const getOrder = async () => {
   });
   return ar;
 }
+
+export const accessCollectionOrder = () => {
+  return firebase.firestore().collection("teste-jessica");
+}
