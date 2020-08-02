@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { fireFuncs } from "../firebase/firebaseFunctions.js";
-import { getOrder, accessCollectionOrder } from "../firebase/firebaseKitchen.js";
+import { snapshotOrders } from "../firebase/firebaseKitchen.js";
 import { NavigationKitchen } from "../components/kitchen/NavKitchen.js";
 import { Title } from "../components/kitchen/TitleKitchen.js";
 import { TitleOrderArea, UlOrder } from "../components/kitchen/OrderKitchen.js";
@@ -17,9 +17,7 @@ export const KitchenPage = () => {
   };
 
   useEffect(() => {
-    accessCollectionOrder().onSnapshot(() => {
-      getOrder().then(setOrders);
-    })
+    snapshotOrders(setOrders);
   }, []);
 
   return (

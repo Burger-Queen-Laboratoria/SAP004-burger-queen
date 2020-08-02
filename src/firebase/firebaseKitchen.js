@@ -1,6 +1,6 @@
 import firebase from "./init-firebase.js";
 
-export const getOrder = async () => {
+const getOrder = async () => {
   const i = await firebase.firestore().collection("teste-jessica").orderBy("hora", "asc").get();
   const ar = [];
   i.forEach((item) => {
@@ -17,10 +17,12 @@ export const getOrder = async () => {
   return ar;
 }
 
-export const accessCollectionOrder = () => {
-  return firebase.firestore().collection("teste-jessica");
-}
-
 export const concludeOrder = (id) => {
   return firebase.firestore().collection("teste-jessica").doc(id).update({status: "concluído"});
+}
+
+export const snapshotOrders = (funcSetOrders) => {
+  firebase.firestore().collection("teste-jessica").onSnapshot(() => {
+    getOrder().then(funcSetOrders);
+  })
 }
