@@ -1,5 +1,6 @@
-import React from "react";
-import { StyleHeader, StyleTagDiv, StyleTagUl, StyleSectionOrder, StyleButtonOrder } from "./StyleKitchen.js"
+import React, { useState } from "react";
+import { StyleHeader, StyleTagDiv, StyleTagUl, StyleSectionOrder, StyleButtonOrder } from "./StyleKitchen.js";
+import { concludeOrder } from "../../firebase/firebaseKitchen.js";
 
 const TagPArea = (props) => {
   return (
@@ -8,21 +9,31 @@ const TagPArea = (props) => {
 }
 
 export const OrderArea = (props, key) => {
-
+  const [display, setDisplay] = useState(false)
   const orderList = props.order.itens;
 
+  const handleClickOrder = () => {
+    display ? setDisplay(false) : setDisplay(true);
+  }
+
+  const handleClickStatusOrder = () => {
+    concludeOrder(props.order.id)
+  }
+
   return (
-    <li key={key}>
+    <li key={key} onClick={handleClickOrder}>
       <StyleTagDiv>
         <TagPArea item={props.order.name} />
         <TagPArea item={props.order.table} />
         <TagPArea item={props.order.hour} />
         <TagPArea item={props.order.status} />
       </StyleTagDiv>
-      <StyleSectionOrder>
-        <div>{orderList.map(i=><p key={key+i}>{i}</p>)}</div>
-        <StyleButtonOrder>Concluído</StyleButtonOrder>
-      </StyleSectionOrder>
+      {display &&
+        <StyleSectionOrder >
+          <div>{orderList.map(i=><p key={key+i}>{i}</p>)}</div>
+          <StyleButtonOrder onClick={handleClickStatusOrder}>Concluído</StyleButtonOrder>
+        </StyleSectionOrder>
+      }
     </li>
   )
 };

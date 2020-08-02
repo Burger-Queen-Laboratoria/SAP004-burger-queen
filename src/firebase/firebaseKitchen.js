@@ -20,3 +20,7 @@ export const getOrder = async () => {
 export const accessCollectionOrder = () => {
   return firebase.firestore().collection("teste-jessica");
 }
+
+export const concludeOrder = (id) => {
+  return firebase.firestore().collection("teste-jessica").doc(id).update({status: "concluído"});
+}
