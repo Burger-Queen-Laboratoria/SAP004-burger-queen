@@ -10,13 +10,15 @@ import { fireFuncs } from "../../firebase/firebaseFunctions.js";
 import { Products } from "./products.js";
 import { Resume } from "./resume.js";
 
-export const Menu = () => {
+export const Menu = (props) => {
+  console.log(props.name, props.table);
   const [display, setDisplay] = useState("block"),
     [aliItem, setAlign] = useState("center"),
     [justCont, setJustfy] = useState("center"),
     [width, setWidth] = useState("100%"),
-    [resume, setResume] = useState(false),
-    [menuItens, setMenuItens] = useState([]);
+    [showResume, setShowResume] = useState(false),
+    [menuItens, setMenuItens] = useState([]),
+    [addItensToResume, setItensToResume] = useState([]);
 
   const ChangeStyleScreen = (event) => {
     setMenuItens([]);
@@ -24,7 +26,7 @@ export const Menu = () => {
     setAlign("flex-start");
     setJustfy("flex-start");
     setWidth("80%");
-    setResume(true);
+    setShowResume(true);
     getMenus(event.currentTarget.id.split("-")[1]);
   };
 
@@ -57,8 +59,17 @@ export const Menu = () => {
           <MenusImg src={menuDois} id="menu-2" onClick={ChangeStyleScreen} />
         </ItensContainer>
       </MenusContainer>
-      <Products options={menuItens} />
-      <Resume resume={resume} />
+
+      <Products
+        options={menuItens}
+        value={addItensToResume}
+        setValue={setItensToResume}
+      />
+      <Resume
+        resume={showResume}
+        options={addItensToResume}
+        setValue={setItensToResume}
+      />
     </MenusContainer>
   );
 };

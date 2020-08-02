@@ -3,7 +3,7 @@ import { fireFuncs } from "../firebase/firebaseFunctions.js";
 import { useHistory } from "react-router-dom";
 import { Figure } from "../components/Figure";
 import { Navibar, LoungeSection } from "../components/StyleComponents.js";
-import { Order } from "../components/lounge/order.js";
+import { ClientTable } from "../components/lounge/clientTable.js";
 import { Menu } from "../components/lounge/menu.js";
 import { Status } from "../components/lounge/status.js";
 import garcom from "../img-documents/garcom.png";
@@ -16,9 +16,9 @@ const ManagerScreen = (props) => {
   const screen = props.screen;
   switch (screen) {
     case "table":
-      return <Order callback={props.func} />;
+      return <ClientTable callback={props.func} />;
     case "menu":
-      return <Menu />;
+      return <Menu name={props.nameClient} table={props.tableNum} />;
     default:
       return <Status />;
   }
@@ -27,7 +27,9 @@ const ManagerScreen = (props) => {
 export const LoungePage = () => {
   let history = useHistory();
   const [name, setName] = useState(""),
-    [screen, setScreen] = useState("");
+    [screen, setScreen] = useState(""),
+    [clientName, setClientName] = useState(""),
+    [tableNum, setTableNum] = useState("");
 
   fireFuncs.getLoggedUser((user) => {
     setName(user.displayName);
@@ -37,9 +39,11 @@ export const LoungePage = () => {
     fireFuncs.authSignOut().then(() => history.push("/"));
   };
 
-  const handleChangeScreens = (event) => {
+  const handleChangeScreens = (event, nameClient, tableNum) => {
     const page = event.currentTarget.id;
     setScreen(page);
+    setClientName(nameClient);
+    setTableNum(tableNum);
   };
 
   return (
@@ -73,7 +77,12 @@ export const LoungePage = () => {
           onClick={handleSingOut}
         />
       </Navibar>
-      <ManagerScreen screen={screen} func={handleChangeScreens} />
+      <ManagerScreen
+        screen={screen}
+        nameClient={clientName}
+        tableNum={tableNum}
+        func={handleChangeScreens}
+      />
     </LoungeSection>
   );
 };
