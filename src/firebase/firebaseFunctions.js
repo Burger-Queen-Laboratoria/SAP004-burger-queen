@@ -36,4 +36,12 @@ export const fireFuncs = {
   getLoggedUser: (callback) => {
     firebase.auth().onAuthStateChanged(callback);
   },
+
+  getMenuItens: (menuNumb) => {
+    return firebase
+      .firestore()
+      .collection("menus")
+      .where("menu", "==", menuNumb)
+      .get();
+  },
 };

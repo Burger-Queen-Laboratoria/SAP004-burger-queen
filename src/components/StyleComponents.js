@@ -219,7 +219,7 @@ export const MenusContainer = styled.div`
   padding-top: 4em;
 `;
 
-export const MenusSpan = styled.div`
+export const ItensContainer = styled.div`
   width: 100%;
   height: 100%;
 `;
