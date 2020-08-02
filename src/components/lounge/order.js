@@ -1,16 +1,15 @@
 import React from "react";
 import { ButtonMenu } from "../Button";
-import { MenusContainer, MenusSpan } from "../StyleComponents.js";
+import { MenusContainer, StyleForm } from "../StyleComponents.js";
+import { InputComponent } from "../Input";
 
 export const Order = (props) => {
   return (
     <MenusContainer>
-      <MenusSpan>
-        <h1>Nome do Cliente:</h1>
-      </MenusSpan>
-      <MenusSpan>
-        <h1>Numero da Mesa</h1>
-      </MenusSpan>
+      <StyleForm>
+        <InputComponent type="text" placeholder="Nome do Cliente" />
+        <InputComponent type="number" min="1" placeholder="Numero da Mesa" />
+      </StyleForm>
       <ButtonMenu id="menu" name="Menu" onClick={props.callback} />
     </MenusContainer>
   );
