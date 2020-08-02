@@ -3,6 +3,11 @@ import { MenusContainer, ItensContainer } from "../StyleComponents";
 import { Button } from "../Button";
 
 export const Resume = (props) => {
+  const sumPrice = (arrayProducts) => {
+    return arrayProducts.reduce((acc, nextProduct) => {
+      return (acc += nextProduct.price);
+    }, 0);
+  };
   const handleClick = (id) => {
     props.setValue(
       props.options.filter((element) => {
@@ -13,7 +18,7 @@ export const Resume = (props) => {
   if (props.resume) {
     return (
       <MenusContainer>
-        <h1>TOTAL:R$ 00</h1>
+        <h1>TOTAL:R$ {sumPrice(props.options)}</h1>
         {props.options.map((option) => {
           return (
             <ItensContainer key={option.id}>
