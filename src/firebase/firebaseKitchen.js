@@ -5,10 +5,12 @@ export const getOrder = async () => {
   const ar = [];
   i.forEach((item) => {
     const o = {
-      item: item.id,
+      id: item.id,
       name: item.data().nome,
       hour: item.data().hora,
       table: item.data().mesa,
+      status: item.data().status,
+      itens: item.data().itens,
     }
     ar.push(o);
   });

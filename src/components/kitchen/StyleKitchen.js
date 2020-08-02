@@ -49,6 +49,10 @@ export const StyleTagUl = styled.ul`
     border: 1px solid #C4C4C4;
     background-color: #A04835;
   }
+
+  & section {
+    background-color: rgba(255,255,255,0.3);
+  }
 `;
 
 export const StyleTagSection = styled.section`
@@ -71,4 +75,20 @@ export const StyleHeader = styled.header`
 export const StyleTagDiv = styled.div`
   display: flex;
   justify-content: space-around;
+`;
+
+export const StyleSectionOrder = styled.section`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+`;
+
+export const StyleButtonOrder = styled.button`
+  height: 50px;
+  background-color: #FED08F;
+  border: none;
+  font-weight: bold;
+  border-radius: 3px;
+  box-shadow: 1px 1px 2px black;
+  cursor: pointer;
 `;
