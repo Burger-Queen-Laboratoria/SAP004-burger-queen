@@ -34,12 +34,14 @@ export const LoginPage = () => {
       .authSignIn(email, password)
       .then((e) => {
         if (e.user.uid !== null) {
-          fireFuncs.getCurrentUser(e.user.uid).then((doc) => {
-            if (doc.data().sector === "Hall") {
-              history.push("/lounge");
-            } else {
-              history.push("/kitchen");
-            }
+          fireFuncs
+            .getCurrentUser(e.user.uid)
+            .then((doc) => {
+              if (doc.data().sector === "Hall") {
+                history.push("/lounge");
+              } else {
+                history.push("/kitchen");
+              }
           });
         }
       })

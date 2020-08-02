@@ -1,7 +1,12 @@
 import firebase from "./init-firebase.js";
 
 const getInProgressOrder = async () => {
-  const i = await firebase.firestore().collection("teste-jessica").where("status", "==", "andamento").orderBy("hora", "asc").get();
+  const i = await firebase
+    .firestore()
+    .collection("teste-jessica")
+    .where("status", "==", "andamento")
+    .orderBy("hora", "asc")
+    .get();
   const ar = [];
   i.forEach((item) => {
     const o = {
@@ -11,18 +16,25 @@ const getInProgressOrder = async () => {
       table: item.data().mesa,
       status: item.data().status,
       itens: item.data().itens,
-    }
+    };
     ar.push(o);
   });
   return ar;
 }
 
 export const concludeOrder = (id) => {
-  return firebase.firestore().collection("teste-jessica").doc(id).update({status: "concluído"});
+  return firebase
+    .firestore()
+    .collection("teste-jessica")
+    .doc(id)
+    .update({status: "concluído"});
 }
 
 export const snapshotOrders = (funcSetOrders) => {
-  firebase.firestore().collection("teste-jessica").onSnapshot(() => {
-    getInProgressOrder().then(funcSetOrders);
-  })
+  firebase
+    .firestore()
+    .collection("teste-jessica")
+    .onSnapshot(() => {
+      getInProgressOrder().then(funcSetOrders);
+  });
 }

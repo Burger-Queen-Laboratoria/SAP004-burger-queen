@@ -11,9 +11,10 @@ export const KitchenPage = () => {
   let history = useHistory();
   const [orders, setOrders] = useState([]);
 
-
   const handleClick = () => {
-    fireFuncs.authSignOut().then(() => history.push("/"));
+    fireFuncs
+      .authSignOut()
+      .then(() => history.push("/"));
   };
 
   useEffect(() => {

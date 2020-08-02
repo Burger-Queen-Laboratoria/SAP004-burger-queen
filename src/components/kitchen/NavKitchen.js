@@ -3,7 +3,12 @@ import iconChef from "../../img-documents/bakerIcon.svg";
 import iconLogOut from "../../img-documents/logoutIconKitchen.png";
 import iconOrder from "../../img-documents/orderIcon.svg";
 import iconHistoric from "../../img-documents/historicIcon.svg";
-import { StyledNavKitchen, StyledNavImg, StyleNavDiv, StyleNavP } from "./StyleKitchen.js"
+import { 
+  StyledNavKitchen, 
+  StyledNavImg, 
+  StyleNavDiv, 
+  StyleNavP 
+} from "./StyleKitchen.js";
 import logoImg from "../../img-documents/logo-red.png";
 
 const NavJobKitchen = (props) => {
@@ -12,7 +17,7 @@ const NavJobKitchen = (props) => {
       <StyledNavImg src={props.icon} alt={props.alt} ></StyledNavImg>
       <StyleNavP queen={props.queen}>{props.word}</StyleNavP>
     </StyleNavDiv>
-  )
+  );
 }
 
 export const NavigationKitchen = (props) => {
@@ -24,5 +29,5 @@ export const NavigationKitchen = (props) => {
       <NavJobKitchen icon={iconHistoric} alt="historic-order" word="Histórico" />
       <NavJobKitchen icon={iconLogOut} alt="signout-icon" word="Sair" {...props} />
     </StyledNavKitchen>
-  )
+  );
 }

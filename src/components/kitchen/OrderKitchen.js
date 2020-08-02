@@ -1,15 +1,21 @@
 import React, { useState } from "react";
-import { StyleHeader, StyleTagDiv, StyleTagUl, StyleSectionOrder, StyleButtonOrder } from "./StyleKitchen.js";
+import { 
+  StyleHeader, 
+  StyleTagDiv, 
+  StyleTagUl, 
+  StyleSectionOrder, 
+  StyleButtonOrder 
+} from "./StyleKitchen.js";
 import { concludeOrder } from "../../firebase/firebaseKitchen.js";
 
 const TagPArea = (props) => {
   return (
     <p>{props.item}</p>
-  )
+  );
 }
 
 export const OrderArea = (props, key) => {
-  const [display, setDisplay] = useState(false)
+  const [display, setDisplay] = useState(false);
   const orderList = props.order.itens;
 
   const handleClickOrder = () => {
@@ -17,7 +23,7 @@ export const OrderArea = (props, key) => {
   }
 
   const handleClickStatusOrder = () => {
-    concludeOrder(props.order.id)
+    concludeOrder(props.order.id);
   }
 
   return (
@@ -35,7 +41,7 @@ export const OrderArea = (props, key) => {
         </StyleSectionOrder>
       }
     </li>
-  )
+  );
 };
 
 export const TitleOrderArea = () => {
@@ -46,7 +52,7 @@ export const TitleOrderArea = () => {
       <TagPArea item="Hora" />
       <TagPArea item="Status" />
     </StyleHeader>
-  )
+  );
 }
 
 export const UlOrder = (props) => {
@@ -54,5 +60,5 @@ export const UlOrder = (props) => {
     <StyleTagUl>
       {props.orders.map(o => <OrderArea key={o.id} order={o}/>)}
     </StyleTagUl>
-  )
+  );
 }
