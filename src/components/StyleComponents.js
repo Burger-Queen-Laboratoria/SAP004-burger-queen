@@ -1,5 +1,5 @@
 import styled, { createGlobalStyle } from "styled-components";
-import BurgerQueen from "../img-documents/Making-Lettering-Tall_demo.ttf"
+import BurgerQueen from "../img-documents/Making-Lettering-Tall_demo.ttf";
 
 export const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -17,6 +17,7 @@ export const GlobalStyle = createGlobalStyle`
     background-color: #FED08F;
     height: 100%;
     width: 100%;
+    margin: 0px;
   }
 `;
 
@@ -40,7 +41,7 @@ const fontSizeAndFamily = `
   font-family: "helvetica";
 
   @media(max-width: 400px) {
-    font-size: 20px
+    font-size: 20px;
   }
 `;
 
@@ -50,14 +51,14 @@ export const StyleInput = styled.input`
   margin: 10px;
   font-size: 20px;
   outline: none;
-  color: #A04835;
+  color: #a04835;
   ${borderAndRadius}
 
   &::placeholder {
-    color: #A04835;
+    color: #a04835;
   }
 
-  @media(max-width: 400px) {
+  @media (max-width: 400px) {
     height: 50px;
     width: 85%;
   }
@@ -67,19 +68,12 @@ export const StyleButton = styled.button`
   height: 50px;
   width: 20%;
   margin: 5px;
-  background-color: #A04835;
+  background-color: #a04835;
   color: black;
   font-size: 20px;
   font-weight: bold;
   cursor: pointer;
-  /* background: ${({ ativo }) => (ativo ? "#000" : "#fff")};
-  color: ${({ ativo }) => (ativo ? "#fff" : "#000")};
-  cursor: pointer;
-  &::hover {
-    background: tomato;
-  } */
   ${borderAndRadius}
-
   @media(max-width: 400px) {
     height: 40px;
     width: 40%;
@@ -88,11 +82,11 @@ export const StyleButton = styled.button`
 
 export const TitleLogo = styled.p`
   font-family: Burger Queen;
-  font-size: ${props => props.size ? "80px" : "70px"};
+  font-size: ${(props) => (props.size ? "80px" : "70px")};
   margin: 5px;
 
   @media (max-width: 400px) {
-    font-size: ${props => props.size ? "60px" : "45px"};
+    font-size: ${(props) => (props.size ? "60px" : "45px")};
   }
 `;
 
@@ -116,6 +110,7 @@ export const StyleForm = styled.form`
 
 export const NewMember = styled.p`
   margin: 10px;
+
   ${fontSizeAndFamily}
 `;
 
@@ -141,10 +136,10 @@ export const CheckboxLabel = styled.label`
     width: 30px;
     height: 30px;
     display: inline-block;
-    border: solid 1px #A04835;
+    border: solid 1px #a04835;
     border-radius: 5px;
     box-sizing: border-box;
-    background-color: ${props => props.checked ? "#A04835" : "white"};
+    background-color: ${(props) => (props.checked ? "#A04835" : "white")};
   }
 
   @media (max-width: 400px) {
@@ -152,7 +147,7 @@ export const CheckboxLabel = styled.label`
       width: 20px;
       height: 20px;
     }
-  } 
+  }
 `;
 
 export const CheckboxContainer = styled.div`
@@ -183,5 +178,94 @@ export const RegisterTitleFlex = styled.div`
 `;
 
 export const ImgLogoRegister = styled.img`
-  width: 20%
+  width: 20%;
+`;
+
+export const Navibar = styled.div`
+  align-items: center;
+  background-color: white;
+  height: 5rem;
+  justify-content: space-between;
+  padding: 2em;
+  width: 100%;
+  ${displayFlexAndRow};
+`;
+export const IconsNavBar = styled.img`
+  margin-top: 1em;
+  margin-bottom: 1em;
+  width: 60px;
+  height: 60px;
+  ${displayFlexAndRow};
+`;
+
+export const ImgText = styled.p`
+  font-family: ${(props) => props.fonte};
+  font-size: ${(props) => props.size};
+  font-weight: bold;
+`;
+
+export const LoungeSection = styled.section`
+  align-items: center;
+  justify-content: center;
+  ${displayFlexAndColumn}
+`;
+
+export const MenusContainer = styled.div`
+  display: ${(props) => props.display};
+  align-items: ${(props) => props.align};
+  justify-content: ${(props) => props.justfy};
+  width: ${(props) => props.wid};
+  flex: 1;
+  padding-top: 4em;
+`;
+
+export const ItensContainer = styled.div`
+  width: 100%;
+  height: 100%;
+`;
+
+export const MenusImg = styled.img`
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+`;
+
+export const StyleButtonM = styled.button`
+  background-color: #A04835;
+  color: black;
+  font-size: 1em;
+  font-weight: bold;
+  width: 80%;
+  padding:1em;
+  cursor: pointer;
+  ${borderAndRadius}
+  
+  /* background: ${({ ativo }) => (ativo ? "#000" : "#fff")};
+  color: ${({ ativo }) => (ativo ? "#fff" : "#000")};
+  cursor: pointer;
+  &::hover {
+    background: tomato;
+  } */
+`;
+export const TableOrders = styled.table`
+  text-align: center;
+  border: solid black 2px;
+  margin: 1em;
+  width: 100%;
+`;
+
+export const TH = styled.th`
+  background-color: rgb(196, 196, 196);
+  border: solid black 2px;
+  padding: 1em;
+  font-weight: bold;
+`;
+
+export const TD = styled.td`
+  background-color: rgb(160, 72, 53);
+  border: solid black 2px;
+  padding: 1em;
+  font-weight: bold;
+  color: whitesmoke;
 `;

@@ -25,8 +25,27 @@ export const fireFuncs = {
       .doc(user.uid)
       .set(userInfos);
   },
+  collectionAdd: (collectionName, doc) => {
+    return firebase.firestore().collection(collectionName).add(doc);
+  },
 
   getCurrentUser: (userId) => {
     return firebase.firestore().collection("users").doc(userId).get();
+  },
+
+  getLoggedUser: (callback) => {
+    firebase.auth().onAuthStateChanged(callback);
+  },
+
+  getMenuItens: (menuNumb) => {
+    return firebase
+      .firestore()
+      .collection("menus")
+      .where("menu", "==", menuNumb)
+      .get();
+  },
+
+  getCurrentOrders: (callback) => {
+    return firebase.firestore().collection("pedidos").onSnapshot(callback);
   },
 };
