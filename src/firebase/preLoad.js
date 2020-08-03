@@ -21,7 +21,6 @@ const listMenu = [
 firebase.initializeApp(fireconfig);
 
 for (let element of listMenu) {
-  console.log(element);
   firebase
     .firestore()
     .collection("menus")

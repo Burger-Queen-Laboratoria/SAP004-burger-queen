@@ -40,7 +40,7 @@ export const Resume = (props) => {
       tempoPreparo: null,
       total: sumPrice(props.options),
     };
-    console.log(pedidos);
+
     fireFuncs.collectionAdd("pedidos", pedidos).then((doc) => {
       history.push("/");
     });

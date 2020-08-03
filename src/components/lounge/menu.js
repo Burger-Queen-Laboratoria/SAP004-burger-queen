@@ -11,7 +11,6 @@ import { Products } from "./products.js";
 import { Resume } from "./resume.js";
 
 export const Menu = (props) => {
-  console.log(props.name, props.table);
   const [display, setDisplay] = useState("block"),
     [aliItem, setAlign] = useState("center"),
     [justCont, setJustfy] = useState("center"),
@@ -20,7 +19,6 @@ export const Menu = (props) => {
     [menuItens, setMenuItens] = useState([]),
     [addItensToResume, setItensToResume] = useState([]);
 
-  console.log(addItensToResume);
   const ChangeStyleScreen = (event) => {
     setMenuItens([]);
     setDisplay("flex");
