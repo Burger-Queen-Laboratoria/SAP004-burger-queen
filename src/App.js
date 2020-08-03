@@ -4,6 +4,7 @@ import { LoginPage } from "./pages/LoginPage.js";
 import { Register } from "./pages/Register.js";
 import { LoungePage } from "./pages/LoungePage.js";
 import { KitchenPage } from "./pages/KitchenPage.js";
+import { HistoricArea } from "./pages/HistoricPage.js"
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/register" component={Register} />
         <Route path="/lounge" component={LoungePage} />
         <Route path="/kitchen" component={KitchenPage} />
+        <Route path="/historic" component={HistoricArea} />
       </Switch>
     </BrowserRouter>
   );

@@ -10,6 +10,8 @@ import {
   StyleNavP 
 } from "./StyleKitchen.js";
 import logoImg from "../../img-documents/logo-red.png";
+import { useHistory } from "react-router-dom";
+import { fireFuncs } from "../../firebase/firebaseFunctions.js";
 
 const NavJobKitchen = (props) => {
   return (
@@ -20,14 +22,30 @@ const NavJobKitchen = (props) => {
   );
 }
 
-export const NavigationKitchen = (props) => {
+export const NavigationKitchen = () => {
+  let history = useHistory();
+  
+  const handleClickOut = () => {
+    fireFuncs
+      .authSignOut()
+      .then(() => history.push("/"));
+  };
+
+  const handleClickHistoric = () => {
+    history.push("/historic");
+  }
+
+  const handleClickOrder = () => {
+    history.push("/kitchen");
+  }
+
   return (
     <StyledNavKitchen>
       <NavJobKitchen queen={true} icon={logoImg} alt="logo" word="BurgerQueen" />
       <NavJobKitchen icon={iconChef} alt="kitchen-icon" word="Fulano" />
-      <NavJobKitchen icon={iconOrder} alt="orders" word="Pedidos" />
-      <NavJobKitchen icon={iconHistoric} alt="historic-order" word="Histórico" />
-      <NavJobKitchen icon={iconLogOut} alt="signout-icon" word="Sair" {...props} />
+      <NavJobKitchen icon={iconOrder} alt="orders" word="Pedidos" onClick={handleClickOrder} />
+      <NavJobKitchen icon={iconHistoric} alt="historic-order" word="Histórico" onClick={handleClickHistoric}/>
+      <NavJobKitchen icon={iconLogOut} alt="signout-icon" word="Sair" onClick={handleClickOut}/>
     </StyledNavKitchen>
   );
 }

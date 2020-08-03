@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { 
   StyleHeader, 
   StyleTagDiv, 
@@ -6,12 +6,12 @@ import {
   StyleSectionOrder, 
   StyleButtonOrder 
 } from "./StyleKitchen.js";
-import { 
-  concludeOrder, 
-  // addHourWhenConcludeOrder, 
-  // calcBetweenInicialAndFinalTimeOrder 
-} from "../../firebase/firebaseKitchen.js";
+import { concludeOrder } from "../../firebase/firebaseKitchen.js";
 import moment from "moment";
+import { snapshotOrders } from "../../firebase/firebaseKitchen.js";
+import { Title } from "../kitchen/TitleKitchen.js";
+import { StyleTagSection } from "../kitchen/StyleKitchen.js";
+import { NavigationKitchen } from "../kitchen/NavKitchen.js";
 
 const TagPArea = (props) => {
   return (
@@ -19,7 +19,7 @@ const TagPArea = (props) => {
   );
 }
 
-export const OrderArea = (props, key) => {
+const OrderArea = (props, key) => {
   const [display, setDisplay] = useState(false);
   const orderList = props.order.itens;
 
@@ -49,7 +49,7 @@ export const OrderArea = (props, key) => {
   );
 };
 
-export const TitleOrderArea = () => {
+const TitleOrderArea = () => {
   return (
     <StyleHeader>
       <TagPArea item="Nome" />
@@ -60,10 +60,38 @@ export const TitleOrderArea = () => {
   );
 }
 
-export const UlOrder = (props) => {
+const UlOrder = (props) => {
   return (
     <StyleTagUl>
       {props.orders.map(o => <OrderArea key={o.id} order={o}/>)}
     </StyleTagUl>
   );
 }
+
+const OrderAreaComplete = () => {
+  const [orders, setOrders] = useState([]);
+
+  useEffect(() => {
+    snapshotOrders(setOrders);
+  }, []);
+
+  return (
+    <section>
+        <Title name="Pedidos"/>
+        <StyleTagSection>
+          <TitleOrderArea />
+          <UlOrder orders={orders}/>
+        </StyleTagSection>
+      </section>
+  )
+}
+
+export const OrderPage = () => {
+ 
+  return (
+    <>
+      <NavigationKitchen />
+      <OrderAreaComplete />
+    </>
+  );
+};
