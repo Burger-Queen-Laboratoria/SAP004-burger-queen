@@ -1,4 +1,5 @@
 import firebase from "./init-firebase.js";
+import moment from "moment";
 
 const getInProgressOrder = async () => {
   const i = await firebase
@@ -12,7 +13,7 @@ const getInProgressOrder = async () => {
     const o = {
       id: item.id,
       name: item.data().nome,
-      hour: item.data().horaInicial,
+      initialHour: item.data().horaInicial.toDate(),
       table: item.data().mesa,
       status: item.data().status,
       itens: item.data().itens,
@@ -22,42 +23,20 @@ const getInProgressOrder = async () => {
   return ar;
 }
 
-export const concludeOrder = (id) => {
+export const concludeOrder = (order) => {
+  const time = new Date(Date.now());
+  const calc = moment(new Date(time - order.initialHour)).utc().format("HH:mm:ss")
+
   return firebase
     .firestore()
     .collection("teste-jessica")
-    .doc(id)
-    .update({status: "concluído"});
+    .doc(order.id)
+    .update({
+      status: "concluído",
+      horaFinal: time,
+      calc: calc,
+    });
 }
-
-const convertHour = (type) => {
-  return type >= "0" && type < "10" ? `0${type}`: type;
-}
-
-export const addHourWhenConcludeOrder = (id) => {
-  const hour = new Date();
-  const idOrder = firebase
-    .firestore()
-    .collection("teste-jessica")
-    .doc(id);
-  const getHourConvert = convertHour(hour.getHours());
-  const getMinuteConvert = convertHour(hour.getMinutes());
-  return idOrder
-    .update({horaFinal: `${getHourConvert}:${getMinuteConvert}`});
-}
-
-// export const calcBetweenInicialAndFinalTimeOrder = (id) => {
-//   const idOrder = firebase.firestore().collection("teste-jessica").doc(id);
-//   const inicialHour = idOrder.get().then(item => item.data().horaInicial).then(hour => {
-//     const separateHour = hour.split(":");
-//     return (Number(separateHour[0])*60)+Number(separateHour[1]);
-//   });
-//   const finalHour = idOrder.get().then(item => item.data().horaFinal).then(hour => {
-//     const separateHour = hour.split(":");
-//     return (Number(separateHour[0])*60)+Number(separateHour[1]);
-//   });
-//   console.log(finalHour.then() - inicialHour.then());
-// }
 
 export const snapshotOrders = (funcSetOrders) => {
   firebase

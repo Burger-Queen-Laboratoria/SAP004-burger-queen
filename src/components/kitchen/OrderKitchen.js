@@ -8,9 +8,10 @@ import {
 } from "./StyleKitchen.js";
 import { 
   concludeOrder, 
-  addHourWhenConcludeOrder, 
+  // addHourWhenConcludeOrder, 
   // calcBetweenInicialAndFinalTimeOrder 
 } from "../../firebase/firebaseKitchen.js";
+import moment from "moment";
 
 const TagPArea = (props) => {
   return (
@@ -27,8 +28,8 @@ export const OrderArea = (props, key) => {
   }
 
   const handleClickStatusOrder = () => {
-    concludeOrder(props.order.id);
-    addHourWhenConcludeOrder(props.order.id);
+    concludeOrder(props.order);
+    // addHourWhenConcludeOrder(props.order.id);
     // calcBetweenInicialAndFinalTimeOrder(props.order.id)
   }
 
@@ -37,7 +38,7 @@ export const OrderArea = (props, key) => {
       <StyleTagDiv>
         <TagPArea item={props.order.name} />
         <TagPArea item={props.order.table} />
-        <TagPArea item={props.order.hour} />
+        <TagPArea item={moment(props.order.initialHour).format("HH:mm:ss")} />
         <TagPArea item={props.order.status} />
       </StyleTagDiv>
       {display &&
