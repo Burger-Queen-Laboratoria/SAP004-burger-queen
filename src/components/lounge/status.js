@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { fireFuncs } from "../../firebase/firebaseFunctions";
-import { LoungeSection, TableOrders, TH, TD } from "../StyleComponents";
+import {
+  LoungeSection,
+  UlStyle,
+  Container,
+  ContainerTh,
+  ContainerSection,
+} from "../StyleComponents";
 
 export const Status = () => {
   const [orders, setOrders] = useState([]);
@@ -19,30 +25,26 @@ export const Status = () => {
   }, []);
 
   return (
-    <LoungeSection>
-      <TableOrders>
-        <tbody>
-          <tr>
-            <TH>Cliente</TH>
-            <TH>Mesa</TH>
-            <TH>Hora</TH>
-            <TH>Status</TH>
-          </tr>
-          {orders.map((order) => {
-            return (
-              <tr key={order.id}>
-                <TD>{order.cliente}</TD>
+    <ContainerSection>
+      <Container>
+        <ContainerTh>Cliente</ContainerTh>
+        <ContainerTh>Mesa</ContainerTh>
+        <ContainerTh>Hora</ContainerTh>
+        <ContainerTh>Status</ContainerTh>
+      </Container>
+      {orders.map((order) => {
+        return (
+          <UlStyle key={order.id}>
+            <UlStyle>{order.cliente}</UlStyle>
 
-                <TD>{order.mesa}</TD>
+            <UlStyle>{order.mesa}</UlStyle>
 
-                <TD>{order.hora}</TD>
+            <UlStyle>{order.hora}</UlStyle>
 
-                <TD>{order.status}</TD>
-              </tr>
-            );
-          })}
-        </tbody>
-      </TableOrders>
-    </LoungeSection>
+            <UlStyle>{order.status}</UlStyle>
+          </UlStyle>
+        );
+      })}
+    </ContainerSection>
   );
 };

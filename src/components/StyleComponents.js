@@ -240,24 +240,36 @@ export const StyleButtonM = styled.button`
   cursor: pointer;
   ${borderAndRadius}
 `;
-export const TableOrders = styled.table`
-  text-align: center;
-  border: solid black 2px;
-  margin: 1em;
-  width: 100%;
+
+export const UlStyle = styled.ul`
+  display: flex;
+  flex-direction: row;
+  background-color: #a04835;
+  padding: 1em;
+  font-weight: bold;
+  list-style-type: none;
+  margin: 0;
 `;
 
-export const TH = styled.th`
+export const Container = styled.div`
+  display: flex;
+  align-items: center;
+  flex: 1;
+`;
+
+export const ContainerTh = styled.div`
+  display: flex;
+  flex-direction: row;
   background-color: rgb(196, 196, 196);
   border: solid black 2px;
   padding: 1em;
   font-weight: bold;
+  list-style-type: none;
+  flex: 1;
 `;
 
-export const TD = styled.td`
-  background-color: rgb(160, 72, 53);
-  border: solid black 2px;
-  padding: 1em;
-  font-weight: bold;
-  color: whitesmoke;
+export const ContainerSection = styled.section`
+  display: flex;
+  flex-direction: column;
+  padding-top: 3em;
 `;
