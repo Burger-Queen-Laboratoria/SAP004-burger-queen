@@ -49,18 +49,18 @@ const OrderArea = (props, key) => {
   );
 };
 
-const TitleOrderArea = () => {
+export const TitleOrderArea = (props) => {
   return (
     <StyleHeader>
       <TagPArea item="Nome" />
       <TagPArea item="Mesa" />
-      <TagPArea item="Hora" />
+      <TagPArea item={props.time} />
       <TagPArea item="Status" />
     </StyleHeader>
   );
 }
 
-const UlOrder = (props) => {
+export const UlOrder = (props) => {
   return (
     <StyleTagUl>
       {props.orders.map(o => <OrderArea key={o.id} order={o}/>)}
@@ -77,12 +77,12 @@ const OrderAreaComplete = () => {
 
   return (
     <section>
-        <Title name="Pedidos"/>
-        <StyleTagSection>
-          <TitleOrderArea />
-          <UlOrder orders={orders}/>
-        </StyleTagSection>
-      </section>
+      <Title name="Pedidos"/>
+      <StyleTagSection>
+        <TitleOrderArea time="Hora"/>
+        <UlOrder orders={orders}/>
+      </StyleTagSection>
+    </section>
   )
 }
 
