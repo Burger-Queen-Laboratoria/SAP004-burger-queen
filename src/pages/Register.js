@@ -34,13 +34,16 @@ export const Register = () => {
     fireFuncs
       .authCreateUser(email, password)
       .then((result) => {
-        fireFuncs.collectionUser(result.user, name, email, sectorJob[0]).then(() => {
-          if (sectorJob[0] === "Kitchen") {
-            history.push("/kitchen");
-          } else {
-            history.push("/lounge");
-          }
-        });
+        result.user.updateProfile({ displayName: name });
+        fireFuncs
+          .collectionUser(result.user, name, email, sectorJob[0])
+          .then(() => {
+            if (sectorJob[0] === "Kitchen") {
+              history.push("/kitchen");
+            } else {
+              history.push("/lounge");
+            }
+          });
       })
       .catch((error) => {
         const firebaseError = new ErrorDictionary(error);
@@ -56,7 +59,10 @@ export const Register = () => {
   return (
     <StyleForm>
       <RegisterTitleFlex>
-        <ImgLogoRegister src={logoImg} alt="logo-burger-queen"></ImgLogoRegister>
+        <ImgLogoRegister
+          src={logoImg}
+          alt="logo-burger-queen"
+        ></ImgLogoRegister>
         <TitleLogo>Burger Queen</TitleLogo>
       </RegisterTitleFlex>
       <InputComponent
