@@ -5,14 +5,14 @@ const getInProgressOrder = async () => {
     .firestore()
     .collection("teste-jessica")
     .where("status", "==", "andamento")
-    .orderBy("hora", "asc")
+    .orderBy("horaInicial", "asc")
     .get();
   const ar = [];
   i.forEach((item) => {
     const o = {
       id: item.id,
       name: item.data().nome,
-      hour: item.data().hora,
+      hour: item.data().horaInicial,
       table: item.data().mesa,
       status: item.data().status,
       itens: item.data().itens,
@@ -28,6 +28,16 @@ export const concludeOrder = (id) => {
     .collection("teste-jessica")
     .doc(id)
     .update({status: "concluído"});
+}
+
+export const addHourWhenConcludeOrder = (id) => {
+  const hour = new Date();
+  const idOrder = firebase
+    .firestore()
+    .collection("teste-jessica")
+    .doc(id);
+  return idOrder
+    .update({horaFinal: `${hour.getHours()}:${hour.getMinutes()}`});
 }
 
 export const snapshotOrders = (funcSetOrders) => {

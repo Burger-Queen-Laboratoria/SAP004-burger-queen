@@ -6,7 +6,7 @@ import {
   StyleSectionOrder, 
   StyleButtonOrder 
 } from "./StyleKitchen.js";
-import { concludeOrder } from "../../firebase/firebaseKitchen.js";
+import { concludeOrder, addHourWhenConcludeOrder } from "../../firebase/firebaseKitchen.js";
 
 const TagPArea = (props) => {
   return (
@@ -24,6 +24,7 @@ export const OrderArea = (props, key) => {
 
   const handleClickStatusOrder = () => {
     concludeOrder(props.order.id);
+    addHourWhenConcludeOrder(props.order.id);
   }
 
   return (
