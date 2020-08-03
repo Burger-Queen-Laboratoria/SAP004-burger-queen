@@ -4,16 +4,16 @@ import {
   StyleTagDiv, 
   StyleTagUl, 
   StyleSectionOrder, 
-  StyleButtonOrder 
+  StyleButtonOrder,
+  StyleTagSection,
 } from "./StyleKitchen.js";
 import { concludeOrder } from "../../firebase/firebaseKitchen.js";
 import moment from "moment";
 import { snapshotOrders } from "../../firebase/firebaseKitchen.js";
 import { Title } from "../kitchen/TitleKitchen.js";
-import { StyleTagSection } from "../kitchen/StyleKitchen.js";
 import { NavigationKitchen } from "../kitchen/NavKitchen.js";
 
-const TagPArea = (props) => {
+export const TagPArea = (props) => {
   return (
     <p>{props.item}</p>
   );
@@ -60,7 +60,7 @@ export const TitleOrderArea = (props) => {
   );
 }
 
-export const UlOrder = (props) => {
+const UlOrder = (props) => {
   return (
     <StyleTagUl>
       {props.orders.map(o => <OrderArea key={o.id} order={o}/>)}

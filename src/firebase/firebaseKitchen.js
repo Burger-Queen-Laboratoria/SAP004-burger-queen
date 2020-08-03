@@ -17,6 +17,10 @@ const getOrder = async (status, time, ascOrDesc) => {
       table: item.data().mesa,
       status: item.data().status,
       itens: item.data().pedido,
+      finalHour: item.data().horaFinal,
+      prepareTime: item.data().tempoPreparo,
+      waiter: item.data().garcom,
+      totalPrice: item.data().total,
     };
     ar.push(o);
   });
