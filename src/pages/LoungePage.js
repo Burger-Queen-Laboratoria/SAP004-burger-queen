@@ -18,7 +18,13 @@ const ManagerScreen = (props) => {
     case "table":
       return <ClientTable callback={props.func} />;
     case "menu":
-      return <Menu name={props.nameClient} table={props.tableNum} />;
+      return (
+        <Menu
+          name={props.nameClient}
+          table={props.tableNum}
+          garcom={props.garcom}
+        />
+      );
     default:
       return <Status />;
   }
@@ -81,6 +87,7 @@ export const LoungePage = () => {
         screen={screen}
         nameClient={clientName}
         tableNum={tableNum}
+        garcom={name}
         func={handleChangeScreens}
       />
     </LoungeSection>

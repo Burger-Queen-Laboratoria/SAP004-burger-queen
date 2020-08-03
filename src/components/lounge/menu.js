@@ -69,6 +69,9 @@ export const Menu = (props) => {
         resume={showResume}
         options={addItensToResume}
         setValue={setItensToResume}
+        name={props.garcom}
+        nameClient={props.name}
+        tableNUm={props.table}
       />
     </MenusContainer>
   );

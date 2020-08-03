@@ -1,8 +1,11 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import { MenusContainer, ItensContainer } from "../StyleComponents";
 import { Button } from "../Button";
+import { fireFuncs } from "../../firebase/firebaseFunctions";
 
 export const Resume = (props) => {
+  let history = useHistory();
   const sumPrice = (arrayProducts) => {
     return arrayProducts.reduce((acc, nextProduct) => {
       return (acc += nextProduct.price * nextProduct.count);
@@ -25,6 +28,25 @@ export const Resume = (props) => {
       );
     }
   };
+
+  const handleSendOrder = () => {
+    const pedidos = {
+      garcom: props.name,
+      cliente: props.nameClient,
+      mesa: props.tableNUm,
+      pedido: props.options,
+      status: "Pedido enviado para cozinha",
+      hora: new Date().toLocaleString(),
+      tempoPreparo: null,
+      total: sumPrice(props.options),
+    };
+    console.log(pedidos);
+    fireFuncs.collectionAdd("pedidos", pedidos).then((doc) => {
+      console.log(doc);
+      history.push("/");
+    });
+  };
+
   if (props.resume) {
     return (
       <MenusContainer>
@@ -47,7 +69,7 @@ export const Resume = (props) => {
             </ItensContainer>
           );
         })}
-        <Button name="Enviar para Cozinha" />
+        <Button name="Enviar para Cozinha" onClick={handleSendOrder} />
       </MenusContainer>
     );
   } else {
