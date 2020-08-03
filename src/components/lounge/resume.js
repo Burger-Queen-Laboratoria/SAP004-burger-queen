@@ -5,7 +5,7 @@ import { Button } from "../Button";
 export const Resume = (props) => {
   const sumPrice = (arrayProducts) => {
     return arrayProducts.reduce((acc, nextProduct) => {
-      return (acc += nextProduct.price);
+      return (acc += nextProduct.price * nextProduct.count);
     }, 0);
   };
   const handleClick = (id) => {
@@ -22,7 +22,11 @@ export const Resume = (props) => {
         {props.options.map((option) => {
           return (
             <ItensContainer key={option.id}>
-              <span>{option.item}</span>
+              <span>
+                {option.item}
+                <h3>Quantidade</h3>
+                {option.count}
+              </span>
               <h3>R$ {option.price}</h3>
               <Button
                 name="-"
