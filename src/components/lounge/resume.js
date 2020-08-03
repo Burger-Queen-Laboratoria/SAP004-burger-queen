@@ -8,12 +8,22 @@ export const Resume = (props) => {
       return (acc += nextProduct.price * nextProduct.count);
     }, 0);
   };
-  const handleClick = (id) => {
-    props.setValue(
-      props.options.filter((element) => {
-        return element.id !== id;
-      })
-    );
+  const handleClick = (option) => {
+    if (option.count > 1) {
+      props.setValue((options) => {
+        return props.options.map((item) => {
+          return item.id === option.id
+            ? { ...item, count: item.count - 1 }
+            : item;
+        });
+      });
+    } else {
+      props.setValue(
+        props.options.filter((element) => {
+          return element.id !== option.id;
+        })
+      );
+    }
   };
   if (props.resume) {
     return (
@@ -23,15 +33,15 @@ export const Resume = (props) => {
           return (
             <ItensContainer key={option.id}>
               <span>
-                {option.item}
+                <h3>{option.item}</h3>
                 <h3>Quantidade</h3>
-                {option.count}
+                <h3>{option.count}</h3>
               </span>
-              <h3>R$ {option.price}</h3>
+              <h3>Preço Unidade R$ {option.price}</h3>
               <Button
                 name="-"
                 onClick={() => {
-                  handleClick(option.id);
+                  handleClick(option);
                 }}
               />
             </ItensContainer>
