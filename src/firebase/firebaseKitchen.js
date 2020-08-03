@@ -1,12 +1,12 @@
 import firebase from "./init-firebase.js";
 import moment from "moment";
 
-const getInProgressOrder = async () => {
+const getOrder = async (status, time, ascOrDesc) => {
   const i = await firebase
     .firestore()
     .collection("pedidos")
-    .where("status", "==", "Pedido enviado para cozinha")
-    .orderBy("horaInicial", "asc")
+    .where("status", "==", status)
+    .orderBy(time, ascOrDesc)
     .get();
   const ar = [];
   i.forEach((item) => {
@@ -39,10 +39,25 @@ export const concludeOrder = (order) => {
 }
 
 export const snapshotOrders = (funcSetOrders) => {
+  const status = "Pedido enviado para cozinha";
+  const time = "horaInicial";
+  const ascOrDesc = "asc";
   firebase
     .firestore()
     .collection("pedidos")
     .onSnapshot(() => {
-      getInProgressOrder().then(funcSetOrders);
+      getOrder(status, time, ascOrDesc).then(funcSetOrders);
+  });
+}
+
+export const snapshotConcludeOrders = (funcSetOrders) => {
+  const status = "concluído";
+  const time = "horaFinal";
+  const ascOrDesc = "desc";
+  firebase
+    .firestore()
+    .collection("pedidos")
+    .onSnapshot(() => {
+      getOrder(status, time, ascOrDesc).then(funcSetOrders);
   });
 }
