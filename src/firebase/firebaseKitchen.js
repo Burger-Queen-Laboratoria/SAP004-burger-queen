@@ -4,19 +4,19 @@ import moment from "moment";
 const getInProgressOrder = async () => {
   const i = await firebase
     .firestore()
-    .collection("teste-jessica")
-    .where("status", "==", "andamento")
+    .collection("pedidos")
+    .where("status", "==", "Pedido enviado para cozinha")
     .orderBy("horaInicial", "asc")
     .get();
   const ar = [];
   i.forEach((item) => {
     const o = {
       id: item.id,
-      name: item.data().nome,
+      name: item.data().cliente,
       initialHour: item.data().horaInicial.toDate(),
       table: item.data().mesa,
       status: item.data().status,
-      itens: item.data().itens,
+      itens: item.data().pedido,
     };
     ar.push(o);
   });
@@ -29,19 +29,19 @@ export const concludeOrder = (order) => {
 
   return firebase
     .firestore()
-    .collection("teste-jessica")
+    .collection("pedidos")
     .doc(order.id)
     .update({
       status: "concluído",
       horaFinal: time,
-      calc: calc,
+      tempoPreparo: calc,
     });
 }
 
 export const snapshotOrders = (funcSetOrders) => {
   firebase
     .firestore()
-    .collection("teste-jessica")
+    .collection("pedidos")
     .onSnapshot(() => {
       getInProgressOrder().then(funcSetOrders);
   });

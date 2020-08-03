@@ -29,8 +29,6 @@ export const OrderArea = (props, key) => {
 
   const handleClickStatusOrder = () => {
     concludeOrder(props.order);
-    // addHourWhenConcludeOrder(props.order.id);
-    // calcBetweenInicialAndFinalTimeOrder(props.order.id)
   }
 
   return (
@@ -43,7 +41,7 @@ export const OrderArea = (props, key) => {
       </StyleTagDiv>
       {display &&
         <StyleSectionOrder >
-          <div>{orderList.map(i=><p key={key+i}>{i}</p>)}</div>
+          <div>{orderList.map(i=><p key={key+i.item}>{i.item}</p>)}</div>
           <StyleButtonOrder onClick={handleClickStatusOrder}>Concluído</StyleButtonOrder>
         </StyleSectionOrder>
       }
