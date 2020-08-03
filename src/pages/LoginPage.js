@@ -20,6 +20,16 @@ export const LoginPage = () => {
   const [errorLogin, setErrorLogin] = useState("");
   let history = useHistory();
 
+  fireFuncs.getLoggedUser((user) => {
+    fireFuncs.getCurrentUser(user.uid).then((doc) => {
+      if (doc.data().sector === "Hall") {
+        history.push("/lounge");
+      } else {
+        history.push("/kitchen");
+      }
+    });
+  });
+
   const handleInputEmail = (e) => {
     setEmail(e.target.value);
   };
@@ -67,11 +77,7 @@ export const LoginPage = () => {
           placeholder="senha"
           onBlur={handleInputPassword}
         />
-        <Button
-          type="submit"
-          name="Entrar"
-          onClick={handleClick}
-        />
+        <Button type="submit" name="Entrar" onClick={handleClick} />
       </StyleForm>
       <ErrorArea err={errorLogin} />
       <NewMember>Funcionário novo?</NewMember>

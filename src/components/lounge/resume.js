@@ -42,7 +42,6 @@ export const Resume = (props) => {
     };
     console.log(pedidos);
     fireFuncs.collectionAdd("pedidos", pedidos).then((doc) => {
-      console.log(doc);
       history.push("/");
     });
   };
