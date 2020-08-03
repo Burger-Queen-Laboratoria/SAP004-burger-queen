@@ -21,13 +21,15 @@ export const LoginPage = () => {
   let history = useHistory();
 
   fireFuncs.getLoggedUser((user) => {
-    fireFuncs.getCurrentUser(user.uid).then((doc) => {
-      if (doc.data().sector === "Hall") {
-        history.push("/lounge");
-      } else {
-        history.push("/kitchen");
-      }
-    });
+    if (user) {
+      fireFuncs.getCurrentUser(user.uid).then((doc) => {
+        if (doc.data().sector === "Hall") {
+          history.push("/lounge");
+        } else {
+          history.push("/kitchen");
+        }
+      });
+    }
   });
 
   const handleInputEmail = (e) => {

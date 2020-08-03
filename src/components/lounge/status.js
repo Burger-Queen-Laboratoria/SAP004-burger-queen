@@ -1,18 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { fireFuncs } from "../../firebase/firebaseFunctions";
 import { ItensContainer } from "../StyleComponents";
 
 export const Status = () => {
+  const [orders, setOrders] = useState([]);
+
   const showOrders = (result) => {
     result.forEach((element) => {
-      const order = element.data();
+      let order = element.data();
       order.id = element.id;
-      setOrders((orders) => [...orders, element]);
+      setOrders((orders) => [...orders, order]);
     });
   };
 
-  const [orders, setOrders] = useState([]);
-  fireFuncs.getCurrentOrders(showOrders);
+  useEffect(() => {
+    let unsubscribe = fireFuncs.getCurrentOrders(showOrders);
+    return () => unsubscribe();
+  }, []);
+
   return (
     <div>
       {orders.map((order) => {
@@ -21,7 +26,7 @@ export const Status = () => {
             <span>{order.cliente}</span>
             <span>{order.mesa}</span>
             <span>{order.hora}</span>
-            <span>{order.Status}</span>
+            <span>{order.status}</span>
           </ItensContainer>
         );
       })}

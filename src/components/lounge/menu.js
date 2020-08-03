@@ -19,6 +19,7 @@ export const Menu = (props) => {
     [showResume, setShowResume] = useState(false),
     [menuItens, setMenuItens] = useState([]),
     [addItensToResume, setItensToResume] = useState([]);
+
   console.log(addItensToResume);
   const ChangeStyleScreen = (event) => {
     setMenuItens([]);
