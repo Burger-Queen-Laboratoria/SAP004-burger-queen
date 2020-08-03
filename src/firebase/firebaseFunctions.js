@@ -44,4 +44,8 @@ export const fireFuncs = {
       .where("menu", "==", menuNumb)
       .get();
   },
+
+  getCurrentOrders: (callback) => {
+    return firebase.firestore().collection("pedidos").onSnapshot(callback);
+  },
 };
