@@ -35,7 +35,7 @@ export const Status = () => {
 
                 <TD>{order.mesa}</TD>
 
-                {/* <TD>{order.hora}</TD> */}
+                <TD>{order.hora}</TD>
 
                 <TD>{order.status}</TD>
               </tr>
