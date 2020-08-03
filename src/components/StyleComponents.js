@@ -248,3 +248,24 @@ export const StyleButtonM = styled.button`
     background: tomato;
   } */
 `;
+export const TableOrders = styled.table`
+  text-align: center;
+  border: solid black 2px;
+  margin: 1em;
+  width: 100%;
+`;
+
+export const TH = styled.th`
+  background-color: rgb(196, 196, 196);
+  border: solid black 2px;
+  padding: 1em;
+  font-weight: bold;
+`;
+
+export const TD = styled.td`
+  background-color: rgb(160, 72, 53);
+  border: solid black 2px;
+  padding: 1em;
+  font-weight: bold;
+  color: whitesmoke;
+`;

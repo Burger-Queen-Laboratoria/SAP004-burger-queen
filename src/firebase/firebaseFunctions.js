@@ -46,10 +46,6 @@ export const fireFuncs = {
   },
 
   getCurrentOrders: (callback) => {
-    return firebase
-      .firestore()
-      .collection("pedidos")
-      .where("status", "==", "Pedido enviado para cozinha")
-      .onSnapshot(callback);
+    return firebase.firestore().collection("pedidos").onSnapshot(callback);
   },
 };

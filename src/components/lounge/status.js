@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { fireFuncs } from "../../firebase/firebaseFunctions";
-import { ItensContainer } from "../StyleComponents";
+import { LoungeSection, TableOrders, TH, TD } from "../StyleComponents";
 
 export const Status = () => {
   const [orders, setOrders] = useState([]);
@@ -19,17 +19,30 @@ export const Status = () => {
   }, []);
 
   return (
-    <div>
-      {orders.map((order) => {
-        return (
-          <ItensContainer key={order.id}>
-            <span>{order.cliente}</span>
-            <span>{order.mesa}</span>
-            <span>{order.hora}</span>
-            <span>{order.status}</span>
-          </ItensContainer>
-        );
-      })}
-    </div>
+    <LoungeSection>
+      <TableOrders>
+        <tbody>
+          <tr>
+            <TH>Cliente</TH>
+            <TH>Mesa</TH>
+            <TH>Hora</TH>
+            <TH>Status</TH>
+          </tr>
+          {orders.map((order) => {
+            return (
+              <tr key={order.id}>
+                <TD>{order.cliente}</TD>
+
+                <TD>{order.mesa}</TD>
+
+                <TD>{order.hora}</TD>
+
+                <TD>{order.status}</TD>
+              </tr>
+            );
+          })}
+        </tbody>
+      </TableOrders>
+    </LoungeSection>
   );
 };
