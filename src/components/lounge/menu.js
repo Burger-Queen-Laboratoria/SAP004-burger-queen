@@ -19,7 +19,7 @@ export const Menu = (props) => {
     [showResume, setShowResume] = useState(false),
     [menuItens, setMenuItens] = useState([]),
     [addItensToResume, setItensToResume] = useState([]);
-
+  console.log(addItensToResume);
   const ChangeStyleScreen = (event) => {
     setMenuItens([]);
     setDisplay("flex");
@@ -62,7 +62,7 @@ export const Menu = (props) => {
 
       <Products
         options={menuItens}
-        value={addItensToResume}
+        valueItem={addItensToResume}
         setValue={setItensToResume}
       />
       <Resume

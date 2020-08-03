@@ -4,7 +4,22 @@ import { MenusContainer, ItensContainer } from "../StyleComponents";
 
 export const Products = ({ options, valueItem, setValue }) => {
   const handleClick = (object) => {
-    setValue((valueItem) => [...valueItem, object]);
+    if (
+      valueItem.some((item) => {
+        return item.id === object.id;
+      })
+    ) {
+      setValue((valueItem) => {
+        return valueItem.map((item) => {
+          return item.id === object.id
+            ? { ...item, count: item.count + 1 }
+            : item;
+        });
+      });
+    } else {
+      object.count = 1;
+      setValue((valueItem) => [...valueItem, object]);
+    }
   };
 
   return (
@@ -13,7 +28,7 @@ export const Products = ({ options, valueItem, setValue }) => {
         return (
           <ItensContainer key={option.id}>
             <span>{option.item}</span>
-            <p>R$ {option.price}</p>
+            <h3>R$ {option.price}</h3>
             <Button
               name="+"
               onClick={() => {

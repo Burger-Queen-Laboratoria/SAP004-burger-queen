@@ -23,7 +23,7 @@ export const Resume = (props) => {
           return (
             <ItensContainer key={option.id}>
               <span>{option.item}</span>
-              <p>R$ {option.price}</p>
+              <h3>R$ {option.price}</h3>
               <Button
                 name="-"
                 onClick={() => {
