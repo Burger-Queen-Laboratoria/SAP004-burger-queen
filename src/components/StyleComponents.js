@@ -235,7 +235,7 @@ export const StyleButtonM = styled.button`
   color: black;
   font-size: 1em;
   font-weight: bold;
-  width: 80%;
+
   padding: 1em;
   cursor: pointer;
   ${borderAndRadius}

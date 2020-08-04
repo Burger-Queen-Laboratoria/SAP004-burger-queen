@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ButtonMenu } from "../Button";
-import { MenusContainer, StyleForm } from "../StyleComponents.js";
+import { ContainerSection, StyleForm } from "../StyleComponents.js";
 import { InputComponent } from "../Input";
 
 export const ClientTable = (props) => {
@@ -13,7 +13,7 @@ export const ClientTable = (props) => {
   };
 
   return (
-    <MenusContainer>
+    <ContainerSection>
       <StyleForm>
         <InputComponent
           type="text"
@@ -30,14 +30,14 @@ export const ClientTable = (props) => {
             setElements(e, setTableNum);
           }}
         />
+        <ButtonMenu
+          id="menu"
+          name="Menu"
+          onClick={(event) => {
+            props.callback(event, nameClient, tableNum);
+          }}
+        />
       </StyleForm>
-      <ButtonMenu
-        id="menu"
-        name="Menu"
-        onClick={(event) => {
-          props.callback(event, nameClient, tableNum);
-        }}
-      />
-    </MenusContainer>
+    </ContainerSection>
   );
 };
