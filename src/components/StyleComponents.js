@@ -47,7 +47,7 @@ const fontSizeAndFamily = `
 
 export const StyleInput = styled.input`
   height: 70px;
-  width: 60%;
+  width: ${(props) => props.width ? "30%" : "60%" };
   margin: 10px;
   font-size: 20px;
   outline: none;
