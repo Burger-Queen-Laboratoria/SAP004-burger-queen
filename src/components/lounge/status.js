@@ -1,11 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { fireFuncs } from "../../firebase/firebaseFunctions";
-// import { 
-//   LoungeSection, 
-//   TableOrders, 
-//   TH, 
-//   TD 
-// } from "../StyleComponents";
 import { Title } from "../kitchen/TitleKitchen.js";
 import { TitleOrderArea, TagPArea } from "../kitchen/OrderKitchen.js";
 import { StyleTagSection, StyleTagDiv, StyleTagUl } from "../kitchen/StyleKitchen.js";

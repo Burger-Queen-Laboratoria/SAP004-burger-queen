@@ -1,9 +1,5 @@
 import React from "react";
-import { 
-  // IconsNavBar, 
-  // ImgText, 
-  StyleFigure 
-} from "./StyleComponents";
+import { StyleFigure } from "./StyleComponents";
 import { StyledNavImg, StyleNavP } from "./kitchen/StyleKitchen.js"
 
 export const Figure = ({ text, ...props }) => {
