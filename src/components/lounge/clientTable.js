@@ -17,7 +17,7 @@ export const ClientTable = (props) => {
       <StyleForm>
         <InputComponent
           type="text"
-          placeholder="Nome do Cliente"
+          placeholder=" Nome do Cliente"
           onBlur={(e) => {
             setElements(e, setNameClient);
           }}
@@ -25,7 +25,7 @@ export const ClientTable = (props) => {
         <InputComponent
           type="number"
           min="1"
-          placeholder="Numero da Mesa"
+          placeholder=" Numero da Mesa"
           onBlur={(e) => {
             setElements(e, setTableNum);
           }}
