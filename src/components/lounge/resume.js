@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { MenusContainer, ItensContainer } from "../StyleComponents";
-import { Button } from "../Button";
+import { FlexUmContainer, ItensContainer } from "../StyleComponents";
+import { Button, ButtonMenu } from "../Button";
 import { fireFuncs } from "../../firebase/firebaseFunctions";
 
 export const Resume = (props) => {
@@ -50,7 +50,7 @@ export const Resume = (props) => {
 
   if (props.resume) {
     return (
-      <MenusContainer>
+      <FlexUmContainer>
         <h1>TOTAL:R$ {sumPrice(props.options)}</h1>
         {props.options.map((option) => {
           return (
@@ -70,10 +70,11 @@ export const Resume = (props) => {
             </ItensContainer>
           );
         })}
-        <Button name="Enviar para Cozinha" onClick={handleSendOrder} />
-      </MenusContainer>
+
+        <ButtonMenu name="Enviar para Cozinha" onClick={handleSendOrder} />
+      </FlexUmContainer>
     );
   } else {
-    return <MenusContainer></MenusContainer>;
+    return <div></div>;
   }
 };

@@ -1,5 +1,5 @@
 import styled, { createGlobalStyle } from "styled-components";
-import BurgerQueen from "../img-documents/Making-Lettering-Tall_demo.ttf"
+import BurgerQueen from "../img-documents/Making-Lettering-Tall_demo.ttf";
 
 export const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -51,14 +51,14 @@ export const StyleInput = styled.input`
   margin: 10px;
   font-size: 20px;
   outline: none;
-  color: #A04835;
+  color: #a04835;
   ${borderAndRadius}
 
   &::placeholder {
-    color: #A04835;
+    color: #a04835;
   }
 
-  @media(max-width: 400px) {
+  @media (max-width: 400px) {
     height: 50px;
     width: 85%;
   }
@@ -82,11 +82,11 @@ export const StyleButton = styled.button`
 
 export const TitleLogo = styled.p`
   font-family: Burger Queen;
-  font-size: ${props => props.size ? "80px" : "70px"};
+  font-size: ${(props) => (props.size ? "80px" : "70px")};
   margin: 5px;
 
   @media (max-width: 400px) {
-    font-size: ${props => props.size ? "60px" : "45px"};
+    font-size: ${(props) => (props.size ? "60px" : "45px")};
   }
 `;
 
@@ -135,10 +135,10 @@ export const CheckboxLabel = styled.label`
     width: 30px;
     height: 30px;
     display: inline-block;
-    border: solid 1px #A04835;
+    border: solid 1px #a04835;
     border-radius: 5px;
     box-sizing: border-box;
-    background-color: ${props => props.checked ? "#A04835" : "white"};
+    background-color: ${(props) => (props.checked ? "#A04835" : "white")};
   }
 
   @media (max-width: 400px) {
@@ -146,7 +146,7 @@ export const CheckboxLabel = styled.label`
       width: 20px;
       height: 20px;
     }
-  } 
+  }
 `;
 
 export const CheckboxContainer = styled.div`
@@ -206,65 +206,89 @@ export const ImgText = styled.p`
 export const LoungeSection = styled.section`
   align-items: center;
   justify-content: center;
+  flex-wrap: nowrap;
   ${displayFlexAndColumn}
+  flex: 1;
 `;
 
 export const MenusContainer = styled.div`
   display: ${(props) => props.display};
-  align-items: ${(props) => props.align};
-  justify-content: ${(props) => props.justfy};
-  width: ${(props) => props.wid};
-  flex: 1;
-  padding-top: 4em;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1em;
 `;
 
 export const ItensContainer = styled.div`
   width: 100%;
-  height: 100%;
 `;
 
 export const MenusImg = styled.img`
   width: 100%;
-  height: 100%;
   padding: 0;
   margin: 0;
 `;
 
 export const StyleButtonM = styled.button`
-  background-color: #A04835;
+  background-color: #a04835;
   color: black;
   font-size: 1em;
   font-weight: bold;
-  width: 80%;
-  padding:1em;
+
+  padding: 1em;
   cursor: pointer;
   ${borderAndRadius}
-  
-  /* background: ${({ ativo }) => (ativo ? "#000" : "#fff")};
-  color: ${({ ativo }) => (ativo ? "#fff" : "#000")};
-  cursor: pointer;
-  &::hover {
-    background: tomato;
-  } */
-`;
-export const TableOrders = styled.table`
-  text-align: center;
-  border: solid black 2px;
-  margin: 1em;
-  width: 100%;
 `;
 
-export const TH = styled.th`
+export const UlStyle = styled.ul`
+  display: flex;
+  flex-direction: row;
+  background-color: #a04835;
+  padding: 1em;
+  font-weight: bold;
+  list-style-type: none;
+  margin: 0;
+`;
+
+export const Container = styled.div`
+  display: flex;
+  align-items: center;
+  flex: 1;
+`;
+
+export const ContainerTh = styled.div`
+  display: flex;
+  flex-direction: row;
   background-color: rgb(196, 196, 196);
   border: solid black 2px;
   padding: 1em;
   font-weight: bold;
+  list-style-type: none;
+  flex: 1;
 `;
 
-export const TD = styled.td`
-  background-color: rgb(160, 72, 53);
-  border: solid black 2px;
-  padding: 1em;
-  font-weight: bold;
-  color: whitesmoke;
+export const ContainerSection = styled.section`
+  display: flex;
+  flex-direction: column;
+  padding-top: 3em;
+`;
+
+export const FlexUmContainer = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  flex: 1;
+  flex-grow: 1;
+`;
+export const FlexGrowContainer = styled.div`
+  text-align: center;
+  flex: 1;
+
+  flex-grow: 2;
+`;
+export const DirectionRow = styled.section`
+  display: flex;
+  flex-direction: row;
+  padding-top: 3em;
+  justify-content: space-evenly;
 `;

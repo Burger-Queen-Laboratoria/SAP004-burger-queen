@@ -46,6 +46,10 @@ export const fireFuncs = {
   },
 
   getCurrentOrders: (callback) => {
-    return firebase.firestore().collection("pedidos").onSnapshot(callback);
+    return firebase
+      .firestore()
+      .collection("pedidos")
+      .orderBy("hora", "desc")
+      .onSnapshot(callback);
   },
 };

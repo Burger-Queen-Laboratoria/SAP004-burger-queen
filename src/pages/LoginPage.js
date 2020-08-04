@@ -46,14 +46,12 @@ export const LoginPage = () => {
       .authSignIn(email, password)
       .then((e) => {
         if (e.user.uid !== null) {
-          fireFuncs
-            .getCurrentUser(e.user.uid)
-            .then((doc) => {
-              if (doc.data().sector === "Hall") {
-                history.push("/lounge");
-              } else {
-                history.push("/kitchen");
-              }
+          fireFuncs.getCurrentUser(e.user.uid).then((doc) => {
+            if (doc.data().sector === "Hall") {
+              history.push("/lounge");
+            } else {
+              history.push("/kitchen");
+            }
           });
         }
       })
@@ -71,14 +69,14 @@ export const LoginPage = () => {
           data-testid="email"
           required
           type="email"
-          placeholder="exemplo@exemplo.com"
+          placeholder=" exemplo@exemplo.com"
           onBlur={handleInputEmail}
         />
         <InputComponent
           data-testid="password"
           required
           type="password"
-          placeholder="senha"
+          placeholder=" senha"
           onBlur={handleInputPassword}
         />
         <Button type="submit" name="Entrar" onClick={handleClick} />
