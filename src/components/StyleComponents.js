@@ -213,20 +213,17 @@ export const LoungeSection = styled.section`
 
 export const MenusContainer = styled.div`
   display: ${(props) => props.display};
-  align-items: ${(props) => props.align};
-  justify-content: ${(props) => props.justfy};
-  width: ${(props) => props.wid};
-  padding-top: 4em;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1em;
 `;
 
 export const ItensContainer = styled.div`
   width: 100%;
-  height: 100%;
 `;
 
 export const MenusImg = styled.img`
   width: 100%;
-  height: 100%;
   padding: 0;
   margin: 0;
 `;
@@ -276,6 +273,9 @@ export const ContainerSection = styled.section`
 `;
 
 export const FlexUmContainer = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   text-align: center;
   flex: 1;
   flex-grow: 1;

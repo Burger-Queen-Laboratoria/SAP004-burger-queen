@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { FlexUmContainer, ItensContainer } from "../StyleComponents";
-import { Button } from "../Button";
+import { Button, ButtonMenu } from "../Button";
 import { fireFuncs } from "../../firebase/firebaseFunctions";
 
 export const Resume = (props) => {
@@ -68,7 +68,8 @@ export const Resume = (props) => {
             </ItensContainer>
           );
         })}
-        <Button name="Enviar para Cozinha" onClick={handleSendOrder} />
+
+        <ButtonMenu name="Enviar para Cozinha" onClick={handleSendOrder} />
       </FlexUmContainer>
     );
   } else {

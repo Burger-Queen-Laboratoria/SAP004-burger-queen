@@ -25,9 +25,6 @@ export const Menu = (props) => {
   const ChangeStyleScreen = (event) => {
     setMenuItens([]);
     setDisplay("flex");
-    setAlign("flex-start");
-    setJustfy("flex-start");
-    setWidth("100%");
     setShowResume(true);
     getMenus(event.currentTarget.id.split("-")[1]);
   };
@@ -48,12 +45,7 @@ export const Menu = (props) => {
   return (
     <DirectionRow>
       <FlexGrowContainer>
-        <MenusContainer
-          display={display}
-          align={aliItem}
-          justfy={justCont}
-          wid={width}
-        >
+        <MenusContainer display={display}>
           <ItensContainer>
             <MenusImg src={menuUm} id="menu-1" onClick={ChangeStyleScreen} />
           </ItensContainer>
