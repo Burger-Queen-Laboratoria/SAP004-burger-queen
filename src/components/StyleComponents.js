@@ -206,7 +206,9 @@ export const ImgText = styled.p`
 export const LoungeSection = styled.section`
   align-items: center;
   justify-content: center;
+  flex-wrap: nowrap;
   ${displayFlexAndColumn}
+  flex: 1;
 `;
 
 export const MenusContainer = styled.div`
@@ -214,7 +216,6 @@ export const MenusContainer = styled.div`
   align-items: ${(props) => props.align};
   justify-content: ${(props) => props.justfy};
   width: ${(props) => props.wid};
-  flex: 1;
   padding-top: 4em;
 `;
 
@@ -272,4 +273,22 @@ export const ContainerSection = styled.section`
   display: flex;
   flex-direction: column;
   padding-top: 3em;
+`;
+
+export const FlexUmContainer = styled.div`
+  text-align: center;
+  flex: 1;
+  flex-grow: 1;
+`;
+export const FlexGrowContainer = styled.div`
+  text-align: center;
+  flex: 1;
+
+  flex-grow: 2;
+`;
+export const DirectionRow = styled.section`
+  display: flex;
+  flex-direction: row;
+  padding-top: 3em;
+  justify-content: space-evenly;
 `;
