@@ -180,34 +180,35 @@ export const ImgLogoRegister = styled.img`
   width: 20%;
 `;
 
-export const Navibar = styled.div`
-  align-items: center;
-  background-color: white;
-  height: 5rem;
-  justify-content: space-between;
-  padding: 2em;
-  width: 100%;
-  ${displayFlexAndRow};
-`;
-export const IconsNavBar = styled.img`
-  margin-top: 1em;
-  margin-bottom: 1em;
-  width: 60px;
-  height: 60px;
-  ${displayFlexAndRow};
-`;
+// export const Navibar = styled.div`
+//   align-items: center;
+//   background-color: white;
+//   height: 5rem;
+//   justify-content: space-between;
+//   padding: 2em;
+//   width: 100%;
+//   ${displayFlexAndRow};
+// `;
+// export const IconsNavBar = styled.img`
+//   margin-top: 1em;
+//   margin-bottom: 1em;
+//   width: 60px;
+//   height: 60px;
+//   ${displayFlexAndRow};
+// `;
 
-export const ImgText = styled.p`
-  font-family: ${(props) => props.fonte};
-  font-size: ${(props) => props.size};
-  font-weight: bold;
-`;
+// export const ImgText = styled.p`
+//   font-family: ${(props) => props.fonte};
+//   font-size: ${(props) => props.size};
+//   font-weight: bold;
+// `;
 
-export const LoungeSection = styled.section`
-  align-items: center;
-  justify-content: center;
-  ${displayFlexAndColumn}
-`;
+//verificar uso no status.js
+// export const LoungeSection = styled.section`
+//   align-items: center;
+//   justify-content: center;
+//   ${displayFlexAndColumn}
+// `;
 
 export const MenusContainer = styled.div`
   display: ${(props) => props.display};
@@ -247,24 +248,29 @@ export const StyleButtonM = styled.button`
     background: tomato;
   } */
 `;
-export const TableOrders = styled.table`
+// export const TableOrders = styled.table`
+//   text-align: center;
+//   border: solid black 2px;
+//   margin: 1em;
+//   width: 100%;
+// `;
+
+// export const TH = styled.th`
+//   background-color: rgb(196, 196, 196);
+//   border: solid black 2px;
+//   padding: 1em;
+//   font-weight: bold;
+// `;
+
+// export const TD = styled.td`
+//   background-color: rgb(160, 72, 53);
+//   border: solid black 2px;
+//   padding: 1em;
+//   font-weight: bold;
+//   color: whitesmoke;
+// `;
+
+export const StyleFigure = styled.figure`
   text-align: center;
-  border: solid black 2px;
-  margin: 1em;
-  width: 100%;
-`;
-
-export const TH = styled.th`
-  background-color: rgb(196, 196, 196);
-  border: solid black 2px;
-  padding: 1em;
-  font-weight: bold;
-`;
-
-export const TD = styled.td`
-  background-color: rgb(160, 72, 53);
-  border: solid black 2px;
-  padding: 1em;
-  font-weight: bold;
-  color: whitesmoke;
+  margin: 0px;
 `;
