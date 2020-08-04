@@ -52,10 +52,10 @@ const OrderArea = (props, key) => {
 export const TitleOrderArea = (props) => {
   return (
     <StyleHeader>
-      <TagPArea item="Nome" />
-      <TagPArea item="Mesa" />
+      <TagPArea item="Nome do Cliente" />
+      <TagPArea item="Nº da Mesa" />
       <TagPArea item={props.time} />
-      <TagPArea item="Status" />
+      <TagPArea item="Status do Pedido" />
     </StyleHeader>
   );
 }
@@ -79,7 +79,7 @@ const OrderAreaComplete = () => {
     <section>
       <Title name="Pedidos"/>
       <StyleTagSection>
-        <TitleOrderArea time="Hora"/>
+        <TitleOrderArea time="Hora do Pedido"/>
         <UlOrder orders={orders}/>
       </StyleTagSection>
     </section>

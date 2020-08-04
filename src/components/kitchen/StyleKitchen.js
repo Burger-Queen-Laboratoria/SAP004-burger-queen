@@ -70,6 +70,12 @@ export const StyleHeader = styled.header`
   font-family: "helvetica";
   font-weight: bold;
   font-size: 18px;
+
+  @media(max-width: 400px) {
+    font-size: 14px;
+    text-align: center;
+    align-items: center;
+  }  
 `;
 
 export const StyleTagDiv = styled.div`
