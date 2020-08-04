@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import {
+  FlexGrowContainer,
   MenusContainer,
   ItensContainer,
   MenusImg,
+  DirectionRow,
+  FlexUmContainer,
 } from "../StyleComponents.js";
 import menuUm from "../../img-documents/menuex1.png";
 import menuDois from "../../img-documents/menuex2.png";
@@ -22,9 +25,6 @@ export const Menu = (props) => {
   const ChangeStyleScreen = (event) => {
     setMenuItens([]);
     setDisplay("flex");
-    setAlign("flex-start");
-    setJustfy("flex-start");
-    setWidth("80%");
     setShowResume(true);
     getMenus(event.currentTarget.id.split("-")[1]);
   };
@@ -43,27 +43,24 @@ export const Menu = (props) => {
     setMenuItens((menuItens) => [...menuItens, doc]);
   };
   return (
-    <MenusContainer>
-      <MenusContainer
-        display={display}
-        align={aliItem}
-        justfy={justCont}
-        wid={width}
-      >
-        <ItensContainer>
-          <MenusImg src={menuUm} id="menu-1" onClick={ChangeStyleScreen} />
-        </ItensContainer>
+    <DirectionRow>
+      <FlexGrowContainer>
+        <MenusContainer display={display}>
+          <ItensContainer>
+            <MenusImg src={menuUm} id="menu-1" onClick={ChangeStyleScreen} />
+          </ItensContainer>
 
-        <ItensContainer>
-          <MenusImg src={menuDois} id="menu-2" onClick={ChangeStyleScreen} />
-        </ItensContainer>
-      </MenusContainer>
+          <ItensContainer>
+            <MenusImg src={menuDois} id="menu-2" onClick={ChangeStyleScreen} />
+          </ItensContainer>
+        </MenusContainer>
 
-      <Products
-        options={menuItens}
-        valueItem={addItensToResume}
-        setValue={setItensToResume}
-      />
+        <Products
+          options={menuItens}
+          valueItem={addItensToResume}
+          setValue={setItensToResume}
+        />
+      </FlexGrowContainer>
       <Resume
         resume={showResume}
         options={addItensToResume}
@@ -72,6 +69,6 @@ export const Menu = (props) => {
         nameClient={props.name}
         tableNUm={props.table}
       />
-    </MenusContainer>
+    </DirectionRow>
   );
 };

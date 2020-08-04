@@ -11,7 +11,7 @@ import { ClientTable } from "../components/lounge/clientTable.js";
 import { Menu } from "../components/lounge/menu.js";
 import { Status } from "../components/lounge/status.js";
 import garcom from "../img-documents/garcom.png";
-import logoBurger from "../img-documents/logo-burger.png";
+import logoBurger from "../img-documents/logo-red.png";
 import tableIcon from "../img-documents/tableIcon.svg";
 import signoutIcon from "../img-documents/logoutIcon.png";
 import status from "../img-documents/statusIcon.svg";

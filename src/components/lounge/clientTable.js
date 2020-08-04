@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ButtonMenu } from "../Button";
-import { MenusContainer, StyleForm } from "../StyleComponents.js";
+import { ContainerSection, StyleForm } from "../StyleComponents.js";
 import { InputComponent } from "../Input";
 
 export const ClientTable = (props) => {
@@ -13,11 +13,11 @@ export const ClientTable = (props) => {
   };
 
   return (
-    <MenusContainer>
+    <ContainerSection>
       <StyleForm>
         <InputComponent
           type="text"
-          placeholder="Nome do Cliente"
+          placeholder=" Nome do Cliente"
           onBlur={(e) => {
             setElements(e, setNameClient);
           }}
@@ -25,19 +25,19 @@ export const ClientTable = (props) => {
         <InputComponent
           type="number"
           min="1"
-          placeholder="Numero da Mesa"
+          placeholder=" Numero da Mesa"
           onBlur={(e) => {
             setElements(e, setTableNum);
           }}
         />
+        <ButtonMenu
+          id="menu"
+          name="Menu"
+          onClick={(event) => {
+            props.callback(event, nameClient, tableNum);
+          }}
+        />
       </StyleForm>
-      <ButtonMenu
-        id="menu"
-        name="Menu"
-        onClick={(event) => {
-          props.callback(event, nameClient, tableNum);
-        }}
-      />
-    </MenusContainer>
+    </ContainerSection>
   );
 };
