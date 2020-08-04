@@ -1,11 +1,12 @@
 import React from "react";
-import { IconsNavBar, ImgText } from "./StyleComponents";
+import { StyleFigure } from "./StyleComponents";
+import { StyledNavImg, StyleNavP } from "./kitchen/StyleKitchen.js"
 
 export const Figure = ({ text, ...props }) => {
   return (
-    <figure>
-      <IconsNavBar {...props} />
-      <ImgText {...props}>{text}</ImgText>
-    </figure>
+    <StyleFigure>
+      <StyledNavImg {...props} />
+      <StyleNavP {...props}>{text}</StyleNavP>
+    </StyleFigure>
   );
 };

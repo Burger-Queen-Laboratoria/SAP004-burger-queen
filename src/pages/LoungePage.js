@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import { fireFuncs } from "../firebase/firebaseFunctions.js";
 import { useHistory } from "react-router-dom";
 import { Figure } from "../components/Figure";
-import { Navibar, LoungeSection } from "../components/StyleComponents.js";
+// import { 
+//   Navibar, 
+//   LoungeSection 
+// } from "../components/StyleComponents.js";
+import { StyledNavKitchen } from "../components/kitchen/StyleKitchen.js"
 import { ClientTable } from "../components/lounge/clientTable.js";
 import { Menu } from "../components/lounge/menu.js";
 import { Status } from "../components/lounge/status.js";
@@ -53,36 +57,32 @@ export const LoungePage = () => {
   };
 
   return (
-    <LoungeSection>
-      <Navibar>
+    <>
+      <StyledNavKitchen>
         <Figure
+          queen={true}
           src={logoBurger}
           text="Burger Queen"
-          fonte="Burger Queen"
-          size="1.3rem"
         />
         <Figure src={garcom} text={name} size="1.3em" />
         <Figure
           id="home"
           src={status}
           text={"Status"}
-          size="1.3em"
           onClick={handleChangeScreens}
         />
         <Figure
           id="table"
           src={tableIcon}
           text="Nova Mesa"
-          size="1.3em"
           onClick={handleChangeScreens}
         />
         <Figure
           src={signoutIcon}
-          text="sair"
-          size="1.3em"
+          text="Sair"
           onClick={handleSingOut}
         />
-      </Navibar>
+      </StyledNavKitchen>
       <ManagerScreen
         screen={screen}
         nameClient={clientName}
@@ -90,6 +90,6 @@ export const LoungePage = () => {
         garcom={name}
         func={handleChangeScreens}
       />
-    </LoungeSection>
+    </>
   );
 };

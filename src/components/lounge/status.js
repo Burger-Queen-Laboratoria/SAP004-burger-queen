@@ -1,12 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { fireFuncs } from "../../firebase/firebaseFunctions";
-import {
-  LoungeSection,
-  UlStyle,
-  Container,
-  ContainerTh,
-  ContainerSection,
-} from "../StyleComponents";
+import { Title } from "../kitchen/TitleKitchen.js";
+import { TitleOrderArea, TagPArea } from "../kitchen/OrderKitchen.js";
+import { StyleTagSection, StyleTagDiv, StyleTagUl } from "../kitchen/StyleKitchen.js";
+
+const OrderSection = (props, key) => {
+  return (
+    <li key={key}>
+    <StyleTagDiv>
+      <TagPArea item={props.cliente} />
+      <TagPArea item={props.mesa} />
+      <TagPArea item={props.hora} />
+      <TagPArea item={props.status} />
+    </StyleTagDiv>
+  </li>
+  );
+}
 
 export const Status = () => {
   const [orders, setOrders] = useState([]);
@@ -25,26 +34,21 @@ export const Status = () => {
   }, []);
 
   return (
-    <ContainerSection>
-      <Container>
-        <ContainerTh>Cliente</ContainerTh>
-        <ContainerTh>Mesa</ContainerTh>
-        <ContainerTh>Hora</ContainerTh>
-        <ContainerTh>Status</ContainerTh>
-      </Container>
-      {orders.map((order) => {
-        return (
-          <UlStyle key={order.id}>
-            <UlStyle>{order.cliente}</UlStyle>
-
-            <UlStyle>{order.mesa}</UlStyle>
-
-            <UlStyle>{order.hora}</UlStyle>
-
-            <UlStyle>{order.status}</UlStyle>
-          </UlStyle>
-        );
-      })}
-    </ContainerSection>
+    <section>
+      <Title name="Status"/>
+      <StyleTagSection>
+        <TitleOrderArea time="Hora"/>
+        <StyleTagUl>
+          {orders.map((order) =>{
+            return <OrderSection 
+              key={order.id} 
+              cliente={order.cliente} 
+              status={order.status} 
+              hora={order.hora} 
+              mesa={order.mesa}/>
+          })}
+        </StyleTagUl>
+      </StyleTagSection>
+    </section>
   );
 };

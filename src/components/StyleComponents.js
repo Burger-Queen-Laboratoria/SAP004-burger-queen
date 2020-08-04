@@ -180,37 +180,6 @@ export const ImgLogoRegister = styled.img`
   width: 20%;
 `;
 
-export const Navibar = styled.div`
-  align-items: center;
-  background-color: white;
-  height: 5rem;
-  justify-content: space-between;
-  padding: 2em;
-  width: 100%;
-  ${displayFlexAndRow};
-`;
-export const IconsNavBar = styled.img`
-  margin-top: 1em;
-  margin-bottom: 1em;
-  width: 60px;
-  height: 60px;
-  ${displayFlexAndRow};
-`;
-
-export const ImgText = styled.p`
-  font-family: ${(props) => props.fonte};
-  font-size: ${(props) => props.size};
-  font-weight: bold;
-`;
-
-export const LoungeSection = styled.section`
-  align-items: center;
-  justify-content: center;
-  flex-wrap: nowrap;
-  ${displayFlexAndColumn}
-  flex: 1;
-`;
-
 export const MenusContainer = styled.div`
   display: ${(props) => props.display};
   align-items: center;
@@ -239,31 +208,9 @@ export const StyleButtonM = styled.button`
   ${borderAndRadius}
 `;
 
-export const UlStyle = styled.ul`
-  display: flex;
-  flex-direction: row;
-  background-color: #a04835;
-  padding: 1em;
-  font-weight: bold;
-  list-style-type: none;
-  margin: 0;
-`;
-
-export const Container = styled.div`
-  display: flex;
-  align-items: center;
-  flex: 1;
-`;
-
-export const ContainerTh = styled.div`
-  display: flex;
-  flex-direction: row;
-  background-color: rgb(196, 196, 196);
-  border: solid black 2px;
-  padding: 1em;
-  font-weight: bold;
-  list-style-type: none;
-  flex: 1;
+export const StyleFigure = styled.figure`
+  text-align: center;
+  margin: 0px;
 `;
 
 export const ContainerSection = styled.section`
