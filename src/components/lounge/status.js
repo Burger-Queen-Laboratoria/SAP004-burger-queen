@@ -4,9 +4,9 @@ import { Title } from "../kitchen/TitleKitchen.js";
 import { TitleOrderArea, TagPArea } from "../kitchen/OrderKitchen.js";
 import { StyleTagSection, StyleTagDiv, StyleTagUl } from "../kitchen/StyleKitchen.js";
 
-const OrderSection = (props) => {
+const OrderSection = (props, key) => {
   return (
-    <li key={props.key}>
+    <li key={key}>
     <StyleTagDiv>
       <TagPArea item={props.cliente} />
       <TagPArea item={props.mesa} />
