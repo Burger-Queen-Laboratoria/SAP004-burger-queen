@@ -1,22 +1,26 @@
 import firebase from "./init-firebase.js";
 import moment from "moment";
 
-const getInProgressOrder = async () => {
+const getOrder = async (status, time, ascOrDesc) => {
   const i = await firebase
     .firestore()
-    .collection("teste-jessica")
-    .where("status", "==", "andamento")
-    .orderBy("horaInicial", "asc")
+    .collection("pedidos")
+    .where("status", "==", status)
+    .orderBy(time, ascOrDesc)
     .get();
   const ar = [];
   i.forEach((item) => {
     const o = {
       id: item.id,
-      name: item.data().nome,
+      name: item.data().cliente,
       initialHour: item.data().horaInicial.toDate(),
       table: item.data().mesa,
       status: item.data().status,
-      itens: item.data().itens,
+      itens: item.data().pedido,
+      finalHour: item.data().horaFinal,
+      prepareTime: item.data().tempoPreparo,
+      waiter: item.data().garcom,
+      totalPrice: item.data().total,
     };
     ar.push(o);
   });
@@ -29,20 +33,35 @@ export const concludeOrder = (order) => {
 
   return firebase
     .firestore()
-    .collection("teste-jessica")
+    .collection("pedidos")
     .doc(order.id)
     .update({
       status: "concluído",
       horaFinal: time,
-      calc: calc,
+      tempoPreparo: calc,
     });
 }
 
 export const snapshotOrders = (funcSetOrders) => {
+  const status = "Pedido enviado para cozinha";
+  const time = "horaInicial";
+  const ascOrDesc = "asc";
   firebase
     .firestore()
-    .collection("teste-jessica")
+    .collection("pedidos")
     .onSnapshot(() => {
-      getInProgressOrder().then(funcSetOrders);
+      getOrder(status, time, ascOrDesc).then(funcSetOrders);
+  });
+}
+
+export const snapshotConcludeOrders = (funcSetOrders) => {
+  const status = "concluído";
+  const time = "horaFinal";
+  const ascOrDesc = "desc";
+  firebase
+    .firestore()
+    .collection("pedidos")
+    .onSnapshot(() => {
+      getOrder(status, time, ascOrDesc).then(funcSetOrders);
   });
 }

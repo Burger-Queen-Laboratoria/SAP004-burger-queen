@@ -38,6 +38,8 @@ export const Resume = (props) => {
       status: "Pedido enviado para cozinha",
       hora: new Date().toLocaleTimeString(),
       data: new Date().toLocaleDateString(),
+      horaInicial: new Date(Date.now()),
+      horaFinal: null,
       tempoPreparo: null,
       total: sumPrice(props.options),
     };
