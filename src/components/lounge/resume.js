@@ -1,10 +1,17 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { FlexUmContainer, ItensContainer } from "../StyleComponents";
-import { Button, ButtonMenu } from "../Button";
+import { 
+  StyleImgDeleteIcon, 
+  StylePResume, 
+  StyleDivResume, 
+  StyleItensResume 
+} from "../StyleComponents";
+import { Button } from "../Button";
 import { fireFuncs } from "../../firebase/firebaseFunctions";
+import deleteIcon from "../../img-documents/delete.svg";
 
 export const Resume = (props) => {
+  const width = true;
   let history = useHistory();
   const sumPrice = (arrayProducts) => {
     return arrayProducts.reduce((acc, nextProduct) => {
@@ -50,34 +57,32 @@ export const Resume = (props) => {
 
   if (props.resume) {
     return (
-      <FlexUmContainer>
-        <h1>TOTAL:R$ {sumPrice(props.options)}</h1>
+      <StyleDivResume>
+        <h1>TOTAL: R$ {sumPrice(props.options)}</h1>
         {props.options.map((option) => {
           return (
-            <ItensContainer key={option.id}>
-              <span>
-                <p>{option.item}</p>
-              </span>
-              <p>
+            <StyleItensResume key={option.id}>
+              <div>{option.item}</div>
+              <StylePResume>
                 <span>Qtd:</span>
                 <span>{option.count}</span>
                 <span>
-                  <Button
-                    name="-"
-                    onClick={() => {
-                      handleClick(option);
-                    }}
-                  />
+                  <StyleImgDeleteIcon 
+                    src={deleteIcon} 
+                    alt="delete-icon" 
+                    onClick={() => {handleClick(option)}}>
+                  </StyleImgDeleteIcon>
                 </span>
-              </p>
-              <h3>Preço Unidade R$ {option.price}</h3>
-              
-            </ItensContainer>
+              </StylePResume>
+              <div>Preço Unidade R$ {option.price}</div>    
+            </StyleItensResume>
           );
         })}
-
-        <ButtonMenu name="Enviar para Cozinha" onClick={handleSendOrder} />
-      </FlexUmContainer>
+        <Button 
+          width={width ? 1 : 0} 
+          name="Enviar" 
+          onClick={handleSendOrder} />
+      </StyleDivResume>
     );
   } else {
     return <div></div>;

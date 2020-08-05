@@ -70,7 +70,7 @@ export const StyleButton = styled.button`
   margin: 5px;
   background-color: #a04835;
   color: black;
-  font-size: ${(props) => props.width ? "30px" : "20px"};
+  font-size: 20px;
   font-weight: bold;
   cursor: pointer;
   ${borderAndRadius}
@@ -197,17 +197,6 @@ export const MenusImg = styled.img`
   margin: 0;
 `;
 
-export const StyleButtonM = styled.button`
-  background-color: #a04835;
-  color: black;
-  font-size: 1em;
-  font-weight: bold;
-
-  padding: 1em;
-  cursor: pointer;
-  ${borderAndRadius}
-`;
-
 export const StyleFigure = styled.figure`
   text-align: center;
   margin: 0px;
@@ -227,18 +216,16 @@ export const FlexUmContainer = styled.div`
   flex: 1;
   flex-grow: 1;
 `;
-// export const FlexGrowContainer = styled.div`
-//   text-align: center;
-//   flex: 1;
 
-//   flex-grow: 2;
-// `;
 export const StyleSectionMenu = styled.section`
-  width: 70%;
+  width: ${(props) => props.width};
 `;
 
 export const StyleAsideMenu = styled.aside`
+  display: ${(props) => props.display};
   width: 30%;
+  justify-content: center;
+  align-items: start;
 `;
 
 export const StyleDivMenu = styled.div`
@@ -267,4 +254,39 @@ export const StyleDivItensMenu = styled.div`
   background-color: rgba(160, 72, 53, 0.4);
   font-family: "helvetica";
   padding: 2px;
+`;
+
+export const StyleImgDeleteIcon = styled.img`
+  width: 30px;
+  cursor: pointer;
+`;
+
+export const StylePResume = styled.p`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1px;
+`;
+
+export const StyleDivResume = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  border: 2px solid #A04835;
+  border-radius: 5px;
+  margin: 2px;
+  text-align: center;
+  background-color: rgba(160, 72, 53, 0.4);
+  font-family: "helvetica";
+  padding: 2px;
+`;
+
+export const StyleItensResume = styled.div`
+  background-color: rgba(160, 72, 53, 0.7);
+  border-radius: 2px;
+  padding: 5px;
+  width: 80%;
+  margin-bottom: 5px;
 `;

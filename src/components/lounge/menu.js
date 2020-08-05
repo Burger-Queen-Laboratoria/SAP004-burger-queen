@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 import {
-  FlexGrowContainer,
   MenusContainer,
   ItensContainer,
   MenusImg,
-  // DirectionRow,
-  // FlexUmContainer,
   StyleAsideMenu,
   StyleSectionMenu,
   StyleDivMenu,
@@ -18,9 +15,8 @@ import { Resume } from "./resume.js";
 
 export const Menu = (props) => {
   const [display, setDisplay] = useState("block"),
-    [aliItem, setAlign] = useState("center"),
-    [justCont, setJustfy] = useState("center"),
-    [width, setWidth] = useState("100%"),
+    [displayAside, setDisplayAside] = useState("none"),
+    [widthSection, setWidthSection] = useState("100%"),
     [showResume, setShowResume] = useState(false),
     [menuItens, setMenuItens] = useState([]),
     [addItensToResume, setItensToResume] = useState([]);
@@ -28,6 +24,8 @@ export const Menu = (props) => {
   const ChangeStyleScreen = (event) => {
     setMenuItens([]);
     setDisplay("flex");
+    setDisplayAside("flex");
+    setWidthSection("70%");
     setShowResume(true);
     getMenus(event.currentTarget.id.split("-")[1]);
   };
@@ -47,7 +45,7 @@ export const Menu = (props) => {
   };
   return (
     <StyleDivMenu>
-      <StyleSectionMenu>
+      <StyleSectionMenu width={widthSection}>
         <div>
           <MenusContainer display={display}>
             <ItensContainer>
@@ -66,7 +64,7 @@ export const Menu = (props) => {
           />
         </div>
       </StyleSectionMenu>
-      <StyleAsideMenu>
+      <StyleAsideMenu display={displayAside}>
         <Resume
           resume={showResume}
           options={addItensToResume}
