@@ -7,6 +7,7 @@ import { Checkbox } from "../components/Checkbox.js";
 import { ErrorDictionary } from "../firebase/error.js";
 import { ErrorArea } from "../components/Errors.js";
 import logoImg from "../img-documents/logo-burger.png";
+import { Footer } from "../components/Footer.js";
 import {
   BtnsRegisterContainer,
   TitleLogo,
@@ -14,6 +15,7 @@ import {
   Title,
   RegisterTitleFlex,
   ImgLogoRegister,
+  StyleDivMainHeight,
 } from "../components/StyleComponents.js";
 
 export const Register = () => {
@@ -57,55 +59,60 @@ export const Register = () => {
   };
 
   return (
-    <StyleForm>
-      <RegisterTitleFlex>
-        <ImgLogoRegister
-          src={logoImg}
-          alt="logo-burger-queen"
-        ></ImgLogoRegister>
-        <TitleLogo>Burger Queen</TitleLogo>
-      </RegisterTitleFlex>
-      <InputComponent
-        type="text"
-        placeholder="Nome e sobrenome"
-        onBlur={(e) => {
-          setElements(e, setName);
-        }}
-      />
-      <InputComponent
-        require
-        type="email"
-        placeholder="exemplo@exemplo.com"
-        onBlur={(e) => {
-          setElements(e, setEmail);
-        }}
-      />
-      <Title>Selecione o setor:</Title>
+    <>
+      <StyleDivMainHeight>
+        <StyleForm>
+          <RegisterTitleFlex>
+            <ImgLogoRegister
+              src={logoImg}
+              alt="logo-burger-queen"
+            ></ImgLogoRegister>
+            <TitleLogo>Burger Queen</TitleLogo>
+          </RegisterTitleFlex>
+          <InputComponent
+            type="text"
+            placeholder="Nome e sobrenome"
+            onBlur={(e) => {
+              setElements(e, setName);
+            }}
+          />
+          <InputComponent
+            require
+            type="email"
+            placeholder="exemplo@exemplo.com"
+            onBlur={(e) => {
+              setElements(e, setEmail);
+            }}
+          />
+          <Title>Selecione o setor:</Title>
 
-      <Checkbox
-        options={[
-          { name: "Salão", key: "Hall" },
-          { name: "Cozinha", key: "Kitchen" },
-        ]}
-        value={sectorJob}
-        setValue={setSectorJob}
-      />
+          <Checkbox
+            options={[
+              { name: "Salão", key: "Hall" },
+              { name: "Cozinha", key: "Kitchen" },
+            ]}
+            value={sectorJob}
+            setValue={setSectorJob}
+          />
 
-      <InputComponent
-        require
-        type="password"
-        placeholder="senha"
-        onBlur={(e) => {
-          setElements(e, setPassword);
-        }}
-      />
+          <InputComponent
+            require
+            type="password"
+            placeholder="senha"
+            onBlur={(e) => {
+              setElements(e, setPassword);
+            }}
+          />
 
-      <BtnsRegisterContainer>
-        <Button type="submit" name="Registrar" onClick={createUser}></Button>
-        <Button type="button" name="Voltar" onClick={btnBack}></Button>
-      </BtnsRegisterContainer>
+          <BtnsRegisterContainer>
+            <Button type="submit" name="Registrar" onClick={createUser}></Button>
+            <Button type="button" name="Voltar" onClick={btnBack}></Button>
+          </BtnsRegisterContainer>
 
-      <ErrorArea err={errorMessage} />
-    </StyleForm>
+          <ErrorArea err={errorMessage} />
+        </StyleForm>
+      </StyleDivMainHeight>
+      <Footer />
+    </>
   );
 };

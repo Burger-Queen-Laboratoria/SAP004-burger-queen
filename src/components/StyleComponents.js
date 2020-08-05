@@ -19,6 +19,10 @@ export const GlobalStyle = createGlobalStyle`
     width: 100%;
     margin: 0px;
   }
+
+  main {
+    height: 100vh;
+  }
 `;
 
 const borderAndRadius = `
@@ -116,6 +120,7 @@ export const StyleSection = styled.section`
   text-align: center;
   align-items: center;
   width: 100%;
+  min-height: calc(100vh - 40px);
 `;
 
 export const StyleForm = styled.form`
@@ -381,4 +386,16 @@ export const StyleButtonOrder = styled.button`
   border-radius: 3px;
   box-shadow: 1px 1px 2px black;
   cursor: pointer;
+`;
+
+export const StyleFooter = styled.footer`
+  height: 30px;
+  font-family: "helvetica";
+  padding: 10px;
+  color: #A04835;
+  text-align: center;
+`;
+
+export const StyleDivMainHeight = styled.div`
+  min-height: calc(100vh - 40px);
 `;

@@ -5,6 +5,7 @@ import { InputComponent } from "../components/Input.js";
 import { fireFuncs } from "../firebase/firebaseFunctions.js";
 import { useHistory, Link } from "react-router-dom";
 import logoImg from "../img-documents/logo-burger.png";
+import { Footer } from "../components/Footer.js"
 import {
   TitleLogo,
   ImgLogo,
@@ -61,31 +62,34 @@ export const LoginPage = () => {
   };
 
   return (
-    <StyleSection>
-      <ImgLogo src={logoImg} alt="logo-burger-queen"></ImgLogo>
-      <TitleLogo size="true">Burger Queen</TitleLogo>
-      <StyleForm>
-        <InputComponent
-          data-testid="email"
-          required
-          type="email"
-          placeholder=" exemplo@exemplo.com"
-          onBlur={handleInputEmail}
-        />
-        <InputComponent
-          data-testid="password"
-          required
-          type="password"
-          placeholder=" senha"
-          onBlur={handleInputPassword}
-        />
-        <Button type="submit" name="Entrar" onClick={handleClick} />
-      </StyleForm>
-      <ErrorArea err={errorLogin} />
-      <NewMember>Funcionário novo?</NewMember>
-      <Link to="/register">
-        <RegisterMember>Registre-se</RegisterMember>
-      </Link>
-    </StyleSection>
+    <>
+      <StyleSection>
+        <ImgLogo src={logoImg} alt="logo-burger-queen"></ImgLogo>
+        <TitleLogo size="true">Burger Queen</TitleLogo>
+        <StyleForm>
+          <InputComponent
+            data-testid="email"
+            required
+            type="email"
+            placeholder=" exemplo@exemplo.com"
+            onBlur={handleInputEmail}
+          />
+          <InputComponent
+            data-testid="password"
+            required
+            type="password"
+            placeholder=" senha"
+            onBlur={handleInputPassword}
+          />
+          <Button type="submit" name="Entrar" onClick={handleClick} />
+        </StyleForm>
+        <ErrorArea err={errorLogin} />
+        <NewMember>Funcionário novo?</NewMember>
+        <Link to="/register">
+          <RegisterMember>Registre-se</RegisterMember>
+        </Link>
+      </StyleSection>
+    <Footer />
+    </>
   );
 };
