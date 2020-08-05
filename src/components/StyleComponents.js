@@ -203,6 +203,10 @@ export const ImgLogoRegister = styled.img`
 export const MenusContainer = styled.div`
   display: ${(props) => props.display};
   ${alignItemsAndJustifyCenter}
+
+  @media (max-width: 400px) {
+    flex-direction: column;
+  }
 `;
 
 export const ItensContainer = styled.div`
@@ -235,6 +239,10 @@ export const FlexUmContainer = styled.div`
 
 export const StyleSectionMenu = styled.section`
   width: ${(props) => props.width};
+
+  @media (max-width: 400px) {
+    width: 100%;
+  }  
 `;
 
 export const StyleAsideMenu = styled.aside`
@@ -242,12 +250,20 @@ export const StyleAsideMenu = styled.aside`
   width: 30%;
   justify-content: center;
   align-items: start;
+
+  @media (max-width: 400px) {
+    width: 100%;
+  }
 `;
 
 export const StyleDivMenu = styled.div`
   width: 100%;
   display: flex;
   margin-top: 20px;
+
+  @media (max-width: 400px) {
+    ${displayFlexAndColumn}
+  }
 `;
 
 export const StyleDivProducts = styled.div`
@@ -261,6 +277,10 @@ export const StyleDivItensMenu = styled.div`
   ${alignItemsAndJustifyCenter}
   width: 22%;
   ${styleBoxMenuProducts}
+
+  @media (max-width: 400px) {
+    width: 28%;
+  }
 `;
 
 export const StyleImgDeleteIcon = styled.img`
