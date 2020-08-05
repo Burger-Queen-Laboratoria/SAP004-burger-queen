@@ -45,12 +45,13 @@ export const fireFuncs = {
       .get();
   },
 
-  getCurrentOrders: (callback) => {
+  getCurrentOrders: (callback, numb) => {
     return firebase
       .firestore()
       .collection("pedidos")
-      .limit(2)
+      .limit(numb)
       .orderBy("hora", "desc")
-      .onSnapshot(callback);
+      .get();
+    // .onSnapshot(callback);
   },
 };
