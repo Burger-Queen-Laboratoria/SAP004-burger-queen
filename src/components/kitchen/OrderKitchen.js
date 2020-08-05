@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { 
-  StyleHeader, 
-  StyleTagDiv, 
   StyleTagUl, 
+  StyleHeader, 
+  StyleTagSection, 
+  StyleTagDiv, 
   StyleSectionOrder, 
-  StyleButtonOrder,
-  StyleTagSection,
-} from "./StyleKitchen.js";
-import { concludeOrder } from "../../firebase/firebaseKitchen.js";
+  StyleButtonOrder 
+} from "../StyleComponents.js";
 import moment from "moment";
-import { snapshotOrders } from "../../firebase/firebaseKitchen.js";
+import { fireFuncs } from "../../firebase/firebaseFunctions.js";
 import { Title } from "../kitchen/TitleKitchen.js";
 import { NavigationKitchen } from "../kitchen/NavKitchen.js";
 
@@ -28,7 +27,7 @@ const OrderArea = (props, key) => {
   }
 
   const handleClickStatusOrder = () => {
-    concludeOrder(props.order);
+    fireFuncs.concludeOrder(props.order);
   }
 
   return (
@@ -52,10 +51,10 @@ const OrderArea = (props, key) => {
 export const TitleOrderArea = (props) => {
   return (
     <StyleHeader>
-      <TagPArea item="Nome" />
-      <TagPArea item="Mesa" />
+      <TagPArea item="Nome do Cliente" />
+      <TagPArea item="Nº da Mesa" />
       <TagPArea item={props.time} />
-      <TagPArea item="Status" />
+      <TagPArea item="Status do Pedido" />
     </StyleHeader>
   );
 }
@@ -72,14 +71,14 @@ const OrderAreaComplete = () => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    snapshotOrders(setOrders);
+    fireFuncs.snapshotOrders(setOrders);
   }, []);
 
   return (
     <section>
       <Title name="Pedidos"/>
       <StyleTagSection>
-        <TitleOrderArea time="Hora"/>
+        <TitleOrderArea time="Hora do Pedido"/>
         <UlOrder orders={orders}/>
       </StyleTagSection>
     </section>

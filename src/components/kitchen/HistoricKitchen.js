@@ -2,12 +2,12 @@ import React, {useState, useEffect} from "react";
 import { Title } from "../kitchen/TitleKitchen.js";
 import { 
   StyleTagUl, 
-  StyleSectionOrder,
-  StyleTagDiv,
-  StyleTagSection,
-} from "./StyleKitchen.js";
+  StyleTagSection, 
+  StyleTagDiv, 
+  StyleSectionOrder 
+} from "../StyleComponents.js";
 import { TitleOrderArea, TagPArea } from "./OrderKitchen.js";
-import { snapshotConcludeOrders } from "../../firebase/firebaseKitchen.js";
+import { fireFuncs } from "../../firebase/firebaseFunctions.js";
 import moment from "moment";
 
 const HistoricList = (props, key) => {
@@ -34,9 +34,10 @@ const HistoricList = (props, key) => {
             <p>Valor total: {props.order.totalPrice} reais</p>
           </div>
           <div>
-            <p>Hora inicial: {moment(props.order.initialHour).format("HH:mm:ss")}</p>
-            <p>Hora final: {moment(props.order.finalHour.toDate()).format("HH:mm:ss")}</p>
+            <p>Hora inicial: {moment(props.order.initialHour).format("DD/MM/YYYY, HH:mm:ss")}</p>
+            <p>Hora final: {moment(props.order.finalHour.toDate()).format("DD/MM/YYYY, HH:mm:ss")}</p>
             <p>Garçom: {props.order.waiter}</p>
+            <p>Cozinheiro: {props.order.chef}</p>
           </div>
         </StyleSectionOrder>
       }
@@ -56,7 +57,7 @@ export const HistoricKitchen = () => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    snapshotConcludeOrders(setOrders);
+    fireFuncs.snapshotConcludeOrders(setOrders);
   }, []);
 
   return (

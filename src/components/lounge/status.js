@@ -3,11 +3,10 @@ import { fireFuncs } from "../../firebase/firebaseFunctions";
 import { Title } from "../kitchen/TitleKitchen.js";
 import { TitleOrderArea, TagPArea } from "../kitchen/OrderKitchen.js";
 import {
+  StyleTagUl,
   StyleTagSection,
   StyleTagDiv,
-  StyleTagUl,
-} from "../kitchen/StyleKitchen.js";
-import { Button } from "../Button";
+} from "../StyleComponents.js";
 
 const OrderSection = (props, key) => {
   return (
