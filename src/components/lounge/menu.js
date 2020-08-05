@@ -5,7 +5,6 @@ import {
   ItensContainer,
   MenusImg,
   DirectionRow,
-  FlexUmContainer,
 } from "../StyleComponents.js";
 import menuUm from "../../img-documents/menuex1.png";
 import menuDois from "../../img-documents/menuex2.png";
@@ -15,9 +14,6 @@ import { Resume } from "./resume.js";
 
 export const Menu = (props) => {
   const [display, setDisplay] = useState("block"),
-    [aliItem, setAlign] = useState("center"),
-    [justCont, setJustfy] = useState("center"),
-    [width, setWidth] = useState("100%"),
     [showResume, setShowResume] = useState(false),
     [menuItens, setMenuItens] = useState([]),
     [addItensToResume, setItensToResume] = useState([]);
