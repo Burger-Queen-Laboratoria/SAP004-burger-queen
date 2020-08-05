@@ -45,6 +45,21 @@ const fontSizeAndFamily = `
   }
 `;
 
+const alignItemsAndJustifyCenter = `
+  align-items: center;
+  justify-content: center;
+`;
+
+const styleBoxMenuProducts = `
+  border: 2px solid #A04835;
+  border-radius: 5px;
+  margin: 2px;
+  text-align: center;
+  background-color: rgba(160, 72, 53, 0.4);
+  font-family: "helvetica";
+  padding: 2px;
+`;
+
 export const StyleInput = styled.input`
   height: 70px;
   width: ${(props) => props.width ? "30%" : "60%" };
@@ -68,12 +83,13 @@ export const StyleButton = styled.button`
   height: 50px;
   width: ${(props) => props.width ? "70%" : "20%"};
   margin: 5px;
-  background-color: #a04835;
+  background-color: #A04835;
   color: black;
   font-size: 20px;
   font-weight: bold;
   cursor: pointer;
   ${borderAndRadius}
+  
   @media(max-width: 400px) {
     height: 40px;
     width: 40%;
@@ -172,8 +188,7 @@ export const Title = styled.h1`
 export const RegisterTitleFlex = styled.div`
   margin-top: 30px;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  ${alignItemsAndJustifyCenter}
 `;
 
 export const ImgLogoRegister = styled.img`
@@ -182,9 +197,7 @@ export const ImgLogoRegister = styled.img`
 
 export const MenusContainer = styled.div`
   display: ${(props) => props.display};
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1em;
+  ${alignItemsAndJustifyCenter}
 `;
 
 export const ItensContainer = styled.div`
@@ -203,15 +216,13 @@ export const StyleFigure = styled.figure`
 `;
 
 export const ContainerSection = styled.section`
-  display: flex;
-  flex-direction: column;
+  ${displayFlexAndColumn}
   padding-top: 3em;
 `;
 
 export const FlexUmContainer = styled.div`
-  display: flex;
+  ${displayFlexAndColumn}
   align-items: center;
-  flex-direction: column;
   text-align: center;
   flex: 1;
   flex-grow: 1;
@@ -235,25 +246,16 @@ export const StyleDivMenu = styled.div`
 `;
 
 export const StyleDivProducts = styled.div`
-  display: flex;
+  ${displayFlexAndColumn}
   width: 100%;
-  flex-direction: column;
   flex-flow: wrap;
 `;
 
 export const StyleDivItensMenu = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  ${displayFlexAndColumn}
+  ${alignItemsAndJustifyCenter}
   width: 22%;
-  border: 2px solid #A04835;
-  border-radius: 5px;
-  margin: 2px;
-  text-align: center;
-  background-color: rgba(160, 72, 53, 0.4);
-  font-family: "helvetica";
-  padding: 2px;
+  ${styleBoxMenuProducts}
 `;
 
 export const StyleImgDeleteIcon = styled.img`
@@ -263,24 +265,15 @@ export const StyleImgDeleteIcon = styled.img`
 
 export const StylePResume = styled.p`
   display: flex;
-  justify-content: center;
-  align-items: center;
+  ${alignItemsAndJustifyCenter}
   margin: 1px;
 `;
 
 export const StyleDivResume = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  ${displayFlexAndColumn}
+  ${alignItemsAndJustifyCenter}
   width: 90%;
-  border: 2px solid #A04835;
-  border-radius: 5px;
-  margin: 2px;
-  text-align: center;
-  background-color: rgba(160, 72, 53, 0.4);
-  font-family: "helvetica";
-  padding: 2px;
+  ${styleBoxMenuProducts}
 `;
 
 export const StyleItensResume = styled.div`
