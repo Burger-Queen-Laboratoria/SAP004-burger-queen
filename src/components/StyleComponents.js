@@ -66,11 +66,11 @@ export const StyleInput = styled.input`
 
 export const StyleButton = styled.button`
   height: 50px;
-  width: 20%;
+  width: ${(props) => props.width ? "70%" : "20%"};
   margin: 5px;
   background-color: #a04835;
   color: black;
-  font-size: 20px;
+  font-size: ${(props) => props.width ? "30px" : "20px"};
   font-weight: bold;
   cursor: pointer;
   ${borderAndRadius}
@@ -227,15 +227,44 @@ export const FlexUmContainer = styled.div`
   flex: 1;
   flex-grow: 1;
 `;
-export const FlexGrowContainer = styled.div`
-  text-align: center;
-  flex: 1;
+// export const FlexGrowContainer = styled.div`
+//   text-align: center;
+//   flex: 1;
 
-  flex-grow: 2;
+//   flex-grow: 2;
+// `;
+export const StyleSectionMenu = styled.section`
+  width: 70%;
 `;
-export const DirectionRow = styled.section`
+
+export const StyleAsideMenu = styled.aside`
+  width: 30%;
+`;
+
+export const StyleDivMenu = styled.div`
+  width: 100%;
   display: flex;
-  flex-direction: row;
-  padding-top: 3em;
-  justify-content: space-evenly;
+  margin-top: 20px;
+`;
+
+export const StyleDivProducts = styled.div`
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  flex-flow: wrap;
+`;
+
+export const StyleDivItensMenu = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 22%;
+  border: 2px solid #A04835;
+  border-radius: 5px;
+  margin: 2px;
+  text-align: center;
+  background-color: rgba(160, 72, 53, 0.4);
+  font-family: "helvetica";
+  padding: 2px;
 `;

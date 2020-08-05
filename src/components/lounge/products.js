@@ -1,8 +1,9 @@
 import React from "react";
 import { Button } from "../Button";
-import { MenusContainer, ItensContainer } from "../StyleComponents";
+import { StyleDivProducts, StyleDivItensMenu } from "../StyleComponents";
 
 export const Products = ({ options, valueItem, setValue }) => {
+  const width = true;
   const handleClick = (object) => {
     if (
       valueItem.some((item) => {
@@ -23,21 +24,22 @@ export const Products = ({ options, valueItem, setValue }) => {
   };
 
   return (
-    <MenusContainer>
+    <StyleDivProducts>
       {options.map((option) => {
         return (
-          <ItensContainer key={option.id}>
+          <StyleDivItensMenu key={option.id}>
             <span>{option.item}</span>
             <h3>R$ {option.price}</h3>
             <Button
+              width={width ? 1 : 0}
               name="+"
               onClick={() => {
                 handleClick(option);
               }}
             />
-          </ItensContainer>
+          </StyleDivItensMenu>
         );
       })}
-    </MenusContainer>
+    </StyleDivProducts>
   );
 };

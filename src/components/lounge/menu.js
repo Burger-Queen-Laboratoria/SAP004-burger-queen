@@ -4,8 +4,11 @@ import {
   MenusContainer,
   ItensContainer,
   MenusImg,
-  DirectionRow,
-  FlexUmContainer,
+  // DirectionRow,
+  // FlexUmContainer,
+  StyleAsideMenu,
+  StyleSectionMenu,
+  StyleDivMenu,
 } from "../StyleComponents.js";
 import menuUm from "../../img-documents/menuex1.png";
 import menuDois from "../../img-documents/menuex2.png";
@@ -43,32 +46,36 @@ export const Menu = (props) => {
     setMenuItens((menuItens) => [...menuItens, doc]);
   };
   return (
-    <DirectionRow>
-      <FlexGrowContainer>
-        <MenusContainer display={display}>
-          <ItensContainer>
-            <MenusImg src={menuUm} id="menu-1" onClick={ChangeStyleScreen} />
-          </ItensContainer>
+    <StyleDivMenu>
+      <StyleSectionMenu>
+        <div>
+          <MenusContainer display={display}>
+            <ItensContainer>
+              <MenusImg src={menuUm} id="menu-1" onClick={ChangeStyleScreen} />
+            </ItensContainer>
 
-          <ItensContainer>
-            <MenusImg src={menuDois} id="menu-2" onClick={ChangeStyleScreen} />
-          </ItensContainer>
-        </MenusContainer>
+            <ItensContainer>
+              <MenusImg src={menuDois} id="menu-2" onClick={ChangeStyleScreen} />
+            </ItensContainer>
+          </MenusContainer>
 
-        <Products
-          options={menuItens}
-          valueItem={addItensToResume}
+          <Products
+            options={menuItens}
+            valueItem={addItensToResume}
+            setValue={setItensToResume}
+          />
+        </div>
+      </StyleSectionMenu>
+      <StyleAsideMenu>
+        <Resume
+          resume={showResume}
+          options={addItensToResume}
           setValue={setItensToResume}
+          name={props.garcom}
+          nameClient={props.name}
+          tableNUm={props.table}
         />
-      </FlexGrowContainer>
-      <Resume
-        resume={showResume}
-        options={addItensToResume}
-        setValue={setItensToResume}
-        name={props.garcom}
-        nameClient={props.name}
-        tableNUm={props.table}
-      />
-    </DirectionRow>
+      </StyleAsideMenu>
+    </StyleDivMenu>
   );
 };

@@ -56,17 +56,22 @@ export const Resume = (props) => {
           return (
             <ItensContainer key={option.id}>
               <span>
-                <h3>{option.item}</h3>
-                <h3>Quantidade</h3>
-                <h3>{option.count}</h3>
+                <p>{option.item}</p>
               </span>
+              <p>
+                <span>Qtd:</span>
+                <span>{option.count}</span>
+                <span>
+                  <Button
+                    name="-"
+                    onClick={() => {
+                      handleClick(option);
+                    }}
+                  />
+                </span>
+              </p>
               <h3>Preço Unidade R$ {option.price}</h3>
-              <Button
-                name="-"
-                onClick={() => {
-                  handleClick(option);
-                }}
-              />
+              
             </ItensContainer>
           );
         })}
