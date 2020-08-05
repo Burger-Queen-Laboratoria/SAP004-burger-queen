@@ -2,10 +2,10 @@ import React, {useState, useEffect} from "react";
 import { Title } from "../kitchen/TitleKitchen.js";
 import { 
   StyleTagUl, 
-  StyleSectionOrder,
-  StyleTagDiv,
-  StyleTagSection,
-} from "./StyleKitchen.js";
+  StyleTagSection, 
+  StyleTagDiv, 
+  StyleSectionOrder 
+} from "../StyleComponents.js";
 import { TitleOrderArea, TagPArea } from "./OrderKitchen.js";
 import { snapshotConcludeOrders } from "../../firebase/firebaseKitchen.js";
 import moment from "moment";

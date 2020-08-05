@@ -2,7 +2,11 @@ import React, { useState, useEffect } from "react";
 import { fireFuncs } from "../../firebase/firebaseFunctions";
 import { Title } from "../kitchen/TitleKitchen.js";
 import { TitleOrderArea, TagPArea } from "../kitchen/OrderKitchen.js";
-import { StyleTagSection, StyleTagDiv, StyleTagUl } from "../kitchen/StyleKitchen.js";
+import { 
+  StyleTagUl, 
+  StyleTagSection, 
+  StyleTagDiv 
+} from "../StyleComponents.js";
 
 const OrderSection = (props, key) => {
   return (

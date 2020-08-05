@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { fireFuncs } from "../firebase/firebaseFunctions.js";
 import { useHistory } from "react-router-dom";
 import { Figure } from "../components/Figure";
-import { StyledNavKitchen } from "../components/kitchen/StyleKitchen.js"
+import { StyledNavKitchen } from "../components/StyleComponents.js"
 import { ClientTable } from "../components/lounge/clientTable.js";
 import { Menu } from "../components/lounge/menu.js";
 import { Status } from "../components/lounge/status.js";

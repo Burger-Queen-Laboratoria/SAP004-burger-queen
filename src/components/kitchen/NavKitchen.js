@@ -8,7 +8,7 @@ import {
   StyledNavImg, 
   StyleNavDiv, 
   StyleNavP 
-} from "./StyleKitchen.js";
+} from "../StyleComponents.js";
 import logoImg from "../../img-documents/logo-red.png";
 import { useHistory } from "react-router-dom";
 import { fireFuncs } from "../../firebase/firebaseFunctions.js";

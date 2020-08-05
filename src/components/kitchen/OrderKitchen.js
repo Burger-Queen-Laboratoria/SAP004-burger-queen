@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { 
-  StyleHeader, 
-  StyleTagDiv, 
   StyleTagUl, 
+  StyleHeader, 
+  StyleTagSection, 
+  StyleTagDiv, 
   StyleSectionOrder, 
-  StyleButtonOrder,
-  StyleTagSection,
-} from "./StyleKitchen.js";
+  StyleButtonOrder 
+} from "../StyleComponents.js";
 import { concludeOrder } from "../../firebase/firebaseKitchen.js";
 import moment from "moment";
 import { snapshotOrders } from "../../firebase/firebaseKitchen.js";
