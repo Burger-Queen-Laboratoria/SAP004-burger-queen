@@ -2,10 +2,6 @@ import React, { useState } from "react";
 import { fireFuncs } from "../firebase/firebaseFunctions.js";
 import { useHistory } from "react-router-dom";
 import { Figure } from "../components/Figure";
-// import { 
-//   Navibar, 
-//   LoungeSection 
-// } from "../components/StyleComponents.js";
 import { StyledNavKitchen } from "../components/kitchen/StyleKitchen.js"
 import { ClientTable } from "../components/lounge/clientTable.js";
 import { Menu } from "../components/lounge/menu.js";

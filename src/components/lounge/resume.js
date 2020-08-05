@@ -39,10 +39,11 @@ export const Resume = (props) => {
   const handleSendOrder = () => {
     const pedidos = {
       garcom: props.name,
+      cozinheiro: null,
       cliente: props.nameClient,
       mesa: props.tableNUm,
       pedido: props.options,
-      status: "Pedido enviado para cozinha",
+      status: "Em andamento",
       hora: new Date().toLocaleTimeString(),
       data: new Date().toLocaleDateString(),
       horaInicial: new Date(Date.now()),

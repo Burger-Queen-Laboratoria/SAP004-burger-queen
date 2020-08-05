@@ -34,9 +34,10 @@ const HistoricList = (props, key) => {
             <p>Valor total: {props.order.totalPrice} reais</p>
           </div>
           <div>
-            <p>Hora inicial: {moment(props.order.initialHour).format("HH:mm:ss")}</p>
-            <p>Hora final: {moment(props.order.finalHour.toDate()).format("HH:mm:ss")}</p>
+            <p>Hora inicial: {moment(props.order.initialHour).format("DD/MM/YYYY, HH:mm:ss")}</p>
+            <p>Hora final: {moment(props.order.finalHour.toDate()).format("DD/MM/YYYY, HH:mm:ss")}</p>
             <p>Garçom: {props.order.waiter}</p>
+            <p>Cozinheiro: {props.order.chef}</p>
           </div>
         </StyleSectionOrder>
       }

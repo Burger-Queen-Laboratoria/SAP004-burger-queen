@@ -21,6 +21,7 @@ const getOrder = async (status, time, ascOrDesc) => {
       prepareTime: item.data().tempoPreparo,
       waiter: item.data().garcom,
       totalPrice: item.data().total,
+      chef: item.data().cozinheiro,
     };
     ar.push(o);
   });
@@ -28,6 +29,7 @@ const getOrder = async (status, time, ascOrDesc) => {
 }
 
 export const concludeOrder = (order) => {
+  const name = firebase.auth().currentUser.displayName;
   const time = new Date(Date.now());
   const calc = moment(new Date(time - order.initialHour)).utc().format("HH:mm:ss")
 
@@ -39,11 +41,12 @@ export const concludeOrder = (order) => {
       status: "concluído",
       horaFinal: time,
       tempoPreparo: calc,
+      cozinheiro: name,
     });
 }
 
 export const snapshotOrders = (funcSetOrders) => {
-  const status = "Pedido enviado para cozinha";
+  const status = "Em andamento";
   const time = "horaInicial";
   const ascOrDesc = "asc";
   firebase
