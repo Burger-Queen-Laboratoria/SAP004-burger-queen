@@ -49,6 +49,7 @@ export const fireFuncs = {
     return firebase
       .firestore()
       .collection("pedidos")
+      .limit(2)
       .orderBy("hora", "desc")
       .onSnapshot(callback);
   },
