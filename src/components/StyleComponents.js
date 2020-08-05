@@ -19,6 +19,10 @@ export const GlobalStyle = createGlobalStyle`
     width: 100%;
     margin: 0px;
   }
+
+  main {
+    height: 100vh;
+  }
 `;
 
 const borderAndRadius = `
@@ -45,9 +49,24 @@ const fontSizeAndFamily = `
   }
 `;
 
+const alignItemsAndJustifyCenter = `
+  align-items: center;
+  justify-content: center;
+`;
+
+const styleBoxMenuProducts = `
+  border: 2px solid #A04835;
+  border-radius: 5px;
+  margin: 2px;
+  text-align: center;
+  background-color: rgba(160, 72, 53, 0.4);
+  font-family: "helvetica";
+  padding: 2px;
+`;
+
 export const StyleInput = styled.input`
   height: 70px;
-  width: 60%;
+  width: ${(props) => props.width ? "30%" : "60%" };
   margin: 10px;
   font-size: 20px;
   outline: none;
@@ -66,14 +85,15 @@ export const StyleInput = styled.input`
 
 export const StyleButton = styled.button`
   height: 50px;
-  width: 20%;
+  width: ${(props) => props.width ? "70%" : "20%"};
   margin: 5px;
-  background-color: #a04835;
+  background-color: #A04835;
   color: black;
   font-size: 20px;
   font-weight: bold;
   cursor: pointer;
   ${borderAndRadius}
+  
   @media(max-width: 400px) {
     height: 40px;
     width: 40%;
@@ -100,6 +120,7 @@ export const StyleSection = styled.section`
   text-align: center;
   align-items: center;
   width: 100%;
+  min-height: calc(100vh - 40px);
 `;
 
 export const StyleForm = styled.form`
@@ -172,8 +193,7 @@ export const Title = styled.h1`
 export const RegisterTitleFlex = styled.div`
   margin-top: 30px;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  ${alignItemsAndJustifyCenter}
 `;
 
 export const ImgLogoRegister = styled.img`
@@ -182,9 +202,11 @@ export const ImgLogoRegister = styled.img`
 
 export const MenusContainer = styled.div`
   display: ${(props) => props.display};
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1em;
+  ${alignItemsAndJustifyCenter}
+
+  @media (max-width: 400px) {
+    flex-direction: column;
+  }
 `;
 
 export const ItensContainer = styled.div`
@@ -197,45 +219,203 @@ export const MenusImg = styled.img`
   margin: 0;
 `;
 
-export const StyleButtonM = styled.button`
-  background-color: #a04835;
-  color: black;
-  font-size: 1em;
-  font-weight: bold;
-
-  padding: 1em;
-  cursor: pointer;
-  ${borderAndRadius}
-`;
-
 export const StyleFigure = styled.figure`
   text-align: center;
   margin: 0px;
 `;
 
 export const ContainerSection = styled.section`
-  display: flex;
-  flex-direction: column;
+  ${displayFlexAndColumn}
   padding-top: 3em;
 `;
 
 export const FlexUmContainer = styled.div`
-  display: flex;
+  ${displayFlexAndColumn}
   align-items: center;
-  flex-direction: column;
   text-align: center;
   flex: 1;
   flex-grow: 1;
 `;
-export const FlexGrowContainer = styled.div`
-  text-align: center;
-  flex: 1;
 
-  flex-grow: 2;
+export const StyleSectionMenu = styled.section`
+  width: ${(props) => props.width};
+
+  @media (max-width: 400px) {
+    width: 100%;
+  }  
 `;
-export const DirectionRow = styled.section`
+
+export const StyleAsideMenu = styled.aside`
+  display: ${(props) => props.display};
+  width: 30%;
+  justify-content: center;
+  align-items: start;
+
+  @media (max-width: 400px) {
+    width: 100%;
+  }
+`;
+
+export const StyleDivMenu = styled.div`
+  width: 100%;
   display: flex;
-  flex-direction: row;
-  padding-top: 3em;
-  justify-content: space-evenly;
+  margin-top: 20px;
+
+  @media (max-width: 400px) {
+    ${displayFlexAndColumn}
+  }
+`;
+
+export const StyleDivProducts = styled.div`
+  ${displayFlexAndColumn}
+  width: 100%;
+  flex-flow: wrap;
+`;
+
+export const StyleDivItensMenu = styled.div`
+  ${displayFlexAndColumn}
+  ${alignItemsAndJustifyCenter}
+  width: 22%;
+  ${styleBoxMenuProducts}
+
+  @media (max-width: 400px) {
+    width: 28%;
+  }
+`;
+
+export const StyleImgDeleteIcon = styled.img`
+  width: 30px;
+  cursor: pointer;
+`;
+
+export const StylePResume = styled.p`
+  display: flex;
+  ${alignItemsAndJustifyCenter}
+  margin: 1px;
+`;
+
+export const StyleDivResume = styled.div`
+  ${displayFlexAndColumn}
+  ${alignItemsAndJustifyCenter}
+  width: 90%;
+  ${styleBoxMenuProducts}
+`;
+
+export const StyleItensResume = styled.div`
+  background-color: rgba(160, 72, 53, 0.7);
+  border-radius: 2px;
+  padding: 5px;
+  width: 80%;
+  margin-bottom: 5px;
+`;
+
+export const StyledNavKitchen = styled.nav`
+  display: flex;
+  justify-content: space-around;
+  height: 90px;
+  background-color: white;
+  padding: 10px;
+`;
+
+export const StyledNavImg = styled.img`
+  width: 50px;
+
+  @media(max-width: 400px) {
+    width: 45px;
+  }
+`;
+
+export const StyleNavDiv = styled.div`
+ text-align: center;
+`;
+
+export const StyleNavP = styled.p`
+  font-family: ${props => props.queen ? "Burger Queen" : "helvetica"};
+  font-size: ${props => props.queen ? "18px" : "16px"};
+  margin: ${props => props.queen ? "5px 0px" : "10px 0px"};
+  font-weight: bold;
+
+  @media(max-width: 400px) {
+    font-size: ${props => props.queen ? "14px" : "12px"};
+  }
+`;
+
+export const TagTitleKitchen = styled.h6`
+ font-family: "Burger Queen";
+ text-align: center;
+ font-size: 50px;
+ margin: 10px;
+`;
+
+export const StyleTagUl = styled.ul`
+  list-style: none;
+  font-family: "helvetica";
+  padding: 0;
+  margin: 0;
+  width:80%;
+
+  & li {
+    border: 1px solid #C4C4C4;
+    background-color: #A04835;
+  }
+
+  & section {
+    background-color: rgba(255,255,255,0.3);
+  }
+`;
+
+export const StyleTagSection = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+`;
+
+export const StyleHeader = styled.header`
+  display: flex;
+  width: 80%;
+  justify-content: space-around;
+  background-color: #C4C4C4;
+  font-family: "helvetica";
+  font-weight: bold;
+  font-size: 18px;
+
+  @media(max-width: 400px) {
+    font-size: 14px;
+    text-align: center;
+    align-items: center;
+  }  
+`;
+
+export const StyleTagDiv = styled.div`
+  display: flex;
+  justify-content: space-around;
+`;
+
+export const StyleSectionOrder = styled.section`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+`;
+
+export const StyleButtonOrder = styled.button`
+  height: 50px;
+  background-color: #FED08F;
+  border: none;
+  font-weight: bold;
+  border-radius: 3px;
+  box-shadow: 1px 1px 2px black;
+  cursor: pointer;
+`;
+
+export const StyleFooter = styled.footer`
+  height: 30px;
+  font-family: "helvetica";
+  padding: 10px;
+  color: #A04835;
+  text-align: center;
+`;
+
+export const StyleDivMainHeight = styled.div`
+  min-height: calc(100vh - 40px);
 `;

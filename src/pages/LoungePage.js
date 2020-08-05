@@ -2,11 +2,7 @@ import React, { useState } from "react";
 import { fireFuncs } from "../firebase/firebaseFunctions.js";
 import { useHistory } from "react-router-dom";
 import { Figure } from "../components/Figure";
-// import { 
-//   Navibar, 
-//   LoungeSection 
-// } from "../components/StyleComponents.js";
-import { StyledNavKitchen } from "../components/kitchen/StyleKitchen.js"
+import { StyledNavKitchen, StyleDivMainHeight } from "../components/StyleComponents.js"
 import { ClientTable } from "../components/lounge/clientTable.js";
 import { Menu } from "../components/lounge/menu.js";
 import { Status } from "../components/lounge/status.js";
@@ -15,6 +11,7 @@ import logoBurger from "../img-documents/logo-red.png";
 import tableIcon from "../img-documents/tableIcon.svg";
 import signoutIcon from "../img-documents/logoutIcon.png";
 import status from "../img-documents/statusIcon.svg";
+import { Footer } from "../components/Footer.js"
 
 const ManagerScreen = (props) => {
   const screen = props.screen;
@@ -58,38 +55,41 @@ export const LoungePage = () => {
 
   return (
     <>
-      <StyledNavKitchen>
-        <Figure
-          queen={true}
-          src={logoBurger}
-          text="Burger Queen"
+      <StyleDivMainHeight>
+        <StyledNavKitchen>
+          <Figure
+            queen={true}
+            src={logoBurger}
+            text="Burger Queen"
+          />
+          <Figure src={garcom} text={name} size="1.3em" />
+          <Figure
+            id="home"
+            src={status}
+            text={"Status"}
+            onClick={handleChangeScreens}
+          />
+          <Figure
+            id="table"
+            src={tableIcon}
+            text="Nova Mesa"
+            onClick={handleChangeScreens}
+          />
+          <Figure
+            src={signoutIcon}
+            text="Sair"
+            onClick={handleSingOut}
+          />
+        </StyledNavKitchen>
+        <ManagerScreen
+          screen={screen}
+          nameClient={clientName}
+          tableNum={tableNum}
+          garcom={name}
+          func={handleChangeScreens}
         />
-        <Figure src={garcom} text={name} size="1.3em" />
-        <Figure
-          id="home"
-          src={status}
-          text={"Status"}
-          onClick={handleChangeScreens}
-        />
-        <Figure
-          id="table"
-          src={tableIcon}
-          text="Nova Mesa"
-          onClick={handleChangeScreens}
-        />
-        <Figure
-          src={signoutIcon}
-          text="Sair"
-          onClick={handleSingOut}
-        />
-      </StyledNavKitchen>
-      <ManagerScreen
-        screen={screen}
-        nameClient={clientName}
-        tableNum={tableNum}
-        garcom={name}
-        func={handleChangeScreens}
-      />
+      </StyleDivMainHeight>
+      <Footer />
     </>
   );
 };
