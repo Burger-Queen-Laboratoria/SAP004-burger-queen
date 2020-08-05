@@ -7,7 +7,7 @@ import {
   StyleSectionOrder 
 } from "../StyleComponents.js";
 import { TitleOrderArea, TagPArea } from "./OrderKitchen.js";
-import { snapshotConcludeOrders } from "../../firebase/firebaseKitchen.js";
+import { fireFuncs } from "../../firebase/firebaseFunctions.js";
 import moment from "moment";
 
 const HistoricList = (props, key) => {
@@ -57,7 +57,7 @@ export const HistoricKitchen = () => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    snapshotConcludeOrders(setOrders);
+    fireFuncs.snapshotConcludeOrders(setOrders);
   }, []);
 
   return (

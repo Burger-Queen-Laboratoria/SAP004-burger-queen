@@ -7,9 +7,8 @@ import {
   StyleSectionOrder, 
   StyleButtonOrder 
 } from "../StyleComponents.js";
-import { concludeOrder } from "../../firebase/firebaseKitchen.js";
 import moment from "moment";
-import { snapshotOrders } from "../../firebase/firebaseKitchen.js";
+import { fireFuncs } from "../../firebase/firebaseFunctions.js";
 import { Title } from "../kitchen/TitleKitchen.js";
 import { NavigationKitchen } from "../kitchen/NavKitchen.js";
 
@@ -28,7 +27,7 @@ const OrderArea = (props, key) => {
   }
 
   const handleClickStatusOrder = () => {
-    concludeOrder(props.order);
+    fireFuncs.concludeOrder(props.order);
   }
 
   return (
@@ -72,7 +71,7 @@ const OrderAreaComplete = () => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    snapshotOrders(setOrders);
+    fireFuncs.snapshotOrders(setOrders);
   }, []);
 
   return (
