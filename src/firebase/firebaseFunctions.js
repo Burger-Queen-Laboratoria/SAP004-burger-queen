@@ -74,15 +74,13 @@ export const fireFuncs = {
   },
 
   getCurrentOrders: (callback, numb) => {
-    return (
-      firebase
-        .firestore()
-        .collection("pedidos")
-        .limit(numb)
-        .orderBy("hora", "desc")
-        // .get();
-        .onSnapshot(callback)
-    );
+    return firebase
+      .firestore()
+      .collection("pedidos")
+      .where("flagDelivered", "==", false)
+      .limit(numb)
+      .orderBy("hora", "desc")
+      .onSnapshot(callback);
   },
 
   snapshotOrders: (funcSetOrders) => {
@@ -127,6 +125,7 @@ export const fireFuncs = {
   updateOrder: (id, status) => {
     return firebase.firestore().collection("pedidos").doc(id).update({
       status: status,
+      flagDelivered: true,
     });
   },
 };

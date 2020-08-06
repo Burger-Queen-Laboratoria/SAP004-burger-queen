@@ -12,7 +12,7 @@ export const OrderSection = ({ id, ...props }) => {
   const [displayBtn, setDisplayBtn] = useState(true);
 
   const handleClickOrder = () => {
-    if (props.status === "Entregue") {
+    if (props.status === "Entregue" || props.status === "Em andamento") {
       setDisplayBtn(false);
     }
     display ? setDisplay(false) : setDisplay(true);

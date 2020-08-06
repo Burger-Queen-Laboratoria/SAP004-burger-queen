@@ -30,7 +30,6 @@ export const Status = () => {
 
   const handleLimitOrders = () => {
     setOrders([]);
-    console.log(limitOrders);
     setLimitOrders(limitOrders + 1);
   };
 
