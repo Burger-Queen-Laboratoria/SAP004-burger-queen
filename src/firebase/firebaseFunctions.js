@@ -1,13 +1,25 @@
 import firebase from "./init-firebase.js";
 import moment from "moment";
 
-const getOrder = async (status, time, ascOrDesc) => {
-  const i = await firebase
-    .firestore()
-    .collection("pedidos")
-    .where("status", "==", status)
-    .orderBy(time, ascOrDesc)
-    .get();
+const getOrder = async (status, time, ascOrDesc, multiOrdes = false) => {
+  let i;
+  if (multiOrdes) {
+    i = await firebase
+      .firestore()
+      .collection("pedidos")
+      .where("status", ">", "Em andamento")
+      .orderBy("status", ascOrDesc)
+      .orderBy(time, ascOrDesc)
+      .get();
+  } else {
+    i = await firebase
+      .firestore()
+      .collection("pedidos")
+      .where("status", "==", status)
+      .orderBy(time, ascOrDesc)
+      .get();
+  }
+
   const ar = [];
   i.forEach((item) => {
     const o = {
@@ -103,7 +115,7 @@ export const fireFuncs = {
       .firestore()
       .collection("pedidos")
       .onSnapshot(() => {
-        getOrder(status, time, ascOrDesc).then(funcSetOrders);
+        getOrder(status, time, ascOrDesc, true).then(funcSetOrders);
       });
   },
 
