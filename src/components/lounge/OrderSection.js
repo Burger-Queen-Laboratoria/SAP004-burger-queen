@@ -9,13 +9,18 @@ import {
 
 export const OrderSection = ({ id, ...props }) => {
   const [display, setDisplay] = useState(false);
+  const [displayBtn, setDisplayBtn] = useState(true);
 
   const handleClickOrder = () => {
+    if (props.status === "Entregue") {
+      setDisplayBtn(false);
+    }
     display ? setDisplay(false) : setDisplay(true);
   };
 
   const handleClickStatusOrder = () => {
     fireFuncs.updateOrder(id, "Entregue");
+    setDisplayBtn(false);
   };
 
   return (
@@ -33,9 +38,11 @@ export const OrderSection = ({ id, ...props }) => {
               <p key={id + i.item}>{i.item}</p>
             ))}
           </div>
-          <StyleButtonOrder onClick={handleClickStatusOrder}>
-            Entregue
-          </StyleButtonOrder>
+          {displayBtn && (
+            <StyleButtonOrder onClick={handleClickStatusOrder}>
+              Entregue
+            </StyleButtonOrder>
+          )}
         </StyleSectionOrder>
       )}
     </li>
