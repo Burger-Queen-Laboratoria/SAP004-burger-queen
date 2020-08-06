@@ -1,14 +1,25 @@
 import React from "react";
-import { StyleFooter, MenusImg } from "../components/StyleComponents.js";
-import copyRight from "../img-documents/copyright.png";
+import { StyleFooter } from "../components/StyleComponents.js";
 
 export const Footer = () => {
   return (
     <StyleFooter>
       Desenvolvido por:
-      <a href="https://github.com/jessicamelise">Jéssica Melise </a>
-      <a href="https://github.com/naereloire">Naere Loire </a>
-      <MenusImg src={copyRight} style={{ width: "50px" }} />
+      <a
+        href="https://github.com/jessicamelise"
+        title="Jéssica Melise"
+        target="_blank"
+      >
+        Jéssica Melise
+      </a>
+      e
+      <a
+        href="https://github.com/naereloire"
+        title="Naere Loire"
+        target="_blank"
+      >
+        Naere Loire
+      </a>
     </StyleFooter>
   );
 };
