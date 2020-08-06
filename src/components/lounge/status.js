@@ -8,7 +8,7 @@ import { OrderSection } from "./OrderSection.js";
 
 export const Status = () => {
   const [orders, setOrders] = useState([]);
-  const [limitOrders, setLimitOrders] = useState(3);
+  const [limitOrders, setLimitOrders] = useState(10);
 
   const showOrders = (result) => {
     setOrders([]);
