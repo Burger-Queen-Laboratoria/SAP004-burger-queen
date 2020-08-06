@@ -7,9 +7,22 @@ import {
   StyleButtonOrder,
 } from "../StyleComponents";
 
+export const changeSatusColor = (status) => {
+  switch (status) {
+    case "Em andamento":
+      return "#a04835";
+    case "concluído":
+      return "#faedcb";
+    case "Entregue":
+      return "#a1c181";
+    default:
+      return null;
+  }
+};
+
 export const OrderSection = ({ id, ...props }) => {
-  const [display, setDisplay] = useState(false);
-  const [displayBtn, setDisplayBtn] = useState(true);
+  const [display, setDisplay] = useState(false),
+    [displayBtn, setDisplayBtn] = useState(true);
 
   const handleClickOrder = () => {
     if (props.status === "Entregue" || props.status === "Em andamento") {
@@ -25,7 +38,7 @@ export const OrderSection = ({ id, ...props }) => {
 
   return (
     <li key={id} onClick={handleClickOrder}>
-      <StyleTagDiv>
+      <StyleTagDiv color={changeSatusColor(props.status)}>
         <TagPArea item={props.cliente} />
         <TagPArea item={props.mesa} />
         <TagPArea item={props.hora} />
