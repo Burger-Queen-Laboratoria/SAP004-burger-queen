@@ -412,9 +412,9 @@ export const StyleButtonOrder = styled.button`
 export const StyleFooter = styled.footer`
   ${displayFlexAndRow}
   justify-content:space-evenly;
-  /* height: 3rem; */
+  height: 3rem;
   font-family: "helvetica";
-  /* padding: 0.5em; */
+  padding: 0.5em;
   color: #a04835;
   text-align: center;
   font-weight: bold;
