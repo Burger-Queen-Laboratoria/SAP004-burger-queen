@@ -1,13 +1,25 @@
 import firebase from "./init-firebase.js";
 import moment from "moment";
 
-const getOrder = async (status, time, ascOrDesc) => {
-  const i = await firebase
-    .firestore()
-    .collection("pedidos")
-    .where("status", "==", status)
-    .orderBy(time, ascOrDesc)
-    .get();
+const getOrder = async (status, time, ascOrDesc, multiOrdes = false) => {
+  let i;
+  if (multiOrdes) {
+    i = await firebase
+      .firestore()
+      .collection("pedidos")
+      .where("status", ">", "Em andamento")
+      .orderBy("status", ascOrDesc)
+      .orderBy(time, ascOrDesc)
+      .get();
+  } else {
+    i = await firebase
+      .firestore()
+      .collection("pedidos")
+      .where("status", "==", status)
+      .orderBy(time, ascOrDesc)
+      .get();
+  }
+
   const ar = [];
   i.forEach((item) => {
     const o = {
@@ -74,15 +86,13 @@ export const fireFuncs = {
   },
 
   getCurrentOrders: (callback, numb) => {
-    return (
-      firebase
-        .firestore()
-        .collection("pedidos")
-        .limit(numb)
-        .orderBy("hora", "desc")
-        // .get();
-        .onSnapshot(callback)
-    );
+    return firebase
+      .firestore()
+      .collection("pedidos")
+      .where("flagDelivered", "==", false)
+      .limit(numb)
+      .orderBy("hora", "desc")
+      .onSnapshot(callback);
   },
 
   snapshotOrders: (funcSetOrders) => {
@@ -105,7 +115,7 @@ export const fireFuncs = {
       .firestore()
       .collection("pedidos")
       .onSnapshot(() => {
-        getOrder(status, time, ascOrDesc).then(funcSetOrders);
+        getOrder(status, time, ascOrDesc, true).then(funcSetOrders);
       });
   },
 
@@ -127,6 +137,7 @@ export const fireFuncs = {
   updateOrder: (id, status) => {
     return firebase.firestore().collection("pedidos").doc(id).update({
       status: status,
+      flagDelivered: true,
     });
   },
 };

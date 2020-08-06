@@ -25,12 +25,12 @@ export const Status = () => {
   }, []);
 
   useEffect(() => {
-    fireFuncs.getCurrentOrders(showOrders, limitOrders);
+    let unsubscribe = fireFuncs.getCurrentOrders(showOrders, limitOrders);
+    return () => unsubscribe();
   }, [limitOrders]);
 
   const handleLimitOrders = () => {
     setOrders([]);
-    console.log(limitOrders);
     setLimitOrders(limitOrders + 1);
   };
 

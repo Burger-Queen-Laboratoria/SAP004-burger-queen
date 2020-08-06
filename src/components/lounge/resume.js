@@ -1,10 +1,10 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { 
-  StyleImgDeleteIcon, 
-  StylePResume, 
-  StyleDivResume, 
-  StyleItensResume 
+import {
+  StyleImgDeleteIcon,
+  StylePResume,
+  StyleDivResume,
+  StyleItensResume,
 } from "../StyleComponents";
 import { Button } from "../Button";
 import { fireFuncs } from "../../firebase/firebaseFunctions";
@@ -50,6 +50,7 @@ export const Resume = (props) => {
       horaFinal: null,
       tempoPreparo: null,
       total: sumPrice(props.options),
+      flagDelivered: false,
     };
     fireFuncs.collectionAdd("pedidos", pedidos).then((doc) => {
       history.push("/");
@@ -68,21 +69,20 @@ export const Resume = (props) => {
                 <span>Qtd:</span>
                 <span>{option.count}</span>
                 <span>
-                  <StyleImgDeleteIcon 
-                    src={deleteIcon} 
-                    alt="delete-icon" 
-                    onClick={() => {handleClick(option)}}>
-                  </StyleImgDeleteIcon>
+                  <StyleImgDeleteIcon
+                    src={deleteIcon}
+                    alt="delete-icon"
+                    onClick={() => {
+                      handleClick(option);
+                    }}
+                  ></StyleImgDeleteIcon>
                 </span>
               </StylePResume>
-              <div>Preço Unidade R$ {option.price}</div>    
+              <div>Preço Unidade R$ {option.price}</div>
             </StyleItensResume>
           );
         })}
-        <Button 
-          width={width ? 1 : 0} 
-          name="Enviar" 
-          onClick={handleSendOrder} />
+        <Button width={width ? 1 : 0} name="Enviar" onClick={handleSendOrder} />
       </StyleDivResume>
     );
   } else {

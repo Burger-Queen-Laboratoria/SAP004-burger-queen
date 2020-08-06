@@ -66,7 +66,7 @@ const styleBoxMenuProducts = `
 
 export const StyleInput = styled.input`
   height: 70px;
-  width: ${(props) => props.width ? "30%" : "60%" };
+  width: ${(props) => (props.width ? "30%" : "60%")};
   margin: 10px;
   font-size: 20px;
   outline: none;
@@ -85,15 +85,15 @@ export const StyleInput = styled.input`
 
 export const StyleButton = styled.button`
   height: 50px;
-  width: ${(props) => props.width ? "70%" : "20%"};
+  width: ${(props) => (props.width ? "70%" : "20%")};
   margin: 5px;
-  background-color: #A04835;
+  background-color: #a04835;
   color: black;
   font-size: 20px;
   font-weight: bold;
   cursor: pointer;
   ${borderAndRadius}
-  
+
   @media(max-width: 400px) {
     height: 40px;
     width: 40%;
@@ -242,7 +242,7 @@ export const StyleSectionMenu = styled.section`
 
   @media (max-width: 400px) {
     width: 100%;
-  }  
+  }
 `;
 
 export const StyleAsideMenu = styled.aside`
@@ -320,31 +320,31 @@ export const StyledNavKitchen = styled.nav`
 export const StyledNavImg = styled.img`
   width: 50px;
 
-  @media(max-width: 400px) {
+  @media (max-width: 400px) {
     width: 45px;
   }
 `;
 
 export const StyleNavDiv = styled.div`
- text-align: center;
+  text-align: center;
 `;
 
 export const StyleNavP = styled.p`
-  font-family: ${props => props.queen ? "Burger Queen" : "helvetica"};
-  font-size: ${props => props.queen ? "18px" : "16px"};
-  margin: ${props => props.queen ? "5px 0px" : "10px 0px"};
+  font-family: ${(props) => (props.queen ? "Burger Queen" : "helvetica")};
+  font-size: ${(props) => (props.queen ? "18px" : "16px")};
+  margin: ${(props) => (props.queen ? "5px 0px" : "10px 0px")};
   font-weight: bold;
 
-  @media(max-width: 400px) {
-    font-size: ${props => props.queen ? "14px" : "12px"};
+  @media (max-width: 400px) {
+    font-size: ${(props) => (props.queen ? "14px" : "12px")};
   }
 `;
 
 export const TagTitleKitchen = styled.h6`
- font-family: "Burger Queen";
- text-align: center;
- font-size: 50px;
- margin: 10px;
+  font-family: "Burger Queen";
+  text-align: center;
+  font-size: 50px;
+  margin: 10px;
 `;
 
 export const StyleTagUl = styled.ul`
@@ -352,15 +352,15 @@ export const StyleTagUl = styled.ul`
   font-family: "helvetica";
   padding: 0;
   margin: 0;
-  width:80%;
+  width: 80%;
 
   & li {
-    border: 1px solid #C4C4C4;
-    background-color: #A04835;
+    border: 1px solid #c4c4c4;
+    background-color: #a04835;
   }
 
   & section {
-    background-color: rgba(255,255,255,0.3);
+    background-color: rgba(255, 255, 255, 0.3);
   }
 `;
 
@@ -375,21 +375,22 @@ export const StyleHeader = styled.header`
   display: flex;
   width: 80%;
   justify-content: space-around;
-  background-color: #C4C4C4;
+  background-color: #c4c4c4;
   font-family: "helvetica";
   font-weight: bold;
   font-size: 18px;
 
-  @media(max-width: 400px) {
+  @media (max-width: 400px) {
     font-size: 14px;
     text-align: center;
     align-items: center;
-  }  
+  }
 `;
 
 export const StyleTagDiv = styled.div`
   display: flex;
   justify-content: space-around;
+  background-color: ${(props) => (props.color ? props.color : null)};
 `;
 
 export const StyleSectionOrder = styled.section`
@@ -400,7 +401,7 @@ export const StyleSectionOrder = styled.section`
 
 export const StyleButtonOrder = styled.button`
   height: 50px;
-  background-color: #FED08F;
+  background-color: #fed08f;
   border: none;
   font-weight: bold;
   border-radius: 3px;
@@ -412,7 +413,7 @@ export const StyleFooter = styled.footer`
   height: 30px;
   font-family: "helvetica";
   padding: 10px;
-  color: #A04835;
+  color: #a04835;
   text-align: center;
 `;
 
