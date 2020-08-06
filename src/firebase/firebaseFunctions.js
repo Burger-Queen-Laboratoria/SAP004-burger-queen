@@ -26,7 +26,7 @@ const getOrder = async (status, time, ascOrDesc) => {
     ar.push(o);
   });
   return ar;
-}
+};
 
 export const fireFuncs = {
   authSignIn: (email, password) => {
@@ -74,13 +74,15 @@ export const fireFuncs = {
   },
 
   getCurrentOrders: (callback, numb) => {
-    return firebase
-      .firestore()
-      .collection("pedidos")
-      .limit(numb)
-      .orderBy("hora", "desc")
-      .get();
-    // .onSnapshot(callback);
+    return (
+      firebase
+        .firestore()
+        .collection("pedidos")
+        .limit(numb)
+        .orderBy("hora", "desc")
+        // .get();
+        .onSnapshot(callback)
+    );
   },
 
   snapshotOrders: (funcSetOrders) => {
@@ -92,7 +94,7 @@ export const fireFuncs = {
       .collection("pedidos")
       .onSnapshot(() => {
         getOrder(status, time, ascOrDesc).then(funcSetOrders);
-    });
+      });
   },
 
   snapshotConcludeOrders: (funcSetOrders) => {
@@ -104,23 +106,27 @@ export const fireFuncs = {
       .collection("pedidos")
       .onSnapshot(() => {
         getOrder(status, time, ascOrDesc).then(funcSetOrders);
-    });
+      });
   },
 
   concludeOrder: (order) => {
     const name = firebase.auth().currentUser.displayName;
     const time = new Date(Date.now());
-    const calc = moment(new Date(time - order.initialHour)).utc().format("HH:mm:ss")
-  
-    return firebase
-      .firestore()
-      .collection("pedidos")
-      .doc(order.id)
-      .update({
-        status: "concluído",
-        horaFinal: time,
-        tempoPreparo: calc,
-        cozinheiro: name,
-      });
-  }
+    const calc = moment(new Date(time - order.initialHour))
+      .utc()
+      .format("HH:mm:ss");
+
+    return firebase.firestore().collection("pedidos").doc(order.id).update({
+      status: "concluído",
+      horaFinal: time,
+      tempoPreparo: calc,
+      cozinheiro: name,
+    });
+  },
+
+  updateOrder: (id, status) => {
+    return firebase.firestore().collection("pedidos").doc(id).update({
+      status: status,
+    });
+  },
 };
