@@ -1,30 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { fireFuncs } from "../../firebase/firebaseFunctions";
 import { Title } from "../kitchen/TitleKitchen.js";
-import { TitleOrderArea, TagPArea } from "../kitchen/OrderKitchen.js";
-import { 
-  StyleTagUl, 
-  StyleTagSection, 
-  StyleTagDiv 
-} from "../StyleComponents.js";
-
-const OrderSection = (props, key) => {
-  return (
-    <li key={key}>
-    <StyleTagDiv>
-      <TagPArea item={props.cliente} />
-      <TagPArea item={props.mesa} />
-      <TagPArea item={props.hora} />
-      <TagPArea item={props.status} />
-    </StyleTagDiv>
-  </li>
-  );
-}
+import { TitleOrderArea } from "../kitchen/OrderKitchen.js";
+import { Button } from "../Button.js";
+import { StyleTagUl, StyleTagSection } from "../StyleComponents.js";
+import { OrderSection } from "./OrderSection.js";
 
 export const Status = () => {
   const [orders, setOrders] = useState([]);
+  const [limitOrders, setLimitOrders] = useState(10);
 
   const showOrders = (result) => {
+    setOrders([]);
     result.forEach((element) => {
       let order = element.data();
       order.id = element.id;
@@ -33,25 +20,41 @@ export const Status = () => {
   };
 
   useEffect(() => {
-    let unsubscribe = fireFuncs.getCurrentOrders(showOrders);
+    let unsubscribe = fireFuncs.getCurrentOrders(showOrders, limitOrders);
     return () => unsubscribe();
   }, []);
 
+  useEffect(() => {
+    fireFuncs.getCurrentOrders(showOrders, limitOrders);
+  }, [limitOrders]);
+
+  const handleLimitOrders = () => {
+    setOrders([]);
+    console.log(limitOrders);
+    setLimitOrders(limitOrders + 1);
+  };
+
   return (
     <section>
-      <Title name="Status"/>
+      <Title name="Status" />
       <StyleTagSection>
-        <TitleOrderArea time="Hora"/>
+        <TitleOrderArea time="Hora" />
         <StyleTagUl>
-          {orders.map((order) =>{
-            return <OrderSection 
-              key={order.id} 
-              cliente={order.cliente} 
-              status={order.status} 
-              hora={order.hora} 
-              mesa={order.mesa}/>
+          {orders.map((order) => {
+            return (
+              <OrderSection
+                key={order.id}
+                id={order.id}
+                cliente={order.cliente}
+                status={order.status}
+                hora={order.hora}
+                mesa={order.mesa}
+                item={order.pedido}
+              />
+            );
           })}
         </StyleTagUl>
+        <Button name="ver mais" onClick={handleLimitOrders} />
       </StyleTagSection>
     </section>
   );
