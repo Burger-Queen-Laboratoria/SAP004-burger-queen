@@ -28,7 +28,7 @@ export const Resume = (props) => {
     if (option.count > 1) {
       props.setValue(() => {
         return props.options.map((item) => {
-          return item.id === option.id
+          return item.id === option.id && item.ext === option.ext
             ? { ...item, count: item.count - 1 }
             : item;
         });
@@ -36,7 +36,7 @@ export const Resume = (props) => {
     } else {
       props.setValue(
         props.options.filter((element) => {
-          return element.id !== option.id;
+          return element.id + element.ext !== option.id + option.ext;
         })
       );
     }
