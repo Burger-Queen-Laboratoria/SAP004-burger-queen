@@ -12,6 +12,7 @@ import menuDois from "../../img-documents/menuex2.png";
 import { fireFuncs } from "../../firebase/firebaseFunctions.js";
 import { Products } from "./products.js";
 import { Resume } from "./resume.js";
+import { relativeTimeRounding } from "moment";
 
 export const Menu = (props) => {
   const [display, setDisplay] = useState("block"),
@@ -41,7 +42,17 @@ export const Menu = (props) => {
 
   const printMenuItens = (doc, id) => {
     doc.id = id;
-    setMenuItens((menuItens) => [...menuItens, doc]);
+    setMenuItens((menuItens) =>
+      [...menuItens, doc].sort((a, b) => {
+        if (a.item < b.item) {
+          return -1;
+        }
+        if (a.item > b.item) {
+          return 1;
+        }
+        return 0;
+      })
+    );
   };
   return (
     <StyleDivMenu>
@@ -53,7 +64,11 @@ export const Menu = (props) => {
             </ItensContainer>
 
             <ItensContainer>
-              <MenusImg src={menuDois} id="menu-2" onClick={ChangeStyleScreen} />
+              <MenusImg
+                src={menuDois}
+                id="menu-2"
+                onClick={ChangeStyleScreen}
+              />
             </ItensContainer>
           </MenusContainer>
 

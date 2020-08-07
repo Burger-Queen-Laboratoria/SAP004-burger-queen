@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "../Button";
-import { 
-  StyleDivProducts, 
-  StyleDivItensMenu 
-} from "../StyleComponents";
+import { StyleDivProducts, StyleDivItensMenu } from "../StyleComponents";
+import { Checkbox } from "../Checkbox";
 
 export const Products = ({ options, valueItem, setValue }) => {
-  const width = true;
+  const [extraItens, setExtraItens] = useState(""),
+    [displayExtras, setDisplayExtras] = useState(false),
+    width = true;
+
   const handleClick = (object) => {
     if (
       valueItem.some((item) => {
@@ -23,6 +24,12 @@ export const Products = ({ options, valueItem, setValue }) => {
     } else {
       object.count = 1;
       setValue((valueItem) => [...valueItem, object]);
+    }
+  };
+
+  const handleExtraItens = (item) => {
+    if (item.startsWith("Hambúrguer")) {
+      setDisplayExtras(true);
     }
   };
 
@@ -43,6 +50,17 @@ export const Products = ({ options, valueItem, setValue }) => {
           </StyleDivItensMenu>
         );
       })}
+      {displayExtras && (
+        <Checkbox
+          options={[
+            { extra: "Bovino", key: "carne" },
+            { extra: "Frango", key: "frango" },
+            { extra: "Vegetariano", key: "veg" },
+          ]}
+          value={extraItens}
+          setValue={setExtraItens}
+        />
+      )}
     </StyleDivProducts>
   );
 };
