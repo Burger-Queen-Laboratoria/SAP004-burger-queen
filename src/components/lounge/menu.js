@@ -12,7 +12,6 @@ import menuDois from "../../img-documents/menuex2.png";
 import { fireFuncs } from "../../firebase/firebaseFunctions.js";
 import { Products } from "./products.js";
 import { Resume } from "./resume.js";
-import { relativeTimeRounding } from "moment";
 
 export const Menu = (props) => {
   const [display, setDisplay] = useState("block"),

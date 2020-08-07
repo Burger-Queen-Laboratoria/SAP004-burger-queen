@@ -172,6 +172,7 @@ export const CheckboxLabel = styled.label`
 
 export const CheckboxContainer = styled.div`
   display: flex;
+  flex-direction: ${(props) => (props.direction ? props.direction : null)};
   align-items: center;
   justify-content: space-evenly;
   width: 85%;

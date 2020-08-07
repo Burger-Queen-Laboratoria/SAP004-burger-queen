@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import {
   StyleImgDeleteIcon,
@@ -9,10 +9,16 @@ import {
 import { Button } from "../Button";
 import { fireFuncs } from "../../firebase/firebaseFunctions";
 import deleteIcon from "../../img-documents/delete.svg";
+import { Checkbox } from "../Checkbox";
 
 export const Resume = (props) => {
-  const width = true;
   let history = useHistory();
+  const width = true;
+
+  const handleExtraItens = (item) => {
+    return item.startsWith("Hambúrguer");
+  };
+
   const sumPrice = (arrayProducts) => {
     return arrayProducts.reduce((acc, nextProduct) => {
       return (acc += nextProduct.price * nextProduct.count);
@@ -20,7 +26,7 @@ export const Resume = (props) => {
   };
   const handleClick = (option) => {
     if (option.count > 1) {
-      props.setValue((options) => {
+      props.setValue(() => {
         return props.options.map((item) => {
           return item.id === option.id
             ? { ...item, count: item.count - 1 }
@@ -79,9 +85,28 @@ export const Resume = (props) => {
                 </span>
               </StylePResume>
               <div>Preço Unidade R$ {option.price}</div>
+              {handleExtraItens(option.item) && (
+                <Checkbox
+                  direction="column;"
+                  options={[
+                    { name: "Bovino", key: "carne" },
+                    { name: "Frango", key: "frango" },
+                    { name: "Vegan", key: "vegano" },
+                  ]}
+                  value={option.ext ? option.ext : []}
+                  setValue={(value) => {
+                    props.setValue(
+                      props.options.map((item) =>
+                        item.id === option.id ? { ...item, ext: value } : item
+                      )
+                    );
+                  }}
+                />
+              )}
             </StyleItensResume>
           );
         })}
+
         <Button width={width ? 1 : 0} name="Enviar" onClick={handleSendOrder} />
       </StyleDivResume>
     );
