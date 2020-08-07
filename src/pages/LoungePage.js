@@ -39,7 +39,7 @@ export const LoungePage = () => {
     [tableNum, setTableNum] = useState("");
 
   fireFuncs.getLoggedUser((user) => {
-    setName(user.displayName);
+    user ? setName(user.displayName) : setName();
   });
 
   const handleSingOut = () => {
