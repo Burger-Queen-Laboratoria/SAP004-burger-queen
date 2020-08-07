@@ -27,7 +27,7 @@ export const NavigationKitchen = () => {
   const [name, setName] = useState("");
 
   fireFuncs.getLoggedUser((user) => {
-    setName(user.displayName);
+    user ? setName(user.displayName) : setName();
   });
   
   const handleClickOut = () => {
