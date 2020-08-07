@@ -43,14 +43,13 @@ function App() {
         <BrowserRouter>
           <Redirect to="/"/>
           <Switch>
-            <Route path="/" component={LoginPage} />
+            <Route exact={true} path="/" component={LoginPage} />
             <Route path="/register" component={Register} />
           </Switch>
         </BrowserRouter>
       );
     }
-  }
-
+  };
 
   return redirect(userLogged);
 }
