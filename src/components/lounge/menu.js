@@ -41,7 +41,17 @@ export const Menu = (props) => {
 
   const printMenuItens = (doc, id) => {
     doc.id = id;
-    setMenuItens((menuItens) => [...menuItens, doc]);
+    setMenuItens((menuItens) =>
+      [...menuItens, doc].sort((a, b) => {
+        if (a.item < b.item) {
+          return -1;
+        }
+        if (a.item > b.item) {
+          return 1;
+        }
+        return 0;
+      })
+    );
   };
   return (
     <StyleDivMenu>
@@ -53,7 +63,11 @@ export const Menu = (props) => {
             </ItensContainer>
 
             <ItensContainer>
-              <MenusImg src={menuDois} id="menu-2" onClick={ChangeStyleScreen} />
+              <MenusImg
+                src={menuDois}
+                id="menu-2"
+                onClick={ChangeStyleScreen}
+              />
             </ItensContainer>
           </MenusContainer>
 

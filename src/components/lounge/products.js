@@ -1,16 +1,14 @@
 import React from "react";
 import { Button } from "../Button";
-import { 
-  StyleDivProducts, 
-  StyleDivItensMenu 
-} from "../StyleComponents";
+import { StyleDivProducts, StyleDivItensMenu } from "../StyleComponents";
 
 export const Products = ({ options, valueItem, setValue }) => {
   const width = true;
+
   const handleClick = (object) => {
     if (
       valueItem.some((item) => {
-        return item.id === object.id;
+        return item.id === object.id && item.ext === object.ext;
       })
     ) {
       setValue((valueItem) => {

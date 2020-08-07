@@ -172,6 +172,7 @@ export const CheckboxLabel = styled.label`
 
 export const CheckboxContainer = styled.div`
   display: flex;
+  flex-direction: ${(props) => (props.direction ? props.direction : null)};
   align-items: center;
   justify-content: space-evenly;
   width: 85%;
@@ -410,11 +411,14 @@ export const StyleButtonOrder = styled.button`
 `;
 
 export const StyleFooter = styled.footer`
+  ${displayFlexAndRow}
+  justify-content:space-evenly;
   height: 30px;
   font-family: "helvetica";
   padding: 10px;
   color: #a04835;
   text-align: center;
+  font-weight: bold;
 `;
 
 export const StyleDivMainHeight = styled.div`

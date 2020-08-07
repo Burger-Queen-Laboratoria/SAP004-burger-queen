@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import {
   StyleImgDeleteIcon,
@@ -9,10 +9,16 @@ import {
 import { Button } from "../Button";
 import { fireFuncs } from "../../firebase/firebaseFunctions";
 import deleteIcon from "../../img-documents/delete.svg";
+import { Checkbox } from "../Checkbox";
 
 export const Resume = (props) => {
-  const width = true;
   let history = useHistory();
+  const width = true;
+
+  const handleExtraItens = (item) => {
+    return item.startsWith("Hambúrguer");
+  };
+
   const sumPrice = (arrayProducts) => {
     return arrayProducts.reduce((acc, nextProduct) => {
       return (acc += nextProduct.price * nextProduct.count);
@@ -20,9 +26,9 @@ export const Resume = (props) => {
   };
   const handleClick = (option) => {
     if (option.count > 1) {
-      props.setValue((options) => {
+      props.setValue(() => {
         return props.options.map((item) => {
-          return item.id === option.id
+          return item.id === option.id && item.ext === option.ext
             ? { ...item, count: item.count - 1 }
             : item;
         });
@@ -30,11 +36,49 @@ export const Resume = (props) => {
     } else {
       props.setValue(
         props.options.filter((element) => {
-          return element.id !== option.id;
+          return element.id + element.ext !== option.id + option.ext;
         })
       );
     }
   };
+
+  const countDuplicate = (array) => {
+    const result = [
+      ...array
+        .reduce((mp, o) => {
+          let aux = o.count;
+          const key = JSON.stringify([o.item, o.ext]);
+          if (!mp.has(key)) mp.set(key, { ...o, count: 0 });
+          console.log(mp.get(key));
+          mp.get(key).count += aux;
+          return mp;
+        }, new Map())
+        .values(),
+    ];
+    console.log(result);
+    return result;
+  };
+
+  const removeDupliItens = () => {
+    let duplicatedArray = countDuplicate(props.options);
+    console.log(duplicatedArray);
+    if (duplicatedArray) {
+      duplicatedArray.forEach((item) => {
+        if (item.count > 1) {
+          props.setValue([
+            item,
+            ...duplicatedArray.filter((element) => {
+              return element.id + element.ext !== item.id + item.ext;
+            }),
+          ]);
+        }
+      });
+    }
+  };
+
+  useEffect(() => {
+    removeDupliItens();
+  }, [countDuplicate(props.options).length]);
 
   const handleSendOrder = () => {
     const pedidos = {
@@ -61,9 +105,9 @@ export const Resume = (props) => {
     return (
       <StyleDivResume>
         <h1>TOTAL: R$ {sumPrice(props.options)}</h1>
-        {props.options.map((option) => {
+        {props.options.map((option, i) => {
           return (
-            <StyleItensResume key={option.id}>
+            <StyleItensResume key={option.id + option.ex + i}>
               <div>{option.item}</div>
               <StylePResume>
                 <span>Qtd:</span>
@@ -79,9 +123,30 @@ export const Resume = (props) => {
                 </span>
               </StylePResume>
               <div>Preço Unidade R$ {option.price}</div>
+              {handleExtraItens(option.item) && (
+                <Checkbox
+                  direction="column;"
+                  options={[
+                    { name: "Bovino", key: "carne" },
+                    { name: "Frango", key: "frango" },
+                    { name: "Vegan", key: "vegano" },
+                  ]}
+                  value={option.ext ? option.ext : []}
+                  setValue={(value) => {
+                    props.setValue(
+                      props.options.map((item) =>
+                        item.id === option.id && item.ext === option.ext
+                          ? { ...item, ext: value }
+                          : item
+                      )
+                    );
+                  }}
+                />
+              )}
             </StyleItensResume>
           );
         })}
+
         <Button width={width ? 1 : 0} name="Enviar" onClick={handleSendOrder} />
       </StyleDivResume>
     );
