@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import {
   StyleImgDeleteIcon,
@@ -42,6 +42,44 @@ export const Resume = (props) => {
     }
   };
 
+  const countDuplicate = (array) => {
+    const result = [
+      ...array
+        .reduce((mp, o) => {
+          let aux = o.count;
+          const key = JSON.stringify([o.item, o.ext]);
+          if (!mp.has(key)) mp.set(key, { ...o, count: 0 });
+          console.log(mp.get(key));
+          mp.get(key).count += aux;
+          return mp;
+        }, new Map())
+        .values(),
+    ];
+    console.log(result);
+    return result;
+  };
+
+  const removeDupliItens = () => {
+    let duplicatedArray = countDuplicate(props.options);
+    console.log(duplicatedArray);
+    if (duplicatedArray) {
+      duplicatedArray.forEach((item) => {
+        if (item.count > 1) {
+          props.setValue([
+            item,
+            ...duplicatedArray.filter((element) => {
+              return element.id + element.ext !== item.id + item.ext;
+            }),
+          ]);
+        }
+      });
+    }
+  };
+
+  useEffect(() => {
+    removeDupliItens();
+  }, [countDuplicate(props.options).length]);
+
   const handleSendOrder = () => {
     const pedidos = {
       garcom: props.name,
@@ -67,9 +105,9 @@ export const Resume = (props) => {
     return (
       <StyleDivResume>
         <h1>TOTAL: R$ {sumPrice(props.options)}</h1>
-        {props.options.map((option) => {
+        {props.options.map((option, i) => {
           return (
-            <StyleItensResume key={option.id + option.ext}>
+            <StyleItensResume key={option.id + option.ex + i}>
               <div>{option.item}</div>
               <StylePResume>
                 <span>Qtd:</span>
