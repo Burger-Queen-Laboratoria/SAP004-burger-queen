@@ -48,7 +48,9 @@ export const OrderSection = ({ id, ...props }) => {
         <StyleSectionOrder>
           <div>
             {props.item.map((i) => (
-              <p key={id + i.item}>{i.item}</p>
+              <p key={id + i.item}>
+                {i.count} {i.item} {i.ext}
+              </p>
             ))}
           </div>
           {displayBtn && (

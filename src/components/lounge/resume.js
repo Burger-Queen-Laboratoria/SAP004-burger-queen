@@ -69,7 +69,7 @@ export const Resume = (props) => {
         <h1>TOTAL: R$ {sumPrice(props.options)}</h1>
         {props.options.map((option) => {
           return (
-            <StyleItensResume key={option.id}>
+            <StyleItensResume key={option.id + option.ext}>
               <div>{option.item}</div>
               <StylePResume>
                 <span>Qtd:</span>
@@ -97,7 +97,9 @@ export const Resume = (props) => {
                   setValue={(value) => {
                     props.setValue(
                       props.options.map((item) =>
-                        item.id === option.id ? { ...item, ext: value } : item
+                        item.id === option.id && item.ext === option.ext
+                          ? { ...item, ext: value }
+                          : item
                       )
                     );
                   }}
