@@ -75,13 +75,15 @@ export const fireFuncs = {
   },
 
   getLoggedUser: (callback) => {
-    console.log(localStorage.getItem("user"));
-    if (localStorage.getItem("user")) {
-      callback(localStorage.getItem("user"));
+    let userStorage = JSON.parse(localStorage.getItem("user"));
+
+    if (userStorage) {
+      console.log("aqui é o if");
+      callback(userStorage);
     } else {
       firebase.auth().onAuthStateChanged((user) => {
         if (user) {
-          localStorage.setItem("user", user);
+          localStorage.setItem("user", JSON.stringify(user));
           callback(user);
         }
       });
