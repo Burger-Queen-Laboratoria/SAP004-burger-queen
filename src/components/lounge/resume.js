@@ -96,8 +96,8 @@ export const Resume = (props) => {
       total: sumPrice(props.options),
       flagDelivered: false,
     };
-    fireFuncs.collectionAdd("pedidos", pedidos).then((doc) => {
-      history.push("/");
+    fireFuncs.collectionAdd("pedidos", pedidos).then(() => {
+      history.go(0);
     });
   };
 
