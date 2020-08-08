@@ -46,6 +46,7 @@ export const fireFuncs = {
   },
 
   authSignOut: () => {
+    localStorage.removeItem("user");
     return firebase.auth().signOut();
   },
   authCreateUser: (email, password) => {
@@ -74,7 +75,17 @@ export const fireFuncs = {
   },
 
   getLoggedUser: (callback) => {
-    firebase.auth().onAuthStateChanged(callback);
+    console.log(localStorage.getItem("user"));
+    if (localStorage.getItem("user")) {
+      callback(localStorage.getItem("user"));
+    } else {
+      firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+          localStorage.setItem("user", user);
+          callback(user);
+        }
+      });
+    }
   },
 
   getMenuItens: (menuNumb) => {
