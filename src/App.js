@@ -15,7 +15,7 @@ function App() {
       user
         ? fireFuncs
             .getCurrentUser(user.uid)
-            .then((doc) => setUserLogged(doc.data().sector))
+            .then((doc) => setUserLogged(doc.sector))
         : setUserLogged();
     });
   }, []);

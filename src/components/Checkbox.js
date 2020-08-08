@@ -7,14 +7,12 @@ import {
 
 export const Checkbox = ({ options, value, setValue, ...props }) => {
   function handleChange({ target }) {
-    console.log(value);
     if (target.checked) {
       setValue([target.value]);
     } else {
       setValue(value.filter((intemValue) => intemValue !== target.value));
     }
   }
-  console.log(props.direction);
   return (
     <CheckboxContainer direction={props.direction}>
       {options.map((option) => (

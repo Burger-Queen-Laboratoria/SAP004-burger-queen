@@ -5,7 +5,7 @@ import { InputComponent } from "../components/Input.js";
 import { fireFuncs } from "../firebase/firebaseFunctions.js";
 import { useHistory, Link } from "react-router-dom";
 import logoImg from "../img-documents/logo-burger.png";
-import { Footer } from "../components/Footer.js"
+import { Footer } from "../components/Footer.js";
 import {
   TitleLogo,
   ImgLogo,
@@ -20,18 +20,6 @@ export const LoginPage = () => {
   const [password, setPassword] = useState("");
   const [errorLogin, setErrorLogin] = useState("");
   let history = useHistory();
-
-  fireFuncs.getLoggedUser((user) => {
-    if (user) {
-      fireFuncs.getCurrentUser(user.uid).then((doc) => {
-        if (doc.data().sector === "Hall") {
-          history.push("/lounge");
-        } else {
-          history.push("/kitchen");
-        }
-      });
-    }
-  });
 
   const handleInputEmail = (e) => {
     setEmail(e.target.value);
@@ -48,7 +36,7 @@ export const LoginPage = () => {
       .then((e) => {
         if (e.user.uid !== null) {
           fireFuncs.getCurrentUser(e.user.uid).then((doc) => {
-            if (doc.data().sector === "Hall") {
+            if (doc.sector === "Hall") {
               history.push("/lounge");
             } else {
               history.push("/kitchen");
@@ -89,7 +77,7 @@ export const LoginPage = () => {
           <RegisterMember>Registre-se</RegisterMember>
         </Link>
       </StyleSection>
-    <Footer />
+      <Footer />
     </>
   );
 };
