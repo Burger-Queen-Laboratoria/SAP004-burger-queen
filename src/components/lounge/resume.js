@@ -49,19 +49,16 @@ export const Resume = (props) => {
           let aux = o.count;
           const key = JSON.stringify([o.item, o.ext]);
           if (!mp.has(key)) mp.set(key, { ...o, count: 0 });
-          console.log(mp.get(key));
           mp.get(key).count += aux;
           return mp;
         }, new Map())
         .values(),
     ];
-    console.log(result);
     return result;
   };
 
   const removeDupliItens = () => {
     let duplicatedArray = countDuplicate(props.options);
-    console.log(duplicatedArray);
     if (duplicatedArray) {
       duplicatedArray.forEach((item) => {
         if (item.count > 1) {

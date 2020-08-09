@@ -46,6 +46,7 @@ export const fireFuncs = {
   },
 
   authSignOut: () => {
+    localStorage.removeItem("userFirestore");
     return firebase.auth().signOut();
   },
   authCreateUser: (email, password) => {
@@ -70,7 +71,24 @@ export const fireFuncs = {
   },
 
   getCurrentUser: (userId) => {
-    return firebase.firestore().collection("users").doc(userId).get();
+    let userStorage = JSON.parse(localStorage.getItem("userFirestore"));
+    if (userStorage) {
+      return new Promise((resolve, reject) => {
+        resolve(userStorage);
+      });
+    } else {
+      return new Promise((resolve, reject) => {
+        firebase
+          .firestore()
+          .collection("users")
+          .doc(userId)
+          .get()
+          .then((doc) => {
+            localStorage.setItem("userFirestore", JSON.stringify(doc.data()));
+            resolve(doc.data());
+          });
+      });
+    }
   },
 
   getLoggedUser: (callback) => {

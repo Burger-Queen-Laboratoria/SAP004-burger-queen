@@ -12,9 +12,11 @@ function App() {
 
   useEffect(() => {
     fireFuncs.getLoggedUser((user) => {
-      user ? 
-      fireFuncs.getCurrentUser(user.uid).then(doc=>setUserLogged(doc.data().sector)) : 
-      setUserLogged()
+      user
+        ? fireFuncs
+            .getCurrentUser(user.uid)
+            .then((doc) => setUserLogged(doc.sector))
+        : setUserLogged();
     });
   }, []);
 
@@ -22,7 +24,7 @@ function App() {
     if (logged === "Kitchen") {
       return (
         <BrowserRouter>
-          <Redirect to="/kitchen"/>
+          <Redirect to="/kitchen" />
           <Switch>
             <Route path="/kitchen" component={KitchenPage} />
             <Route path="/historic" component={HistoricArea} />
@@ -32,16 +34,16 @@ function App() {
     } else if (logged === "Hall") {
       return (
         <BrowserRouter>
-          <Redirect to="/lounge"/>
+          <Redirect to="/lounge" />
           <Switch>
             <Route path="/lounge" component={LoungePage} />
           </Switch>
         </BrowserRouter>
-      )
+      );
     } else {
       return (
         <BrowserRouter>
-          <Redirect to="/"/>
+          <Redirect to="/" />
           <Switch>
             <Route exact={true} path="/" component={LoginPage} />
             <Route path="/register" component={Register} />
