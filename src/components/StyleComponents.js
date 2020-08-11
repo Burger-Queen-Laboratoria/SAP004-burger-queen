@@ -198,7 +198,7 @@ export const Title = styled.h1`
 `;
 
 export const RegisterTitleFlex = styled.div`
-  margin-top: 5px;
+  margin: 20px 0px;
   display: flex;
   ${alignItemsAndJustifyCenter}
 `;
@@ -423,7 +423,6 @@ export const StyleFooter = styled.footer`
   font-family: "helvetica";
   padding: 10px;
   color: #a04835;
-  font-weight: bold;
 
   @media (max-width: 400px) {
     font-size: 12px;
@@ -436,6 +435,7 @@ export const StylePFooter = styled.p`
 
 export const StyleTagA = styled.a`
   text-decoration: none;
+  font-weight: bold;
   color: #a04835;
 `;
 
