@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { useHistory } from "react-router-dom";
 import {
   StyleImgDeleteIcon,
   StylePResume,
@@ -12,7 +11,6 @@ import deleteIcon from "../../img-documents/delete.svg";
 import { Checkbox } from "../Checkbox";
 
 export const Resume = (props) => {
-  let history = useHistory();
   const width = true;
 
   const handleExtraItens = (item) => {
@@ -94,7 +92,7 @@ export const Resume = (props) => {
       flagDelivered: false,
     };
     fireFuncs.collectionAdd("pedidos", pedidos).then(() => {
-      history.go(0);
+      props.setScreen("status");
     });
   };
 

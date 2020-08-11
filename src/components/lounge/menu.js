@@ -79,7 +79,7 @@ export const Menu = (props) => {
         </div>
       </StyleSectionMenu>
       <StyleAsideMenu display={displayAside}>
-        <Resume
+        <Resume setScreen={props.setScreen}
           resume={showResume}
           options={addItensToResume}
           setValue={setItensToResume}
