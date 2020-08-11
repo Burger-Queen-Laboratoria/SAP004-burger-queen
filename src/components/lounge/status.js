@@ -38,7 +38,7 @@ export const Status = () => {
     <section>
       <Title name="Status" />
       <StyleTagSection>
-        <TitleOrderArea time="Hora" />
+        <TitleOrderArea time="Hora do Pedido" />
         <StyleTagUl>
           {orders.map((order) => {
             return (

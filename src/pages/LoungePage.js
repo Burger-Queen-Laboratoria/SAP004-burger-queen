@@ -23,7 +23,7 @@ const ManagerScreen = (props) => {
       return <ClientTable callback={props.func} />;
     case "menu":
       return (
-        <Menu
+        <Menu setScreen={props.setScreen}
           name={props.nameClient}
           table={props.tableNum}
           garcom={props.garcom}
@@ -76,7 +76,7 @@ export const LoungePage = () => {
           />
           <Figure src={signoutIcon} text="Sair" onClick={handleSingOut} />
         </StyledNavKitchen>
-        <ManagerScreen
+        <ManagerScreen setScreen={setScreen}
           screen={screen}
           nameClient={clientName}
           tableNum={tableNum}
