@@ -3,7 +3,7 @@ import { ErrorArea } from "../components/Errors.js";
 import { Button } from "../components/Button.js";
 import { InputComponent } from "../components/Input.js";
 import { fireFuncs } from "../firebase/firebaseFunctions.js";
-import { useHistory, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import logoImg from "../img-documents/logo-burger.png";
 import { Footer } from "../components/Footer.js";
 import {
