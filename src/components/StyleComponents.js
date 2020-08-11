@@ -1,4 +1,5 @@
 import styled, { createGlobalStyle } from "styled-components";
+import { Link } from 'react-router-dom';
 import BurgerQueen from "../img-documents/Making-Lettering-Tall_demo.ttf";
 
 export const GlobalStyle = createGlobalStyle`
@@ -111,8 +112,8 @@ export const TitleLogo = styled.p`
 `;
 
 export const ImgLogo = styled.img`
-  margin-top: 30px;
-  width: 30%;
+  margin-top: 5px;
+  width: 160px;
 `;
 
 export const StyleSection = styled.section`
@@ -120,7 +121,7 @@ export const StyleSection = styled.section`
   text-align: center;
   align-items: center;
   width: 100%;
-  min-height: calc(100vh - 40px);
+  min-height: calc(100vh - 50px);
 `;
 
 export const StyleForm = styled.form`
@@ -130,18 +131,20 @@ export const StyleForm = styled.form`
 `;
 
 export const NewMember = styled.p`
-  margin: 10px;
+  margin: 2px;
   ${fontSizeAndFamily}
 `;
 
 export const RegisterMember = styled.p`
-  margin: 10px;
+  margin: 2px;
   font-weight: bold;
   cursor: pointer;
   ${fontSizeAndFamily}
+  text-decoration: none;
 `;
 
 export const StyleError = styled.p`
+  margin: 4px;
   color: darkred;
   ${fontSizeAndFamily}
 `;
@@ -180,6 +183,7 @@ export const CheckboxContainer = styled.div`
 `;
 
 export const BtnsRegisterContainer = styled.p`
+  margin: 2px;
   width: 85%;
   justify-content: center;
   ${displayFlexAndRow}
@@ -189,10 +193,12 @@ export const BtnsRegisterContainer = styled.p`
 export const Title = styled.h1`
   ${fontSizeAndFamily}
   font-weight: bold;
+  margin: 0px;
+  margin-bottom: 15px;
 `;
 
 export const RegisterTitleFlex = styled.div`
-  margin-top: 30px;
+  margin-top: 5px;
   display: flex;
   ${alignItemsAndJustifyCenter}
 `;
@@ -411,16 +417,33 @@ export const StyleButtonOrder = styled.button`
 `;
 
 export const StyleFooter = styled.footer`
-  ${displayFlexAndRow}
-  justify-content:space-evenly;
+  display: flex;
+  ${alignItemsAndJustifyCenter}
   height: 30px;
   font-family: "helvetica";
   padding: 10px;
   color: #a04835;
-  text-align: center;
   font-weight: bold;
+
+  @media (max-width: 400px) {
+    font-size: 12px;
+  }
+`;
+
+export const StylePFooter = styled.p`
+  margin: 0px 7px;
+`;
+
+export const StyleTagA = styled.a`
+  text-decoration: none;
+  color: #a04835;
+`;
+
+export const StyleLink = styled(Link)`
+  text-decoration: none;
+  color: black;
 `;
 
 export const StyleDivMainHeight = styled.div`
-  min-height: calc(100vh - 40px);
+  min-height: calc(100vh - 50px);
 `;

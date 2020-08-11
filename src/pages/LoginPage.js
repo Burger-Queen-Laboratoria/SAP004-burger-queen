@@ -13,6 +13,7 @@ import {
   StyleForm,
   RegisterMember,
   NewMember,
+  StyleLink,
 } from "../components/StyleComponents.js";
 
 export const LoginPage = () => {
@@ -73,9 +74,9 @@ export const LoginPage = () => {
         </StyleForm>
         <ErrorArea err={errorLogin} />
         <NewMember>Funcionário novo?</NewMember>
-        <Link to="/register">
+        <StyleLink to="/register">
           <RegisterMember>Registre-se</RegisterMember>
-        </Link>
+        </StyleLink>
       </StyleSection>
       <Footer />
     </>
