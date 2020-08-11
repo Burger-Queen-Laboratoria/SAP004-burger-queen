@@ -22,7 +22,7 @@ export const Status = () => {
   useEffect(() => {
     let unsubscribe = fireFuncs.getCurrentOrders(showOrders, limitOrders);
     return () => unsubscribe();
-  }, []);
+  }, []); // eslint-disable-line
 
   useEffect(() => {
     let unsubscribe = fireFuncs.getCurrentOrders(showOrders, limitOrders);

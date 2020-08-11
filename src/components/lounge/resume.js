@@ -73,7 +73,7 @@ export const Resume = (props) => {
 
   useEffect(() => {
     removeDupliItens();
-  }, [countDuplicate(props.options).length]);
+  }, [countDuplicate(props.options).length]); // eslint-disable-line
 
   const handleSendOrder = () => {
     const pedidos = {
