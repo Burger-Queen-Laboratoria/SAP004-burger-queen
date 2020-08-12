@@ -3,7 +3,7 @@ import { ErrorArea } from "../components/Errors.js";
 import { Button } from "../components/Button.js";
 import { InputComponent } from "../components/Input.js";
 import { fireFuncs } from "../firebase/firebaseFunctions.js";
-import { useHistory, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import logoImg from "../img-documents/logo-burger.png";
 import { Footer } from "../components/Footer.js";
 import {
@@ -13,6 +13,7 @@ import {
   StyleForm,
   RegisterMember,
   NewMember,
+  StyleLink,
 } from "../components/StyleComponents.js";
 
 export const LoginPage = () => {
@@ -73,9 +74,9 @@ export const LoginPage = () => {
         </StyleForm>
         <ErrorArea err={errorLogin} />
         <NewMember>Funcionário novo?</NewMember>
-        <Link to="/register">
+        <StyleLink to="/register">
           <RegisterMember>Registre-se</RegisterMember>
-        </Link>
+        </StyleLink>
       </StyleSection>
       <Footer />
     </>

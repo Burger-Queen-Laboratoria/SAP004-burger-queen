@@ -14,9 +14,13 @@ export const Checkbox = ({ options, value, setValue, ...props }) => {
     }
   }
   return (
-    <CheckboxContainer direction={props.direction}>
+    <CheckboxContainer direction={props.direction} fontsize={props.fontsize}>
       {options.map((option) => (
-        <CheckboxLabel checked={value.includes(option.key)} key={option.name}>
+        <CheckboxLabel 
+          color={props.color}
+          width={props.width} 
+          height={props.height} 
+          checked={value.includes(option.key)} key={option.name}>
           <CheckboxRegister
             value={option.key}
             checked={value.includes(option.key)}
