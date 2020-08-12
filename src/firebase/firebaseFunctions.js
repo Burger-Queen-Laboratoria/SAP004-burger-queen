@@ -158,4 +158,8 @@ export const fireFuncs = {
       flagDelivered: true,
     });
   },
+
+  getAuthUser: () => {
+    return firebase.auth().currentUser;
+  }
 };
