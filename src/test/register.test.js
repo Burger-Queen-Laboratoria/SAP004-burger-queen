@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "../App";
-import { shallow } from "enzyme";
-import Register from "../pages/Register";
+import { shallow } from "./enzyme.js";
+import { Register } from "../pages/Register.js";
 
 it("should display an input to fill question", () => {
   const wrapper = shallow(<Register />);
-  expect(wrapper.find("input").length).toBe(3);
+  expect(wrapper.find("InputComponent").length).toBe(3);
 });
 
 it("renders without crashing", () => {
