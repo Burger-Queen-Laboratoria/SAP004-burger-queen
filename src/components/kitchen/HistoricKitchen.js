@@ -32,7 +32,7 @@ const HistoricList = (props, key) => {
           <div>
             <p>pedido:</p>
             {orderList.map((i) => (
-              <p key={key + i.item}>{i.item}</p>
+              <p key={key + i.item}>{i.count} {i.item} {i.ext}</p>
             ))}
             <p>Valor total: {props.order.totalPrice} reais</p>
           </div>

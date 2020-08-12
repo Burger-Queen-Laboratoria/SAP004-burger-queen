@@ -41,7 +41,7 @@ const OrderArea = (props, key) => {
         <StyleSectionOrder>
           <div>
             {orderList.map((i) => (
-              <p key={key + i.item}>{i.item}</p>
+              <p key={key + i.item}>{i.count} {i.item} {i.ext}</p>
             ))}
           </div>
           <StyleButtonOrder onClick={handleClickStatusOrder}>
