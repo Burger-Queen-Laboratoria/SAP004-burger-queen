@@ -106,7 +106,11 @@ export const Register = () => {
           />
 
           <BtnsRegisterContainer>
-            <Button type="submit" name="Registrar" onClick={createUser}></Button>
+            <Button
+              type="submit"
+              name="Registrar"
+              onClick={createUser}
+            ></Button>
             <Button type="button" name="Voltar" onClick={btnBack}></Button>
           </BtnsRegisterContainer>
 
