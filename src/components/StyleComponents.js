@@ -156,13 +156,13 @@ export const CheckboxRegister = styled.input.attrs({ type: "checkbox" })`
 export const CheckboxLabel = styled.label`
   &:before {
     content: "";
-    width: 30px;
-    height: 30px;
+    width: ${(props) => (props.width ? props.width : "30px")};
+    height: ${(props) => (props.height ? props.height : "30px")};
     display: inline-block;
     border: solid 1px #a04835;
     border-radius: 5px;
     box-sizing: border-box;
-    background-color: ${(props) => (props.checked ? "#A04835" : "white")};
+    background-color: ${(props) => (props.checked ? props.color : "white")};
   }
 
   @media (max-width: 400px) {
@@ -179,7 +179,12 @@ export const CheckboxContainer = styled.div`
   align-items: center;
   justify-content: space-evenly;
   width: 85%;
-  ${fontSizeAndFamily}
+  font-size: ${(props) => (props.fontsize ? props.fontsize : "30px")};
+  font-family: "helvetica";
+
+  @media(max-width: 400px) {
+    font-size: 20px;
+  }
 `;
 
 export const BtnsRegisterContainer = styled.p`

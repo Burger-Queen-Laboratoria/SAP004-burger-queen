@@ -120,7 +120,11 @@ export const Resume = (props) => {
               <div>Preço Unidade R$ {option.price}</div>
               {handleExtraItens(option.item) && (
                 <Checkbox
-                  direction="column;"
+                  direction="column"
+                  fontsize="20px"
+                  width="20px"
+                  height="20px"
+                  color="black"
                   options={[
                     { name: "Bovino", key: "carne" },
                     { name: "Frango", key: "frango" },

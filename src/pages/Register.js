@@ -87,6 +87,7 @@ export const Register = () => {
           <Title>Selecione o setor:</Title>
 
           <Checkbox
+            color="#a04835"
             options={[
               { name: "Salão", key: "Hall" },
               { name: "Cozinha", key: "Kitchen" },
