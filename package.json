@@ -14,7 +14,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --coverage --watchAll=false --collectCoverageFrom=src/components/*.js --collectCoverageFrom=src/pages/*.js",
+    "test": "react-scripts test --coverage --watchAll=false --collectCoverageFrom=src/components/**/*.js --collectCoverageFrom=src/pages/*.js",
     "eject": "react-scripts eject",
     "preload": "node ./src/firebase/preLoad.js"
   },
