@@ -2,7 +2,7 @@ export default () => {};
 
 export function ErrorDictionary(error) {
   this.error = error;
-  this.storageErrorCode = {
+  this.errorCode = {
     "storage/unknown": "Ocorreu um erro desconhecido.",
     "storage/object-not-found": "Nenhum objeto na referência desejada.",
     "storage/bucket-not-found":
@@ -19,8 +19,7 @@ export function ErrorDictionary(error) {
       "URL inválido fornecido para refFromURL(). Deve estar no formato: gs://bucket/object ou https://firebasestorage.googleapis.com/v0/b/bucket/o/object?token=&ltTOKEN>.",
     "storage/no-default-bucket":
       "Nenhum bucket foi definido na propriedade storageBucket da configuração.",
-  };
-  this.firestoreErrorCode = {
+
     "firestore/cancelled": "cancelado: a operação foi cancelada ",
     "firestore/unknown":
       "desconhecido: erro desconhecido ou erro de um domínio de erro diferente.",
@@ -35,8 +34,7 @@ export function ErrorDictionary(error) {
       "perda de dados: perda ou corrupção irrecuperável de dados.",
     "firestore/unauthenticated":
       "não autenticado: a solicitação não possui credenciais de autenticação válidas para a operação.",
-  };
-  this.authErrorCode = {
+
     "auth/cors-unsupported": "Este navegador não é suportado.",
     "auth/email-already-in-use":
       "O endereço de e-mail já está em uso por outra conta.",
@@ -62,15 +60,11 @@ export function ErrorDictionary(error) {
       "Este navegador não é suportado ou cookies e dados de terceiros podem ser desabilitados.",
   };
 
-  this.translate = function callBack(base) {
-    let errMessage;
-    if (base === "storageErrorCode") {
-      errMessage = this.storageErrorCode[this.error.code];
-    } else if (base === "firestoreErrorCode") {
-      errMessage = this.firestoreErrorCode[this.error.code];
+  this.translate = function callBack() {
+    if (this.errorCode.hasOwnProperty(this.error.code)) {
+      return this.errorCode[this.error.code];
     } else {
-      errMessage = this.authErrorCode[this.error.code];
+      return "Erro desconhecido";
     }
-    return errMessage;
   };
 }
