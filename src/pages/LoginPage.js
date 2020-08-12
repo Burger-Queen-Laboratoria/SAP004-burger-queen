@@ -6,6 +6,7 @@ import { fireFuncs } from "../firebase/firebaseFunctions.js";
 import { useHistory } from "react-router-dom";
 import logoImg from "../img-documents/logo-burger.png";
 import { Footer } from "../components/Footer.js";
+import { ErrorDictionary } from "../firebase/error.js";
 import {
   TitleLogo,
   ImgLogo,
@@ -46,7 +47,8 @@ export const LoginPage = () => {
         }
       })
       .catch((err) => {
-        setErrorLogin(err.message);
+        const firebaseError = new ErrorDictionary(err);
+        setErrorLogin(firebaseError.translate());
       });
   };
 

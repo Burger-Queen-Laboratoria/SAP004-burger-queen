@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { fireFuncs } from "../firebase/firebaseFunctions.js";
 import { useHistory } from "react-router-dom";
 import { Figure } from "../components/Figure";
@@ -40,10 +40,11 @@ export const LoungePage = () => {
     [screen, setScreen] = useState(""),
     [clientName, setClientName] = useState(""),
     [tableNum, setTableNum] = useState("");
+  const user = fireFuncs.getAuthUser();
 
-  fireFuncs.getLoggedUser((user) => {
+  useEffect(() => {
     user ? setName(user.displayName) : setName();
-  });
+  }, [user]);
 
   const handleSingOut = () => {
     fireFuncs.authSignOut().then(() => history.push("/"));

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import iconChef from "../../img-documents/bakerIcon.svg";
 import iconLogOut from "../../img-documents/logoutIconKitchen.png";
 import iconOrder from "../../img-documents/orderIcon.svg";
@@ -25,10 +25,11 @@ const NavJobKitchen = (props) => {
 export const NavigationKitchen = () => {
   let history = useHistory();
   const [name, setName] = useState("");
+  const user = fireFuncs.getAuthUser();
 
-  fireFuncs.getLoggedUser((user) => {
+  useEffect(() => {
     user ? setName(user.displayName) : setName();
-  });
+  }, [user]);
   
   const handleClickOut = () => {
     fireFuncs
