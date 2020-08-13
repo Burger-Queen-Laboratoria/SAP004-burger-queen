@@ -42,7 +42,12 @@ const getOrder = async (status, time, ascOrDesc, multiOrdes = false) => {
 
 export const fireFuncs = {
   authSignIn: (email, password) => {
-    return firebase.auth().signInWithEmailAndPassword(email, password);
+    return firebase.auth().signInWithEmailAndPassword(email, password)
+      .then((e) => {
+      if (e.user.uid !== null) {
+        return fireFuncs.getCurrentUser(e.user.uid)
+      }
+    });
   },
 
   authSignOut: () => {

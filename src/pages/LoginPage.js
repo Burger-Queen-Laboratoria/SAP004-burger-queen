@@ -35,16 +35,12 @@ export const LoginPage = () => {
     e.preventDefault();
     fireFuncs
       .authSignIn(email, password)
-      .then((e) => {
-        if (e.user.uid !== null) {
-          fireFuncs.getCurrentUser(e.user.uid).then((doc) => {
-            if (doc.sector === "Hall") {
-              history.push("/lounge");
-            } else {
-              history.push("/kitchen");
-            }
-          });
-        }
+      .then((doc) => {
+        if (doc.sector === "Hall") {
+          history.push("/lounge");
+        } else {
+          history.push("/kitchen");
+        } 
       })
       .catch((err) => {
         const firebaseError = new ErrorDictionary(err);
@@ -72,7 +68,11 @@ export const LoginPage = () => {
             placeholder=" senha"
             onBlur={handleInputPassword}
           />
-          <Button type="submit" name="Entrar" onClick={handleClick} />
+          <Button 
+            data-testid="button-login"
+            type="submit" 
+            name="Entrar" 
+            onClick={handleClick} />
         </StyleForm>
         <ErrorArea err={errorLogin} />
         <NewMember>Funcionário novo?</NewMember>
