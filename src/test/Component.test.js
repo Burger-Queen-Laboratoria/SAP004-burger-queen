@@ -4,11 +4,6 @@ import {
   render,
   fireEvent,
   cleanup,
-  waitForElement,
-  act,
-  waitForDomChange,
-  waitForElementToBeRemoved,
-  getByTestId,
 } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import { LoginPage } from "../pages/LoginPage.js";
@@ -55,9 +50,10 @@ describe('Testing LoginPage component', () => {
     await expect(fireFuncs.authSignIn()).rejects.toEqual('Invalid Auth')
   });
   test("Verify login button event", async () => {
-    const o = { name: "jessica", sector: "Kitchen"};
+    const o = { sector: "Kitchen" };
     fireFuncs.authSignIn.mockImplementationOnce(() => Promise.resolve(o))
     fireEvent.click(getByTestId("button-login"));
     await expect(fireFuncs.authSignIn).toHaveBeenCalled();
-  })
+  });
+  // falta cobrir a possibilidade do Hall e do Erro
 });
