@@ -47,21 +47,17 @@ describe('Testing LoginPage component', () => {
   test('Verify success auth from Firebase sign in', async () => {
     const email = "exemple@exemple.com";
     const password = "123456";
-    fireFuncs.authSignIn.mockResolvedValueOnce();
-    await expect(fireFuncs.authSignIn(email, password)).resolves;
+    fireFuncs.authSignIn.mockResolvedValueOnce("Valid Auth");
+    await expect(fireFuncs.authSignIn(email, password)).resolves.toEqual("Valid Auth");
   });
   test("Verify invalid auth from Firebase sign in", async () => {
-    fireFuncs.authSignIn.mockRejectedValueOnce();
-    try {
-      await fireFuncs.authSignIn("", "");
-    } catch (e) {
-      expect(e).rejects;
-    }
+    fireFuncs.authSignIn.mockRejectedValueOnce('Invalid Auth');
+    await expect(fireFuncs.authSignIn()).rejects.toEqual('Invalid Auth')
   });
-  test("Verify if there is one button inside LoginPage", () => {
-    let { container } = render(<BrowserRouter><Route path="/" exact={true} component={LoginPage} /> </BrowserRouter>)
-    let number = container.getElementsByTagName("button").length;
-    expect(number).toBe(1);
-    //falta fazer do fireEvent
+  test("Verify login button event", async () => {
+    const o = { name: "jessica", sector: "Kitchen"};
+    fireFuncs.authSignIn.mockImplementationOnce(() => Promise.resolve(o))
+    fireEvent.click(getByTestId("button-login"));
+    await expect(fireFuncs.authSignIn).toHaveBeenCalled();
   })
 });
