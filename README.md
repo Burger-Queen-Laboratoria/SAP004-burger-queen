@@ -66,10 +66,10 @@ Foi utilizada a ferramenta trello, para execução do planejamento.
 - Kitchen Page:
 
   > - Pedidos:  
-  >   Vizualizar todos os pedidos, seus status e detalhes por ordem de entrada.
+  >   Vizualizar todos os pedidos, seus status e detalhes por ordem de entrada.  
   >   Alterar status do pedido para _**Concluído**_
   > - Histórico:  
-  >   Vizualizar pedidos concluídos e entregues.
+  >   Vizualizar pedidos concluídos e entregues.  
   >   Vizualizar detalhes como, hora de entrada, tempo de preparo, nome do garçom e do cozinheiro resposavél, informações do pedido e do cliente.
 
 ## 5. Implementações Futuras
