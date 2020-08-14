@@ -72,7 +72,13 @@ Foi utilizada a ferramenta trello, para execução do planejamento.
   >   Vizualizar pedidos concluídos e entregues.
   >   Vizualizar detalhes como, hora de entrada, tempo de preparo, nome do garçom e do cozinheiro resposavél, informações do pedido e do cliente.
 
-## 5. Montagem do ambiente de desenvolvimento
+## 5. Implementações Futuras
+
+-
+-
+-
+
+## 6. Montagem do ambiente de desenvolvimento
 
 <p align="center">
 <img src="https://media.giphy.com/media/W4IY7zQdRh7Ow/giphy.gif" width="200" heigth="200"> 
