@@ -50,8 +50,8 @@ Foi utilizada a ferramenta trello, para execução do planejamento.
 
 - Register Page/ Login Page:
 
-  > --Criar sua conta, com email e senha ao clicar no botão "Registre-se", sendo redirecionado para uma pagina de registro no primeiro acesso.
-  > --Ao logar, será direcionado para setor correspondente ao cargo informado no momento do registro.
+  > - Criar sua conta, com email e senha ao clicar no botão "Registre-se", sendo redirecionado para uma pagina de registro no primeiro acesso.  
+  > - Ao logar, será direcionado para setor correspondente ao cargo informado no momento do registro.
 
 - Lounge Page:
 
