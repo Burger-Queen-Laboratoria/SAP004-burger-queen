@@ -1,367 +1,167 @@
-# Burger Queen
+<p align="center">
+<img src="./src/img-documents/logo-red.png" width="200" heigth="200" >
+</p>
+
+<h1 align="center">Burger Queen</h1>
 
 ## Índice
 
-- [1. Preâmbulo](#1-preâmbulo)
+- [1. Apresentação](#1-apresentacao)
 - [2. Resumo do projeto](#2-resumo-do-projeto)
-- [3. Objetivos de aprendizagem](#3-objetivos-de-aprendizagem)
-- [4. Considerações gerais](#4-considerações-gerais)
-- [5. Critérios de aceitação mínimos do
-  projeto](#5-critérios-de-aceitação-mínimos-do-projeto)
-- [6. Hacker Edition](#6-hacker-edition)
-- [7. Dicas e leituras complementares](#7-dicas-e-leituras-complementares)
+- [3. Planejamento](#3-planejamento)
+- [4. Funcionalidades](#4-funcionalidades)
+- [5. Implementações Futuras](#5-implementações-futuras)
+- [6. Montagem do ambiente de desenvolvimento](#6-montagem-do-ambiente-de-desenvolvimento)
 
----
+## 1. Apresentação
 
-## 1. Preâmbulo
+A aplicação consiste em um sistema, para gerenciamento de pedidos de um fast food. Foi desenvolvida em _JavaScript(ES6+)_, _HTML5_, [StyledComponents](https://styled-components.com/) para estilização, [Firebase](https://firebase.google.com/) Hosting e Firestore para hospedagem e banco de dados e [React JS](https://pt-br.reactjs.org/docs/getting-started.html).
 
-[React](https://reactjs.org/), [Angular](https://angular.io/) e
-[Vue](https://vuejs.org/) são alguns dos _frameworks_ e _bibliotecas_ de
-JavaScript mais usados na área de desenvolvimento ao redor do mundo e existe uma
-razão para isso. No contexto do navegador, [_manter a interface sincronizada com
-o estado é difícil_](https://medium.com/dailyjs/the-deepest-reason-why-modern-javascript-frameworks-exist-933b86ebc445).
-
-Ao eleger um _framework_ ou _biblioteca_ para nossa interface, nos apoiamos em
-uma série de convenções e implementações _testadas_ e _documentadas_ para
-resolver um problema comum a toda interface web. Isto nos permite concentrar
-melhor (dedicar mais tempo) nas características _específicas_ de nossa
-aplicação.
-
-Quando escolhemos uma destas tecnologias não só importamos um pedaço de código
-para reusar (o qual já é um grande valor por si só), mas também adotamos uma
-**arquitetura**, uma série de **princípios de design**, um paradigma, algumas
-**abstrações**, um **vocabulário**, uma **comunidade**, etc...
-
-Como desenvolvedora Front-end, estes kits de desenvolvimento podem resultar em
-uma grande ajuda para implementar rapidamente _features_ dos projetos em que
-você for trabalhar.
+A estratégia de desenvolvimento usada foi pair programming, code review e sub-divisão das histórias de usuário.
 
 ## 2. Resumo do projeto
 
-Desta vez temos um projeto 100% por demanda. Você sempre pode (e deve) fazer
-sugestões de melhora e mudança, mas muitas vezes trabalhará em um projeto em que
-primeiro deve se assegurar de cumprir os requisitos.
+A página da aplicação pode ser acessada atraves do Link: [Burger Queen](https://burguer-queen-6637b.web.app/) :crown:
 
-Um pequeno restaurante de hambúrgueres, que está crescendo, necessita uma
-interface em que se possa realizar pedidos utilizando um _tablet_, e enviá-los
-para a cozinha para que sejam preparados de forma ordenada e eficiente.
+Burger Queen é uma aplicação de serviço, desenvolvida para um restaurante fast food com funcionamento 24 horas.
+O objetivo da aplicação, é viabilizar um sitema que possa auxiliar no recebimento e gerenciamento de pedidos, permitindo maior demanda.
 
-![burger-queen](https://user-images.githubusercontent.com/110297/42118136-996b4a52-7bc6-11e8-8a03-ada078754715.jpg)
+As **caraterísticas técnicas** da aplicação são:
 
-Estas são as informações que temos do cliente:
+- É uma Single-Page Application `SPA` - e foi implementado um sistema de rotas com uso de biblioteca [React Router Dom](https://reactrouter.com/web/guides/quick-start) para trocar entre telas de maneira dinâmica.
 
-> Somos **Burger Queen**, um fast food 24hrs.
->
-> A nossa proposta de serviço 24 horas foi muito bem recebida e, para continuar a
-> crescer, precisamos de um sistema que nos ajude a receber pedidos de nossos
-> clientes.
->
-> Nós temos 2 menus. Um muito simples para o café da manhã:
->
-> | Ítem                  | Preço R\$ |
-> | --------------------- | --------- |
-> | Café americano        | 5         |
-> | Café com leite        | 7         |
-> | Misto Quente          | 10        |
-> | Suco de fruta natural | 7         |
->
-> E outro menu para o resto do dia:
->
-> | Ítem                | Preço   |
-> | ------------------- | ------- |
-> | **Hambúrgueres**    | **R\$** |
-> | Hambúrguer simples  | 10      |
-> | Hambúrguer duplo    | 15      |
-> | **Acompanhamentos** | **R\$** |
-> | Batata frita        | 5       |
-> | Anéis de cebola     | 5       |
-> | **Bebidas**         | **R\$** |
-> | Água 500ml          | 5       |
-> | Água 750ml          | 7       |
-> | Refrigerante 500ml  | 7       |
-> | Refrigerante 750ml  | 10      |
->
-> **Importante:** Os clientes podem escolher entre hambúrgueres de carne bovina,
-> frango ou vegetariano. Além disso, por um adicional de R\$ 1,00 , eles podem
-> adicionar queijo ou ovo.
->
-> Nossos clientes são bastante indecisos, por isso é muito comum que eles mudem o
-> seu pedido várias vezes antes de finalizar.
+- Foi desenhada e desenvolvida com enfoque para `tablet` , e apresenta design responsivo para mobile e desktop.
 
-A interface deve mostrar os dois menus (café da manhã e restante do dia), cada
-um com todos os seus _produtos_. O usuário deve poder escolher que _produtos_
-adicionar e a interface deve mostrar o _resumo do pedido_ com o custo total.
+- Permite a persistência de dados - a estrutura de dados foi desenhada de forma à consultá-los, atualizá-los, modificá-los e eliminá-los segundo os requerimentos do usuário. Para isto, foi utilizado `Firestore` do `Firebase`
 
-![out](https://user-images.githubusercontent.com/110297/45984241-b8b51c00-c025-11e8-8fa4-a390016bee9d.gif)
+## 3. Planejamento
 
-## 3. Objetivos de aprendizagem
+Para guiar o nosso planejamento, desenvolvemos um protótipo, de baixa fidelidade para o layout da tela, com base nas funcionalidades solicitadas e na experiência do usuário.
 
-O objetivo principal é aprender a construir uma interface web usando React. Esse framework front-end ataca o seguinte problema: **como manter a interface e estado sincronizados**. Portanto, esta experiência espera familiarizá-la com o conceito de estado da tela, e como cada mudança no estado vai refletir na interface (por exemplo, toda vez que adicionamos um _produto_ para um _pedido_, a interface deve atualizar a lista de pedidos e o total).
+<p align="center">
+<img src="" width="600" heigth="600">
+</p>
 
-Finalmente, a interface deve ser pensada específicamente para rodar em **tablets**.
+Foi utilizada a ferramenta trello, para execução do planejamento.
 
-## 4. Considerações gerais
+## 4. Funcionalidades
 
-Trabalhe integralmente uma história de usuário antes de passar para a próxima. Cumpra todas as histórias possíveis dentro do tempo especificado.
+##### Na Burger Quenn, é possível:
 
-A lógica do projeto deve ser totalmente implementada em JavaScript (ES6 +). Neste projeto você deve usar [React](https://reactjs.org/).
+- Cadastro e Login:
 
-O aplicativo deve ser um _Single Page App_. Os pedidos serão enviados por meio de um _tablet_,mas **não queremos um aplicativo nativo**, mas sim um aplicativo Web que seja **responsivo**.
+> Criar sua conta, com email e senha ao clicar no botão "Registre-se", sendo redirecionado para uma pagina de registro no primeiro acesso.
+> Ao logar ser direcionado para setor correpondente ao cargo informado no momento do registro.
 
-Precisamos pensar bem sobre o UX para aqueles que vão receber os pedidos, o tamanho e a aparência dos botões, a visibilidade do estado atual do pedido, etc.
+- Lounge Page:
 
-O aplicativo deve usar scripts `npm-scripts` e ter `start`, `build` e `deploy`, que são responsáveis por iniciar, empacotar e implantar o aplicativo, respectivamente.
+  > - Status:
+  >   Vizualizar todos os pedidos, seus status e detalhes por ordem de entrada.
+  >   Alterar status do pedido para _**Entregue**_.
+  > - Nova Mesa:
+  >   Adicionar nome e numero da mesa do cliente e acessar os menus.
+  > - Menus:
+  >   Navegar entre os menus, adicionar e remover iténs, vizualizar resumo e valor total, enviar o pedido para cozinha.
 
-Você deve definir a estrutura das pastas e arquivos que considera necessários. Você pode estruturá-los de acordo com as convenções do React.
+- Kitchen Page:
 
-Para iniciar este projeto você terá que fazer um _fork_ e _clone_ deste repositório.
+  > - Pedidos:
+  >   Vizualizar todos os pedidos, seus status e detalhes por ordem de entrada.
+  >   Alterar status do pedido para _**Concluído**_
+  > - Histórico:
+  >   Vizualizar pedidos concluídos e entregues.
+  >   Vizualizar detalhes como, hora de entrada, tempo de preparo, nome do garçom e do cozinheiro resposavél, informações do pedido e do cliente.
 
-## 5. Critérios mínimos de aceitação do projeto
+## 5. Montagem do ambiente de desenvolvimento
 
-### Definição do produto
+<p align="center">
+<img src="https://media.giphy.com/media/W4IY7zQdRh7Ow/giphy.gif" width="200" heigth="200"> 
+</p>
 
-O [_Product Owner_](https://www.youtube.com/watch?v=7lhnYbmovb4) nos apresentou
-este _backlog_ que é o resultado do seu trabalho com o cliente até hoje.
+> :warning: Será necessária a utilização:
 
----
+- [Firebase](https://firebase.google.com/products/dynamic-links?gclid=EAIaIQobChMIo9Krk6-W6gIVARKRCh26pgTCEAAYASABEgLr-fD_BwE). :fire::fire::fire:
 
-#### [História de usuário 1] Usuário deve ter seu perfil (login/senha) para acessar o sistema.
+- [React JS](https://pt-br.reactjs.org/docs/getting-started.html).
 
-Eu como funcionário do restaurante quero entrar na plataforma e ver apenas a tela importante para o meu trabalho.
+- [Node.js](https://nodejs.org/) que contém o [npm](https://docs.npmjs.com/) para instalação das dependências.
 
-##### Critérios de aceitação
+* [Clone](https://help.github.com/articles/cloning-a-repository/) o projeto na sua máquina executando o seguinte comando no seu terminal:
 
-O que deve acontecer para satisfazer as necessidades do usuário?
+-https
 
-- Criar login e senha.
-- Registar tipo de usuário (cozinha / salão), login e senha.
-- Entrar na tela correta para cada usuário.
+```sh
+git clone git@github.com:Burger-Queen-Laboratoria/SAP004-burger-queen.git
+```
 
-##### Definição de pronto
+- Instale as dependências do projeto com o comando:
 
-O acordado abaixo deve acontecer para dizer que a história está terminada:
+```sh
+npm install
+```
 
-- Você fez testes de usabilidade e incorporou o feedback do usuário.
-- Você deu deploy de seu aplicativo.
+- Instale e execute o firebase:
 
-#### [História de usuário 2] Garçom/Garçonete deve poder anotar o seu pedido
+```sh
+npm install -g firebase-tools
+```
 
-Eu como garçom/garçonete quero poder anotar o meu pedido saber o valor de cada
-produto e poder enviar o pedido para a cozinha para ser preparado.
+```sh
+firebase login
+```
 
-##### Critérios de aceitação
+```sh
+firebase init
+```
 
-O que deve acontecer para satisfazer as necessidades do usuário?
+- Localhost:
 
-- Anotar o nome e mesa.
-- Adicionar produtos aos pedidos.
-- Excluir produtos.
-- Ver resumo e o total da compra.
-- Enviar o pedido para a cozinha (guardar em algum banco de dados).
-- Funcionar bem e se adequar a um _tablet_.
+```sh
+npm start
+```
 
-##### Definição de pronto
+<!--
+:warning: Neste projeto a regras de [ESLint](https://eslint.org/) estão de acordo com o [Airbnb JavaScript Style Guide](https://github.com/armoucar/javascript-style-guide)
 
-O acordado abaixo deve acontecer para dizer que a história está terminada:
+- Para verificar erros do ESLint:
 
-- Você fez _testes_ de usabilidade e incorporou o _feedback_ do usuário.
-- Você deu deploy de seu aplicativo.
+```sh
+npm run pretest
+``` -->
 
----
+**Testes** :clipboard:
 
-#### [História de usuário 3] Chefe de cozinha deve ver os pedidos
+- Para executar os testes:
 
-Eu como chefe de cozinha quero ver os pedidos dos clientes em ordem, poder marcar que estão prontos e poder notificar os garçons/garçonetes que o pedido está pronto para ser entregue ao cliente.
+```sh
+npm test
+```
 
-##### Critérios de aceitação
+**Deploy e Build** :fire:
 
-- Ver os pedidos à medida em que são feitos.
-- Marcar os pedidos que foram preparados e estão prontos para serem servidos.
-- Ver o tempo que levou para preparar o pedido desde que chegou, até ser marcado como concluído.
+- Para executar deploy no firebase hosting:
 
-##### Definição de pronto
+```sh
+npm run build
+```
 
-- Você fez _testes_ de usabilidade e incorporou o _feedback_ do usuário.
-- Você deu deploy de seu aplicativo.
+```sh
+firebase deploy
+```
 
----
+<center>
 
-#### [História de usuário 4] Garçom/Garçonete deve ver os pedidos prontos para servir
+Esse projeto faz parte do currículo do [Bootcamp da Laboratória Brasil](https://www.laboratoria.la/br)
 
-Eu como garçom/garçonete quero ver os pedidos que estão prontos para entregá-los rapidamente aos clientes.
+<center/>
 
-##### Critérios de aceitação
+<center>
+Desenvolvido por: 
+<center/>
 
-- Ver a lista de pedidos prontos para servir.
-- Marque os pedidos que foram entregues.
+<center>
 
-##### Definição de pronto
+[Jessica Melise](https://github.com/jessicamelise)
+[Naere Loire](https://github.com/naereloire)
 
-- Você fez _testes_ de usabilidade e incorporou o _feedback_ do usuário.
-- Você deu deploy de seu aplicativo.
-- Os dados devem ser mantidos intactos, mesmo depois que um pedido terminado. Tudo isso para poder ter estatísticas no futuro.
-
----
-
-## 6. Hacker Edition
-
-As seções chamadas Hacker Edition são opcionais. Se você terminou tudo e ainda sobrou tempo, faça essa parte. Assim você poderá aprofundar e exercitar mais sobre os objetivos de aprendizagem do projeto.
-
-- Faça testes que cubram 100% de statements, functions, lines e branches.
-
----
-
-## 7. Dicas e leituras complementares
-
-### Primeros passos
-
-- Crie um projeto usando `create-react-app`
-
-- Crie um projeto no [Firebase](https://firebase.google.com/)
-
-- Converta o menu descrito pelo cliente em uma coleção no Firebase.
-
----
-
-### Outros recursos
-
-#### Framework / biblioteca
-
-- [React Hooks](https://reactjs.org/docs/hooks-intro.html)
-
-#### React Hooks
-
-- [Entendendo React Hooks](https://medium.com/@higornevesmarques/entendendo-react-hooks-2c0efae276a3)
-- [React Hooks - Rocketseat](https://blog.rocketseat.com.br/react-hooks/)
-- [Habemus React Hooks](https://willianjusten.com.br/habemus-react-hooks/)
-
-#### Ferramentas
-
-- [npm-scripts](https://docs.npmjs.com/misc/scripts)
-- [Babel](https://babeljs.io/)
-- [webpack](https://webpack.js.org/)
-- [Aphrodite](https://github.com/Khan/aphrodite)
-- [React Router](https://reactrouter.com/web/guides/quick-start)
-- [Firebase Firestore - Vídeo Dani](https://www.youtube.com/watch?v=y-p8G3hPrMI)
-- [Firebase Hosting - Vídeo Dani](https://www.youtube.com/watch?v=0R2Ur0xKNz4)
-- [Firebase Auth - Vídeo Moni](https://www.loom.com/share/3e2cafa9b3ed4bd68bda6e8f7d2b0395)
-
-## Checklist
-
-### `README.md`
-
-- [ ] Documentação do processo de design.
-- [ ] Inclui informações para desenvolvedores (dependências, instalação, uso, testes...)
-
-#### HU
-
-#### HU 1: Criar perfil
-
-- [ ] Poder realizar cadastro com e-mail, senha e função.
-- [ ] Poder realizar login com e-mail e senha.
-- [ ] Redirecionar para a tela correta.
-
-#### HU 2: Anotar pedidos
-
-- [ ] Digitar o nome do cliente e mesa.
-- [ ] Filtrar _menu_ para _café da manhã_ e _almoço/jantar_.
-- [ ] Adicionar item ao pedido.
-- [ ] Excluir item do pedido.
-- [ ] Mostrar _resumo_ do pedido com todos os itens e o total.
-- [ ] Enviar para a cozinha (isso deve salvar o pedido).
-
-#### HU 3: Ver pedidos na cozinha
-
-- [ ] Visualizar pedidos pendentes para produção.
-- [ ] Marcar pedido como pronto para entrega.
-- [ ] Ver histórico dos pedidos.
-
-#### HU 4: Entrega de pedidos
-
-- [ ] Visualizar pedidos pendentes para entrega.
-- [ ] Marcar pedido como entregue ao cliente.
-
-### UX
-
-- [ ] Funciona bem em tablets.
-- [ ] Fácil utilização em telas sensíveis ao toque.
-- [ ] Status atual do pedido sempre visível enquanto fazemos um pedido.
-
-### Hacker Edition
-
-#### Testes
-
-- [ ] 100% de cobertura de _statements_.
-- [ ] 100% de cobertura de _functions_.
-- [ ] 100% de cobertura de _lines_.
-- [ ] 100% de cobertura de _branches_.
-
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+</center>
