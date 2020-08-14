@@ -29,3 +29,4 @@ init-config.js
 
 # debug
 .vscode
+debug.log
