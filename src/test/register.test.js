@@ -4,7 +4,7 @@ import App from "../App";
 import { shallow, mount, render } from "./enzyme.js";
 import { Register } from "../pages/Register.js";
 
-import { Checkbox } from "../components/Checkbox";
+// import { Checkbox } from "../components/Checkbox";
 
 it("renders without crashing", () => {
   const div = document.createElement("div");
