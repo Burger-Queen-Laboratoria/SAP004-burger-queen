@@ -56,7 +56,7 @@ Foi utilizada a ferramenta trello, para execução do planejamento.
 - Lounge Page:
 
   > - Status:  
-  >   Vizualizar todos os pedidos, seus status e detalhes por ordem de entrada.
+  >   Vizualizar todos os pedidos, seus status e detalhes por ordem de entrada.  
   >   Alterar status do pedido para _**Entregue**_.
   > - Nova Mesa:  
   >   Adicionar nome e numero da mesa do cliente e acessar os menus.
