@@ -39,7 +39,7 @@ As **caraterísticas técnicas** da aplicação são:
 Para guiar o nosso planejamento, desenvolvemos um protótipo, de baixa fidelidade para o layout da tela, com base nas funcionalidades solicitadas e na experiência do usuário.
 
 <p align="center">
-<img src="" width="600" heigth="600">
+<img src="./src/img-documents/prototipo.png" width="600" heigth="600">
 </p>
 
 Foi utilizada a ferramenta trello, para execução do planejamento.
@@ -74,9 +74,11 @@ Foi utilizada a ferramenta trello, para execução do planejamento.
 
 ## 5. Implementações Futuras
 
--
--
--
+- Limitar visualização de pedidos nas telas de cozinha e salão em 10 e adicionar botão de "ver mais" que aparece quando ultrapassar esse limite;
+- Aprimorar testes para cobrir 100% dos componentes;
+- Refatoração do código e do CSS;
+- Inserir campo de observação no resumo do pedido;
+- Inserir imagens nos itens do Menu.
 
 ## 6. Montagem do ambiente de desenvolvimento
 
@@ -109,7 +111,28 @@ npm install
 - firebase Init e Config
 
 ```sh
+// Config:
+const firebaseConfig = {
+  apiKey: "yourKey",
+  authDomain: "yourProject.firebaseapp.com",
+  databaseURL: "https://yourProject.firebaseio.com",
+  projectId: "yourProject-id",
+  storageBucket: "youProject.appspot.com",
+  messagingSenderId: "yourProjectId",
+  appId: "yourProjectId",
+  measurementId: "yourProjectId",
+};
+module.exports = firebaseConfig;
 
+// Init:
+import firebase from "firebase/app";
+import "firebase/auth";
+import "firebase/firestore";
+import firebaseConfig from "./init-config.js";
+
+firebase.initializeApp(firebaseConfig);
+
+export default firebase;
 ```
 
 - Localhost:
@@ -159,7 +182,7 @@ Desenvolvido por:
 
 <center>
 
-[Jessica Melise](https://github.com/jessicamelise)
+[Jessica Melise](https://github.com/jessicamelise) e
 [Naere Loire](https://github.com/naereloire)
 
 </center>
