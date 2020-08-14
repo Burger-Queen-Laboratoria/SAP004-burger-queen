@@ -96,8 +96,6 @@ Foi utilizada a ferramenta trello, para execução do planejamento.
 
 * [Clone](https://help.github.com/articles/cloning-a-repository/) o projeto na sua máquina executando o seguinte comando no seu terminal:
 
--https
-
 ```sh
 git clone git@github.com:Burger-Queen-Laboratoria/SAP004-burger-queen.git
 ```
