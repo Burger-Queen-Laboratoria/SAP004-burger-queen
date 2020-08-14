@@ -177,6 +177,6 @@ Desenvolvido por:
 <p/>
 
 <p align="center">
-<a href="https://github.com/jessicamelise">Jessica Melise</a> e
+:zap:<a href="https://github.com/jessicamelise">Jessica Melise</a> e
  <a href="https://github.com/naereloire">Naere Loire</a> :zap:
 <p/>
