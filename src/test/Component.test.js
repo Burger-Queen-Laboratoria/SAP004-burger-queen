@@ -4,11 +4,13 @@ import {
   render,
   fireEvent,
   cleanup,
+  getByRole,
 } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import { LoginPage } from "../pages/LoginPage.js";
 import { KitchenPage } from "../pages/KitchenPage.js";
-import { BrowserRouter, Route, MemoryRouter } from "react-router-dom";
+import { HistoricArea } from "../pages/HistoricPage.js";
+import { MemoryRouter } from "react-router-dom";
 
 jest.mock("../firebase/firebaseFunctions.js");
 
@@ -70,37 +72,55 @@ describe('Testing LoginPage component', () => {
 
 describe('Testing KitchenPage component', () => {
 
-  let getByTestId = null, getByAltText = null;
+  let getByTestId = null;
 
   beforeEach(() => {
-      ({ getByTestId, getByAltText } = render(<MemoryRouter><KitchenPage /></MemoryRouter>));
+      ({ getByTestId } = render(<MemoryRouter><KitchenPage /></MemoryRouter>));
   });
 
   afterEach(() => {
     cleanup();
   });  
 
-  test("Verify if historic icon is in the document", async () => {
-    const historicIconAlt = getByAltText("historic-order");
-    await expect(historicIconAlt).toBeInTheDocument();
-  });
   test("Verify historic icon event", async () => {
     const historicIconId = getByTestId("historic-order");
     fireEvent.click(historicIconId);
     await expect(mockHistoryPush).toHaveBeenCalledWith("/historic");
-  });
-  test("Verify if orders icon is in the document", async () => {
-    const ordersIconAlt = getByAltText("orders");
-    await expect(ordersIconAlt).toBeInTheDocument();
   });
   test("Verify orders icon event", async () => {
     const ordersIconId = getByTestId("orders");
     fireEvent.click(ordersIconId);
     await expect(mockHistoryPush).toHaveBeenCalledWith("/kitchen");
   });
-  test("Verify if signout icon is in the document", async () => {
-    const signoutIconAlt = getByAltText("signout-icon");
-    await expect(signoutIconAlt).toBeInTheDocument();
+  test("Verify signout icon event", async () => {
+    const signoutIconId = getByTestId("signout-icon");
+    fireFuncs.authSignOut.mockImplementationOnce(() => Promise.resolve(mockHistoryPush))
+    fireEvent.click(signoutIconId);
+    await expect(fireFuncs.authSignOut).toHaveBeenCalled();
+  });
+});
+
+describe('Testing HistoricPage component', () => {
+
+  let getByTestId = null, getByRole = null, findByText = null;
+
+  beforeEach(() => {
+      ({ getByTestId, getByRole, findByText } = render(<MemoryRouter><HistoricArea /></MemoryRouter>));
+  });
+
+  afterEach(() => {
+    cleanup();
+  });  
+
+  test("Verify historic icon event", async () => {
+    const historicIconId = getByTestId("historic-order");
+    fireEvent.click(historicIconId);
+    await expect(mockHistoryPush).toHaveBeenCalledWith("/historic");
+  });
+  test("Verify orders icon event", async () => {
+    const ordersIconId = getByTestId("orders");
+    fireEvent.click(ordersIconId);
+    await expect(mockHistoryPush).toHaveBeenCalledWith("/kitchen");
   });
   test("Verify signout icon event", async () => {
     const signoutIconId = getByTestId("signout-icon");
