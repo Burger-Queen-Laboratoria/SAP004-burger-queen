@@ -107,6 +107,7 @@ npm install
 ```
 
 - firebase Config
+
   :warning: Para inicialização do firebase, será necessário um arquivo contendo as informações de autenticação da sua database, essas informações são sensíveis e recomenda-se mantê-las no gitignore
 
 ```sh
