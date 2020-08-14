@@ -168,19 +168,17 @@ npm run build
 firebase deploy
 ```
 
-<center>
+<p align="center">
 
 Esse projeto faz parte do currículo do [Bootcamp da Laboratória Brasil](https://www.laboratoria.la/br)
 
-<center/>
+<p/>
 
-<center>
+<p align="center">
 Desenvolvido por: 
-<center/>
+<p/>
 
-<center>
-
-[Jessica Melise](https://github.com/jessicamelise) e
-[Naere Loire](https://github.com/naereloire)
-
-</center>
+<p align="center">
+<a href="https://github.com/jessicamelise">Jessica Melise</a> e
+ <a href="https://github.com/naereloire">Naere Loire</a> :zap:
+<p/>
