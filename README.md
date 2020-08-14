@@ -169,10 +169,8 @@ firebase deploy
 ```
 
 <p align="center">
-
-Esse projeto faz parte do currículo do [Bootcamp da Laboratória Brasil](https://www.laboratoria.la/br)
-
-<p/>
+Esse projeto faz parte do currículo do <a href="https://www.laboratoria.la/br">Bootcamp da Laboratória Brasil</a>
+</p>
 
 <p align="center">
 Desenvolvido por: 
