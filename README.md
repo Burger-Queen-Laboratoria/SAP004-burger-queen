@@ -50,8 +50,8 @@ Foi utilizada a ferramenta trello, para execução do planejamento.
 
 - Register Page/ Login Page:
 
-  > Criar sua conta, com email e senha ao clicar no botão "Registre-se", sendo redirecionado para uma pagina de registro no primeiro acesso.
-  > Ao logar, será direcionado para setor correspondente ao cargo informado no momento do registro.
+  > --Criar sua conta, com email e senha ao clicar no botão "Registre-se", sendo redirecionado para uma pagina de registro no primeiro acesso.
+  > --Ao logar, será direcionado para setor correspondente ao cargo informado no momento do registro.
 
 - Lounge Page:
 
@@ -83,7 +83,7 @@ Foi utilizada a ferramenta trello, para execução do planejamento.
 ## 6. Montagem do ambiente de desenvolvimento
 
 <p align="center">
-<img src="https://media.giphy.com/media/W4IY7zQdRh7Ow/giphy.gif" width="200" heigth="200"> 
+<img src="https://media.giphy.com/media/ieyl9zmCjO4b4t6qoY/giphy.gif" width="200" heigth="200"> 
 </p>
 
 > :warning: Será necessária a utilização:
@@ -108,6 +108,8 @@ npm install
 
 - firebase Config
 
+  :warning: Para inicialização do firebase, será necessário um arquivo contendo as informações de autenticação da sua database, essas informações são sensíveis e recomenda-se mantê-las no gitignore
+
 ```sh
 const firebaseConfig = {
   apiKey: "yourKey",
@@ -121,6 +123,15 @@ const firebaseConfig = {
 };
 module.exports = firebaseConfig;
 ```
+
+- Preload:
+  Os itens do menu se encontram num array de obejtos, no arquivo src/firebase/preload.js, podendo ser modificados. Para popular a base no firestore execute:
+
+```sh
+npm run preload
+```
+
+:warning:Este comando deve ser executado, somente quando houver intenção de popular a base.:warning:
 
 - Localhost:
 
@@ -157,19 +168,15 @@ npm run build
 firebase deploy
 ```
 
-<center>
+<p align="center">
+Esse projeto faz parte do currículo do <a href="https://www.laboratoria.la/br">Bootcamp da Laboratória Brasil</a>
+</p>
 
-Esse projeto faz parte do currículo do [Bootcamp da Laboratória Brasil](https://www.laboratoria.la/br)
-
-<center/>
-
-<center>
+<p align="center">
 Desenvolvido por: 
-<center/>
+<p/>
 
-<center>
-
-[Jessica Melise](https://github.com/jessicamelise) e
-[Naere Loire](https://github.com/naereloire)
-
-</center>
+<p align="center">
+:zap:<a href="https://github.com/jessicamelise">Jessica Melise</a> e
+ <a href="https://github.com/naereloire">Naere Loire</a> :zap:
+<p/>
