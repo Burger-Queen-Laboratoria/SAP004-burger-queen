@@ -75,7 +75,7 @@ export const HistoricKitchen = () => {
 
   return (
     <section>
-      <Title name="Histórico" />
+      <Title name="Historico" />
       <StyleTagSection>
         <TitleOrderArea time="Tempo de Preparo" />
         <UlHistoric orders={orders} />
