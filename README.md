@@ -83,7 +83,7 @@ Foi utilizada a ferramenta trello, para execução do planejamento.
 ## 6. Montagem do ambiente de desenvolvimento
 
 <p align="center">
-<img src="https://media.giphy.com/media/W4IY7zQdRh7Ow/giphy.gif" width="200" heigth="200"> 
+<img src="https://media.giphy.com/media/ieyl9zmCjO4b4t6qoY/giphy.gif" width="200" heigth="200"> 
 </p>
 
 > :warning: Será necessária a utilização:
