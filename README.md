@@ -50,28 +50,29 @@ Foi utilizada a ferramenta trello, para execução do planejamento.
 
 - Register Page/ Login Page:
 
-  > Criar sua conta, com email e senha ao clicar no botão "Registre-se", sendo redirecionado para uma pagina de registro no primeiro acesso.
-  > Ao logar, será direcionado para setor correspondente ao cargo informado no momento do registro.
+  > --Criar sua conta, com email e senha ao clicar no botão "Registre-se", sendo redirecionado para uma pagina de registro no primeiro acesso.
+  > --Ao logar, será direcionado para setor correspondente ao cargo informado no momento do registro.
 
 - Lounge Page:
 
   > - Status:
-  >   -Vizualizar todos os pedidos, seus status e detalhes por ordem de entrada.
-  >   -Alterar status do pedido para _**Entregue**_.
+  >
+  >   > --Vizualizar todos os pedidos, seus status e detalhes por ordem de entrada.
+  >   > --Alterar status do pedido para _**Entregue**_.
   >
   > - Nova Mesa:
-  >   -Adicionar nome e numero da mesa do cliente e acessar os menus.
+  >   --Adicionar nome e numero da mesa do cliente e acessar os menus.
   > - Menus:
-  >   -Navegar entre os menus, adicionar e remover itens, vizualizar resumo e valor total, enviar o pedido para cozinha.
+  >   --Navegar entre os menus, adicionar e remover itens, vizualizar resumo e valor total, enviar o pedido para cozinha.
 
 - Kitchen Page:
 
   > - Pedidos:
-  >   -Vizualizar todos os pedidos, seus status e detalhes por ordem de entrada.
-  >   -Alterar status do pedido para _**Concluído**_
+  >   --Vizualizar todos os pedidos, seus status e detalhes por ordem de entrada.
+  >   --Alterar status do pedido para _**Concluído**_
   > - Histórico:
-  >   -Vizualizar pedidos concluídos e entregues.
-  >   -Vizualizar detalhes como, hora de entrada, tempo de preparo, nome do garçom e do cozinheiro resposavél, informações do pedido e do cliente.
+  >   --Vizualizar pedidos concluídos e entregues.
+  >   --Vizualizar detalhes como, hora de entrada, tempo de preparo, nome do garçom e do cozinheiro resposavél, informações do pedido e do cliente.
 
 ## 5. Implementações Futuras
 
