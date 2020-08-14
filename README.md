@@ -50,7 +50,7 @@ Foi utilizada a ferramenta trello, para execução do planejamento.
 
 - Register Page/ Login Page:
 
-  > --Criar sua conta, com email e senha ao clicar no botão "Registre-se", sendo redirecionado para uma pagina de registro no primeiro acesso.
+  > --Criar sua conta, com email e senha ao clicar no botão _**"Registre-se"**_, sendo redirecionado para uma pagina de registro no primeiro acesso.
   > --Ao logar, será direcionado para setor correspondente ao cargo informado no momento do registro.
 
 - Lounge Page:
@@ -108,7 +108,7 @@ npm install
 
 - firebase Config
 
-  :warning: Para inicialização do firebase, será necessário um arquivo contendo as informações de autenticação da sua database, essas informações são sensíveis e recomenda-se mantê-las no gitignore
+  :warning: Para inicialização do firebase, será necessário um arquivo _**init-config.js**_ na pasta _**firebase**_ contendo as informações de autenticação da sua database, essas informações são sensíveis e recomenda-se mantê-las no _**gitignore**_
 
 ```sh
 const firebaseConfig = {
@@ -125,7 +125,8 @@ module.exports = firebaseConfig;
 ```
 
 - Preload:
-  Os itens do menu se encontram num array de obejtos, no arquivo src/firebase/preload.js, podendo ser modificados. Para popular a base no firestore execute:
+
+:zap: Os itens do menu se encontram num array de obejtos, no arquivo src/firebase/preload.js, podendo ser modificados. Para popular a base no firestore execute:
 
 ```sh
 npm run preload
