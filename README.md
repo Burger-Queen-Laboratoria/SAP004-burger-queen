@@ -46,12 +46,12 @@ Foi utilizada a ferramenta trello, para execução do planejamento.
 
 ## 4. Funcionalidades
 
-##### Na Burger Quenn, é possível:
+##### Na Burger Queen, é possível:
 
 - Cadastro e Login:
 
-> Criar sua conta, com email e senha ao clicar no botão "Registre-se", sendo redirecionado para uma pagina de registro no primeiro acesso.
-> Ao logar ser direcionado para setor correpondente ao cargo informado no momento do registro.
+  > Criar sua conta, com email e senha ao clicar no botão "Registre-se", sendo redirecionado para uma pagina de registro no primeiro acesso.
+  > Ao logar ser direcionado para setor correpondente ao cargo informado no momento do registro.
 
 - Lounge Page:
 
@@ -100,18 +100,10 @@ git clone git@github.com:Burger-Queen-Laboratoria/SAP004-burger-queen.git
 npm install
 ```
 
-- Instale e execute o firebase:
+- firebase Init e Config
 
 ```sh
-npm install -g firebase-tools
-```
 
-```sh
-firebase login
-```
-
-```sh
-firebase init
 ```
 
 - Localhost:
