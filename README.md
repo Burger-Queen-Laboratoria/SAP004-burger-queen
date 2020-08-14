@@ -48,7 +48,7 @@ Foi utilizada a ferramenta trello, para execução do planejamento.
 
 ##### Na Burger Queen, é possível:
 
-- Cadastro e Login:
+- Register Page/ Login Page:
 
   > Criar sua conta, com email e senha ao clicar no botão "Registre-se", sendo redirecionado para uma pagina de registro no primeiro acesso.
   > Ao logar, será direcionado para setor correspondente ao cargo informado no momento do registro.
@@ -106,10 +106,9 @@ git clone git@github.com:Burger-Queen-Laboratoria/SAP004-burger-queen.git
 npm install
 ```
 
-- firebase Init e Config
+- firebase Config
 
 ```sh
-// Config:
 const firebaseConfig = {
   apiKey: "yourKey",
   authDomain: "yourProject.firebaseapp.com",
@@ -121,16 +120,6 @@ const firebaseConfig = {
   measurementId: "yourProjectId",
 };
 module.exports = firebaseConfig;
-
-// Init:
-import firebase from "firebase/app";
-import "firebase/auth";
-import "firebase/firestore";
-import firebaseConfig from "./init-config.js";
-
-firebase.initializeApp(firebaseConfig);
-
-export default firebase;
 ```
 
 - Localhost:
