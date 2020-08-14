@@ -49,9 +49,27 @@ export const NavigationKitchen = () => {
     <StyledNavKitchen>
       <NavJobKitchen queen={true} icon={logoImg} alt="logo" word="Burger Queen" />
       <NavJobKitchen icon={iconChef} alt="kitchen-icon" word={name} />
-      <NavJobKitchen icon={iconOrder} alt="orders" word="Pedidos" onClick={handleClickOrder} />
-      <NavJobKitchen icon={iconHistoric} alt="historic-order" word="Histórico" onClick={handleClickHistoric}/>
-      <NavJobKitchen icon={iconLogOut} alt="signout-icon" word="Sair" onClick={handleClickOut}/>
+      <NavJobKitchen 
+        data-testid="orders"
+        icon={iconOrder} 
+        alt="orders" 
+        word="Pedidos"
+        onClick={handleClickOrder} 
+      />
+      <NavJobKitchen 
+        data-testid="historic-order" 
+        icon={iconHistoric} 
+        alt="historic-order" 
+        word="Histórico" 
+        onClick={handleClickHistoric}
+      />
+      <NavJobKitchen 
+        data-testid="signout-icon"
+        icon={iconLogOut} 
+        alt="signout-icon" 
+        word="Sair" 
+        onClick={handleClickOut}
+      />
     </StyledNavKitchen>
   );
 }
