@@ -56,21 +56,22 @@ Foi utilizada a ferramenta trello, para execução do planejamento.
 - Lounge Page:
 
   > - Status:
-  >   Vizualizar todos os pedidos, seus status e detalhes por ordem de entrada.
-  >   Alterar status do pedido para _**Entregue**_.
+  >   -Vizualizar todos os pedidos, seus status e detalhes por ordem de entrada.
+  >   -Alterar status do pedido para _**Entregue**_.
+  >
   > - Nova Mesa:
-  >   Adicionar nome e numero da mesa do cliente e acessar os menus.
+  >   -Adicionar nome e numero da mesa do cliente e acessar os menus.
   > - Menus:
-  >   Navegar entre os menus, adicionar e remover itens, vizualizar resumo e valor total, enviar o pedido para cozinha.
+  >   -Navegar entre os menus, adicionar e remover itens, vizualizar resumo e valor total, enviar o pedido para cozinha.
 
 - Kitchen Page:
 
   > - Pedidos:
-  >   Vizualizar todos os pedidos, seus status e detalhes por ordem de entrada.
-  >   Alterar status do pedido para _**Concluído**_
+  >   -Vizualizar todos os pedidos, seus status e detalhes por ordem de entrada.
+  >   -Alterar status do pedido para _**Concluído**_
   > - Histórico:
-  >   Vizualizar pedidos concluídos e entregues.
-  >   Vizualizar detalhes como, hora de entrada, tempo de preparo, nome do garçom e do cozinheiro resposavél, informações do pedido e do cliente.
+  >   -Vizualizar pedidos concluídos e entregues.
+  >   -Vizualizar detalhes como, hora de entrada, tempo de preparo, nome do garçom e do cozinheiro resposavél, informações do pedido e do cliente.
 
 ## 5. Implementações Futuras
 
