@@ -50,25 +50,25 @@ Foi utilizada a ferramenta trello, para execução do planejamento.
 
 - Register Page/ Login Page:
 
-  > --Criar sua conta, com email e senha ao clicar no botão _**"Registre-se"**_, sendo redirecionado para uma pagina de registro no primeiro acesso.
-  > --Ao logar, será direcionado para setor correspondente ao cargo informado no momento do registro.
+  > - Criar sua conta, com email e senha ao clicar no botão _**"Registre-se"**_, sendo redirecionado para uma pagina de registro no primeiro acesso.
+  > - Ao logar, será direcionado para setor correspondente ao cargo informado no momento do registro.
 
 - Lounge Page:
 
-  > - Status:
+  > - Status:  
   >   Vizualizar todos os pedidos, seus status e detalhes por ordem de entrada.
   >   Alterar status do pedido para _**Entregue**_.
-  > - Nova Mesa:
+  > - Nova Mesa:  
   >   Adicionar nome e numero da mesa do cliente e acessar os menus.
-  > - Menus:
+  > - Menus:  
   >   Navegar entre os menus, adicionar e remover itens, vizualizar resumo e valor total, enviar o pedido para cozinha.
 
 - Kitchen Page:
 
-  > - Pedidos:
+  > - Pedidos:  
   >   Vizualizar todos os pedidos, seus status e detalhes por ordem de entrada.
   >   Alterar status do pedido para _**Concluído**_
-  > - Histórico:
+  > - Histórico:  
   >   Vizualizar pedidos concluídos e entregues.
   >   Vizualizar detalhes como, hora de entrada, tempo de preparo, nome do garçom e do cozinheiro resposavél, informações do pedido e do cliente.
 
