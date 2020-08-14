@@ -107,6 +107,7 @@ npm install
 ```
 
 - firebase Config
+  :warning: Para inicialização do firebase, será necessário um arquivo contendo as informações de autenticação da sua database, essas informações são sensíveis e recomenda-se mantê-las no gitignore
 
 ```sh
 const firebaseConfig = {
@@ -121,6 +122,15 @@ const firebaseConfig = {
 };
 module.exports = firebaseConfig;
 ```
+
+- Preload:
+  Os itens do menu se encontram num array de obejtos, no arquivo src/firebase/preload.js, podendo ser modificados. Para popular a base no firestore execute:
+
+```sh
+npm run preload
+```
+
+:warning:Este comando deve ser executado, somente quando houver intenção de popular a base.:warning:
 
 - Localhost:
 
