@@ -51,7 +51,7 @@ Foi utilizada a ferramenta trello, para execução do planejamento.
 - Cadastro e Login:
 
   > Criar sua conta, com email e senha ao clicar no botão "Registre-se", sendo redirecionado para uma pagina de registro no primeiro acesso.
-  > Ao logar ser direcionado para setor correpondente ao cargo informado no momento do registro.
+  > Ao logar, será direcionado para setor correspondente ao cargo informado no momento do registro.
 
 - Lounge Page:
 
@@ -61,7 +61,7 @@ Foi utilizada a ferramenta trello, para execução do planejamento.
   > - Nova Mesa:
   >   Adicionar nome e numero da mesa do cliente e acessar os menus.
   > - Menus:
-  >   Navegar entre os menus, adicionar e remover iténs, vizualizar resumo e valor total, enviar o pedido para cozinha.
+  >   Navegar entre os menus, adicionar e remover itens, vizualizar resumo e valor total, enviar o pedido para cozinha.
 
 - Kitchen Page:
 
