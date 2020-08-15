@@ -110,7 +110,7 @@ npm install
 
   :warning: Para inicialização do firebase, será necessário um arquivo _**init-config.js**_ na pasta _**firebase**_ contendo as informações de autenticação da sua database, essas informações são sensíveis e recomenda-se mantê-las no _**gitignore**_
 
-```sh
+```js
 const firebaseConfig = {
   apiKey: "yourKey",
   authDomain: "yourProject.firebaseapp.com",
