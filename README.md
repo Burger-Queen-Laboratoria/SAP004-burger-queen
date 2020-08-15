@@ -106,7 +106,7 @@ git clone git@github.com:Burger-Queen-Laboratoria/SAP004-burger-queen.git
 npm install
 ```
 
-- firebase Config
+- Firebase Config
 
   :warning: Para inicialização do firebase, será necessário um arquivo _**init-config.js**_ na pasta _**firebase**_ contendo as informações de autenticação da sua database, essas informações são sensíveis e recomenda-se mantê-las no _**gitignore**_
 
