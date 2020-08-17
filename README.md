@@ -78,7 +78,9 @@ Foi utilizada a ferramenta trello, para execução do planejamento.
 - Aprimorar testes para cobrir 100% dos componentes;
 - Refatoração do código e do CSS;
 - Inserir campo de observação no resumo do pedido;
-- Inserir imagens nos itens do Menu.
+- Inserir imagens nos itens do Menu;
+- Implementar página de perfil ao clicar no ícone do garçom ou cozinheiro na nav;
+- Implementar click no ícone do burger na nav para redirecionar para a página home.
 
 ## 6. Montagem do ambiente de desenvolvimento
 
