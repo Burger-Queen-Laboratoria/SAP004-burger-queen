@@ -344,6 +344,11 @@ export const StyledNavImg = styled.img`
 
 export const StyleNavDiv = styled.div`
   text-align: center;
+  & [aria-current] {
+    border-bottom: solid rgba(160, 72, 53, 0.7);
+    border-width: 0.3em;
+    padding-bottom: 0.3em;
+  }
 `;
 
 export const StyleNavP = styled.p`

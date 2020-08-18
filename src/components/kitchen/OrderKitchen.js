@@ -41,7 +41,9 @@ const OrderArea = (props, key) => {
         <StyleSectionOrder>
           <div>
             {orderList.map((i) => (
-              <p key={key + i.item}>{i.count} {i.item} {i.ext}</p>
+              <p key={key + i.item}>
+                {i.count} {i.item} {i.ext}
+              </p>
             ))}
           </div>
           <StyleButtonOrder onClick={handleClickStatusOrder}>
@@ -95,7 +97,7 @@ const OrderAreaComplete = () => {
 export const OrderPage = () => {
   return (
     <>
-      <NavigationKitchen />
+      <NavigationKitchen ariaCurrent="pedidos" />
       <OrderAreaComplete />
     </>
   );
