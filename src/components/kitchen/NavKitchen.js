@@ -14,7 +14,6 @@ import { useHistory } from "react-router-dom";
 import { fireFuncs } from "../../firebase/firebaseFunctions.js";
 
 const NavJobKitchen = ({ ariaCurrent, ...props }) => {
-  console.log(ariaCurrent);
   return (
     <StyleNavDiv {...props}>
       <StyledNavImg src={props.icon} alt={props.alt}></StyledNavImg>

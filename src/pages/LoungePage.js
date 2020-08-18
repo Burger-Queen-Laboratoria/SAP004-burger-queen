@@ -61,7 +61,7 @@ export const LoungePage = () => {
     setClientName(nameClient);
     setTableNum(tableNum);
   };
-  console.log(ariaC);
+
   return (
     <>
       <StyleDivMainHeight>
