@@ -1,5 +1,5 @@
 import styled, { createGlobalStyle } from "styled-components";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import BurgerQueen from "../img-documents/Making-Lettering-Tall_demo.ttf";
 
 export const GlobalStyle = createGlobalStyle`
@@ -182,7 +182,7 @@ export const CheckboxContainer = styled.div`
   font-size: ${(props) => (props.fontsize ? props.fontsize : "30px")};
   font-family: "helvetica";
 
-  @media(max-width: 400px) {
+  @media (max-width: 400px) {
     font-size: 20px;
   }
 `;
@@ -234,6 +234,11 @@ export const MenusImg = styled.img`
 export const StyleFigure = styled.figure`
   text-align: center;
   margin: 0px;
+  & [aria-current] {
+    border-bottom: solid rgba(160, 72, 53, 0.7);
+    border-width: 0.3em;
+    padding-bottom: 0.3em;
+  }
 `;
 
 export const ContainerSection = styled.section`

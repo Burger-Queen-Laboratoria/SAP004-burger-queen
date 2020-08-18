@@ -20,27 +20,32 @@ const ManagerScreen = (props) => {
   const screen = props.screen;
   switch (screen) {
     case "table":
+      props.ariaCurrent("mesas");
       return <ClientTable callback={props.func} />;
     case "menu":
+      props.ariaCurrent("menus");
       return (
-        <Menu setScreen={props.setScreen}
+        <Menu
+          setScreen={props.setScreen}
           name={props.nameClient}
           table={props.tableNum}
           garcom={props.garcom}
         />
       );
     default:
+      props.ariaCurrent("pedidos");
       return <Status />;
   }
 };
 
 export const LoungePage = () => {
   let history = useHistory();
-  const [name, setName] = useState(""),
+  const user = fireFuncs.getAuthUser(),
+    [name, setName] = useState(""),
     [screen, setScreen] = useState(""),
     [clientName, setClientName] = useState(""),
-    [tableNum, setTableNum] = useState("");
-  const user = fireFuncs.getAuthUser();
+    [tableNum, setTableNum] = useState(""),
+    [ariaC, setAriaCurrent] = useState();
 
   useEffect(() => {
     user ? setName(user.displayName) : setName();
@@ -56,7 +61,7 @@ export const LoungePage = () => {
     setClientName(nameClient);
     setTableNum(tableNum);
   };
-
+  console.log(ariaC);
   return (
     <>
       <StyleDivMainHeight>
@@ -66,23 +71,27 @@ export const LoungePage = () => {
           <Figure
             id="home"
             src={status}
-            text={"Status"}
+            text={"Pedidos"}
             onClick={handleChangeScreens}
+            ariaCurrent={ariaC === "pedidos" ? "page" : null}
           />
           <Figure
             id="table"
             src={tableIcon}
             text="Nova Mesa"
             onClick={handleChangeScreens}
+            ariaCurrent={ariaC === "mesas" ? "page" : null}
           />
           <Figure src={signoutIcon} text="Sair" onClick={handleSingOut} />
         </StyledNavKitchen>
-        <ManagerScreen setScreen={setScreen}
+        <ManagerScreen
+          setScreen={setScreen}
           screen={screen}
           nameClient={clientName}
           tableNum={tableNum}
           garcom={name}
           func={handleChangeScreens}
+          ariaCurrent={setAriaCurrent}
         />
       </StyleDivMainHeight>
       <Footer />
