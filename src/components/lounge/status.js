@@ -31,7 +31,7 @@ export const Status = () => {
 
   return (
     <section>
-      <Title name="Status" />
+      <Title name="Pedidos" />
       <StyleTagSection>
         <TitleOrderArea time="Hora do Pedido" />
         <StyleTagUl>

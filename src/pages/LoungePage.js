@@ -20,10 +20,8 @@ const ManagerScreen = (props) => {
   const screen = props.screen;
   switch (screen) {
     case "table":
-      props.ariaCurrent("mesas");
       return <ClientTable callback={props.func} />;
     case "menu":
-      props.ariaCurrent("menus");
       return (
         <Menu
           setScreen={props.setScreen}
@@ -33,7 +31,6 @@ const ManagerScreen = (props) => {
         />
       );
     default:
-      props.ariaCurrent("pedidos");
       return <Status />;
   }
 };
@@ -45,7 +42,7 @@ export const LoungePage = () => {
     [screen, setScreen] = useState(""),
     [clientName, setClientName] = useState(""),
     [tableNum, setTableNum] = useState(""),
-    [ariaC, setAriaCurrent] = useState();
+    [ariaC, setAriaCurrent] = useState("home");
 
   useEffect(() => {
     user ? setName(user.displayName) : setName();
@@ -57,6 +54,7 @@ export const LoungePage = () => {
 
   const handleChangeScreens = (event, nameClient, tableNum) => {
     const page = event.currentTarget.id;
+    setAriaCurrent(page);
     setScreen(page);
     setClientName(nameClient);
     setTableNum(tableNum);
@@ -73,14 +71,14 @@ export const LoungePage = () => {
             src={status}
             text={"Pedidos"}
             onClick={handleChangeScreens}
-            ariaCurrent={ariaC === "pedidos" ? "page" : null}
+            ariaCurrent={ariaC === "home" ? "page" : null}
           />
           <Figure
             id="table"
             src={tableIcon}
             text="Nova Mesa"
             onClick={handleChangeScreens}
-            ariaCurrent={ariaC === "mesas" ? "page" : null}
+            ariaCurrent={ariaC === "table" ? "page" : null}
           />
           <Figure src={signoutIcon} text="Sair" onClick={handleSingOut} />
         </StyledNavKitchen>
@@ -91,7 +89,7 @@ export const LoungePage = () => {
           tableNum={tableNum}
           garcom={name}
           func={handleChangeScreens}
-          ariaCurrent={setAriaCurrent}
+          setAria={setAriaCurrent}
         />
       </StyleDivMainHeight>
       <Footer />
