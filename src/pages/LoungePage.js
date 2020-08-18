@@ -23,7 +23,8 @@ const ManagerScreen = (props) => {
       return <ClientTable callback={props.func} />;
     case "menu":
       return (
-        <Menu setScreen={props.setScreen}
+        <Menu
+          setScreen={props.setScreen}
           name={props.nameClient}
           table={props.tableNum}
           garcom={props.garcom}
@@ -36,11 +37,12 @@ const ManagerScreen = (props) => {
 
 export const LoungePage = () => {
   let history = useHistory();
-  const [name, setName] = useState(""),
+  const user = fireFuncs.getAuthUser(),
+    [name, setName] = useState(""),
     [screen, setScreen] = useState(""),
     [clientName, setClientName] = useState(""),
-    [tableNum, setTableNum] = useState("");
-  const user = fireFuncs.getAuthUser();
+    [tableNum, setTableNum] = useState(""),
+    [ariaC, setAriaCurrent] = useState("home");
 
   useEffect(() => {
     user ? setName(user.displayName) : setName();
@@ -52,6 +54,7 @@ export const LoungePage = () => {
 
   const handleChangeScreens = (event, nameClient, tableNum) => {
     const page = event.currentTarget.id;
+    setAriaCurrent(page);
     setScreen(page);
     setClientName(nameClient);
     setTableNum(tableNum);
@@ -66,23 +69,27 @@ export const LoungePage = () => {
           <Figure
             id="home"
             src={status}
-            text={"Status"}
+            text={"Pedidos"}
             onClick={handleChangeScreens}
+            ariaCurrent={ariaC === "home" ? "page" : null}
           />
           <Figure
             id="table"
             src={tableIcon}
             text="Nova Mesa"
             onClick={handleChangeScreens}
+            ariaCurrent={ariaC === "table" ? "page" : null}
           />
           <Figure src={signoutIcon} text="Sair" onClick={handleSingOut} />
         </StyledNavKitchen>
-        <ManagerScreen setScreen={setScreen}
+        <ManagerScreen
+          setScreen={setScreen}
           screen={screen}
           nameClient={clientName}
           tableNum={tableNum}
           garcom={name}
           func={handleChangeScreens}
+          setAria={setAriaCurrent}
         />
       </StyleDivMainHeight>
       <Footer />

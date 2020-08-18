@@ -42,12 +42,14 @@ const getOrder = async (status, time, ascOrDesc, multiOrdes = false) => {
 
 export const fireFuncs = {
   authSignIn: (email, password) => {
-    return firebase.auth().signInWithEmailAndPassword(email, password)
+    return firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
       .then((e) => {
-      if (e.user.uid !== null) {
-        return fireFuncs.getCurrentUser(e.user.uid)
-      }
-    });
+        if (e.user.uid !== null) {
+          return fireFuncs.getCurrentUser(e.user.uid);
+        }
+      });
   },
 
   authSignOut: () => {
@@ -109,13 +111,15 @@ export const fireFuncs = {
   },
 
   getCurrentOrders: (callback, numb) => {
-    return firebase
-      .firestore()
-      .collection("pedidos")
-      .where("flagDelivered", "==", false)
-      .limit(numb)
-      .orderBy("hora", "desc")
-      .onSnapshot(callback);
+    return (
+      firebase
+        .firestore()
+        .collection("pedidos")
+        .where("flagDelivered", "==", false)
+        // .limit(numb)
+        .orderBy("hora", "desc")
+        .onSnapshot(callback)
+    );
   },
 
   snapshotOrders: (funcSetOrders) => {
@@ -166,5 +170,5 @@ export const fireFuncs = {
 
   getAuthUser: () => {
     return firebase.auth().currentUser;
-  }
+  },
 };

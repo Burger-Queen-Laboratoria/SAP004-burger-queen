@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import { fireFuncs } from "../../firebase/firebaseFunctions";
 import { Title } from "../kitchen/TitleKitchen.js";
 import { TitleOrderArea } from "../kitchen/OrderKitchen.js";
-import { Button } from "../Button.js";
+// import { Button } from "../Button.js";
 import { StyleTagUl, StyleTagSection } from "../StyleComponents.js";
 import { OrderSection } from "./OrderSection.js";
 
 export const Status = () => {
   const [orders, setOrders] = useState([]);
-  const [limitOrders, setLimitOrders] = useState(10);
+  const [limitOrders, setLimitOrders] = useState("");
 
   const showOrders = (result) => {
     setOrders([]);
@@ -24,14 +24,14 @@ export const Status = () => {
     return () => unsubscribe();
   }, [limitOrders]);
 
-  const handleLimitOrders = () => {
-    setOrders([]);
-    setLimitOrders(limitOrders + 1);
-  };
+  // const handleLimitOrders = () => {
+  //   setOrders([]);
+  //   setLimitOrders(limitOrders + 1);
+  // };
 
   return (
     <section>
-      <Title name="Status" />
+      <Title name="Pedidos" />
       <StyleTagSection>
         <TitleOrderArea time="Hora do Pedido" />
         <StyleTagUl>
@@ -49,7 +49,7 @@ export const Status = () => {
             );
           })}
         </StyleTagUl>
-        <Button name="ver mais" onClick={handleLimitOrders} />
+        {/* <Button name="ver mais" onClick={handleLimitOrders} /> */}
       </StyleTagSection>
     </section>
   );
