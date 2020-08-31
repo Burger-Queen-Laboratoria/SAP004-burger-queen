@@ -6,12 +6,12 @@
 
 ## Índice
 
-- [1. Apresentação](#1-apresentacao)
-- [2. Resumo do projeto](#2-resumo-do-projeto)
-- [3. Planejamento](#3-planejamento)
-- [4. Funcionalidades](#4-funcionalidades)
-- [5. Implementações Futuras](#5-implementações-futuras)
-- [6. Montagem do ambiente de desenvolvimento](#6-montagem-do-ambiente-de-desenvolvimento)
+* [1. Apresentação](#1-apresentacao)
+* [2. Resumo do projeto](#2-resumo-do-projeto)
+* [3. Planejamento](#3-planejamento)
+* [4. Funcionalidades](#4-funcionalidades)
+* [5. Implementações Futuras](#5-implementações-futuras)
+* [6. Montagem do ambiente de desenvolvimento](#6-montagem-do-ambiente-de-desenvolvimento)
 
 ## 1. Apresentação
 
@@ -21,18 +21,29 @@ A estratégia de desenvolvimento usada foi pair programming, code review e sub-d
 
 ## 2. Resumo do projeto
 
-A página da aplicação pode ser acessada atraves do Link: [Burger Queen](https://burguer-queen-6637b.web.app/) :crown:
+A página da aplicação pode ser acessada atraves do Link: [Burger Queen](https://burguer-queen-6637b.web.app/) :crown:  
+É possível navegar com **_usuário de teste:_**
+
+* Acesso **_Salão:_**  
+
+> **_E-mail_**: garcom@teste.com  
+> **_Senha_**: 123456  
+
+* Acesso **_Cozinha:_**
+
+> **_E-mail_**: chef@teste.com  
+> **_Senha_**: 123456
 
 Burger Queen é uma aplicação de serviço, desenvolvida para um restaurante fast food com funcionamento 24 horas.
 O objetivo da aplicação, é viabilizar um sitema que possa auxiliar no recebimento e gerenciamento de pedidos, permitindo maior demanda.
 
 As **caraterísticas técnicas** da aplicação são:
 
-- É uma Single-Page Application `SPA` - e foi implementado um sistema de rotas com uso de biblioteca [React Router Dom](https://reactrouter.com/web/guides/quick-start) para trocar entre telas de maneira dinâmica.
+* É uma Single-Page Application `SPA` - e foi implementado um sistema de rotas com uso de biblioteca [React Router Dom](https://reactrouter.com/web/guides/quick-start) para trocar entre telas de maneira dinâmica.
 
-- Foi desenhada e desenvolvida com enfoque para `tablet` , e apresenta design responsivo para mobile e desktop.
+* Foi desenhada e desenvolvida com enfoque para `tablet` , e apresenta design responsivo para mobile e desktop.
 
-- Permite a persistência de dados - a estrutura de dados foi desenhada de forma à consultá-los, atualizá-los, modificá-los e eliminá-los segundo os requerimentos do usuário. Para isto, foi utilizado `Firestore` do `Firebase`
+* Permite a persistência de dados - a estrutura de dados foi desenhada de forma à consultá-los, atualizá-los, modificá-los e eliminá-los segundo os requerimentos do usuário. Para isto, foi utilizado `Firestore` do `Firebase`
 
 ## 3. Planejamento
 
@@ -48,12 +59,12 @@ Foi utilizada a ferramenta trello, para execução do planejamento.
 
 ##### Na Burger Queen, é possível:
 
-- Register Page/ Login Page:
+* Register Page/ Login Page:
 
   > - Criar sua conta, com email e senha ao clicar no botão _**"Registre-se"**_, sendo redirecionado para uma pagina de registro no primeiro acesso.
   > - Ao logar, será direcionado para setor correspondente ao cargo informado no momento do registro.
 
-- Lounge Page:
+* Lounge Page:
 
   > - Status:  
   >   Vizualizar todos os pedidos, seus status e detalhes por ordem de entrada.  
@@ -63,7 +74,7 @@ Foi utilizada a ferramenta trello, para execução do planejamento.
   > - Menus:  
   >   Navegar entre os menus, adicionar e remover itens, vizualizar resumo e valor total, enviar o pedido para cozinha.
 
-- Kitchen Page:
+* Kitchen Page:
 
   > - Pedidos:  
   >   Vizualizar todos os pedidos, seus status e detalhes por ordem de entrada.  
@@ -74,13 +85,13 @@ Foi utilizada a ferramenta trello, para execução do planejamento.
 
 ## 5. Implementações Futuras
 
-- Limitar visualização de pedidos nas telas de cozinha e salão em 10 e adicionar botão de "ver mais" que aparece quando ultrapassar esse limite;
-- Aprimorar testes para cobrir 100% dos componentes;
-- Refatoração do código e do CSS;
-- Inserir campo de observação no resumo do pedido;
-- Inserir imagens nos itens do Menu;
-- Implementar página de perfil ao clicar no ícone do garçom ou cozinheiro na nav;
-- Implementar click no ícone do burger na nav para redirecionar para a página home.
+* Limitar visualização de pedidos nas telas de cozinha e salão em 10 e adicionar botão de "ver mais" que aparece quando ultrapassar esse limite; 
+* Aprimorar testes para cobrir 100% dos componentes; 
+* Refatoração do código e do CSS; 
+* Inserir campo de observação no resumo do pedido; 
+* Inserir imagens nos itens do Menu; 
+* Implementar página de perfil ao clicar no ícone do garçom ou cozinheiro na nav; 
+* Implementar click no ícone do burger na nav para redirecionar para a página home.
 
 ## 6. Montagem do ambiente de desenvolvimento
 
@@ -90,70 +101,70 @@ Foi utilizada a ferramenta trello, para execução do planejamento.
 
 > :warning: Será necessária a utilização:
 
-- [Firebase](https://firebase.google.com/products/dynamic-links?gclid=EAIaIQobChMIo9Krk6-W6gIVARKRCh26pgTCEAAYASABEgLr-fD_BwE). :fire::fire::fire:
+* [Firebase](https://firebase.google.com/products/dynamic-links?gclid=EAIaIQobChMIo9Krk6-W6gIVARKRCh26pgTCEAAYASABEgLr-fD_BwE). :fire::fire::fire:
 
-- [React JS](https://pt-br.reactjs.org/docs/getting-started.html).
+* [React JS](https://pt-br.reactjs.org/docs/getting-started.html).
 
-- [Node.js](https://nodejs.org/) que contém o [npm](https://docs.npmjs.com/) para instalação das dependências.
+* [Node.js](https://nodejs.org/) que contém o [npm](https://docs.npmjs.com/) para instalação das dependências.
 
 * [Clone](https://help.github.com/articles/cloning-a-repository/) o projeto na sua máquina executando o seguinte comando no seu terminal:
 
-```sh
+``` sh
 git clone git@github.com:Burger-Queen-Laboratoria/SAP004-burger-queen.git
 ```
 
-- Instale as dependências do projeto com o comando:
+* Instale as dependências do projeto com o comando:
 
-```sh
+``` sh
 npm install
 ```
 
-- Firebase Config
+* Firebase Config
 
   :warning: Para inicialização do firebase, será necessário um arquivo _**init-config.js**_ na pasta _**firebase**_ contendo as informações de autenticação da sua database, essas informações são sensíveis e recomenda-se mantê-las no _**gitignore**_
 
-```js
+``` js
 const firebaseConfig = {
-  apiKey: "yourKey",
-  authDomain: "yourProject.firebaseapp.com",
-  databaseURL: "https://yourProject.firebaseio.com",
-  projectId: "yourProject-id",
-  storageBucket: "youProject.appspot.com",
-  messagingSenderId: "yourProjectId",
-  appId: "yourProjectId",
-  measurementId: "yourProjectId",
+    apiKey: "yourKey",
+    authDomain: "yourProject.firebaseapp.com",
+    databaseURL: "https://yourProject.firebaseio.com",
+    projectId: "yourProject-id",
+    storageBucket: "youProject.appspot.com",
+    messagingSenderId: "yourProjectId",
+    appId: "yourProjectId",
+    measurementId: "yourProjectId",
 };
 module.exports = firebaseConfig;
 ```
 
-- Preload:
+* Preload:
 
 :zap: Os itens do menu se encontram num array de obejtos, no arquivo src/firebase/preload.js, podendo ser modificados. Para popular a base no firestore execute:
 
-```sh
+``` sh
 npm run preload
 ```
 
-:warning:Este comando deve ser executado, somente quando houver intenção de popular a base.:warning:
+:warning: Este comando deve ser executado, somente quando houver intenção de popular a base.:warning:
 
-- Localhost:
+* Localhost:
 
-```sh
+``` sh
 npm start
 ```
 
 <!--
 :warning: Neste projeto a regras de [ESLint](https://eslint.org/) estão de acordo com o [Airbnb JavaScript Style Guide](https://github.com/armoucar/javascript-style-guide)
 
-- Para verificar erros do ESLint:
+* Para verificar erros do ESLint:
 
-```sh
+``` sh
 npm run pretest
 ``` -->
 
 **Testes** :clipboard:
 
-- Para executar os testes:
+* Para executar os testes:
 
 ```sh
 npm test
@@ -161,13 +172,13 @@ npm test
 
 **Deploy e Build** :fire:
 
-- Para executar deploy no firebase hosting:
+* Para executar deploy no firebase hosting:
 
-```sh
+``` sh
 npm run build
 ```
 
-```sh
+``` sh
 firebase deploy
 ```
 
